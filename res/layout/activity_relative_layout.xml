@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ff669900"
+    android:gravity="center" >
+
+    <Button
+        android:id="@+id/onebtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="按钮1" />
+
+    <Button
+        android:id="@+id/twobtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/onebtn"
+        android:text="按钮2" />
+
+    <Button
+        android:id="@+id/threebtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/onebtn"
+        android:text="按钮3" />
+
+    <Button
+        android:id="@+id/fourbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/twobtn"
+        android:layout_toRightOf="@id/threebtn"
+        android:text="按钮4" />
+
+    <Button
+        android:id="@+id/fivebtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/threebtn"
+        android:text="按钮5" />
+
+    <Button
+        android:id="@+id/sixbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/fourbtn"
+        android:layout_toRightOf="@id/fivebtn"
+        android:text="按钮6" />
+
+</RelativeLayout>
