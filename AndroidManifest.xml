@@ -18,7 +18,7 @@
         <activity android:name="com.scxh.android.TwoActivity" />
         <activity android:name="com.scxh.android.layout.LinerLayoutAcitiy" />
       
-        <activity android:name="com.scxh.android.layout.InfalterAcitivty" >
+        <activity android:name="com.scxh.android.layout.TextViewTwoAcitivity" >
            
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

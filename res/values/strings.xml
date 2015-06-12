@@ -3,5 +3,7 @@
 
     <string name="app_name">威信</string>
     <string name="hello_world">大家好</string>
-
+    <string name="welcome_android">欢迎来到Android特训营</string>
+    <string name="user_name_txt">用户名</string>
+	<string name="pasword_txt">密码</string>
 </resources>
