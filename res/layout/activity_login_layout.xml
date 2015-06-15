@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/holo_green_dark"
+    android:background="@android:color/white"
     android:orientation="vertical" >
 
     <LinearLayout
@@ -17,7 +17,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="用户名:"
-            android:textColor="@android:color/white"
+            android:textColor="@android:color/black"
             android:textSize="24sp" />
 
         <EditText
@@ -36,7 +36,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="密    码:"
-            android:textColor="@android:color/white"
+            android:textColor="@android:color/black"
             android:textSize="24sp" />
 
         <EditText
@@ -45,6 +45,7 @@
     </LinearLayout>
 
     <Button
+        android:id="@+id/loginone_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
@@ -52,6 +53,7 @@
         android:layout_marginLeft="70dp"
         android:layout_marginRight="70dp"
         android:text="登录"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        android:background="@drawable/selector_drawable_login_btn" />
 
 </LinearLayout>

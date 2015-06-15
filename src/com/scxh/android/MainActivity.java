@@ -7,7 +7,11 @@ import android.view.View;
 
 import com.scxh.android.ui.InfalterAcitivty;
 import com.scxh.android.ui.LoginActivity;
+import com.scxh.android.ui.LoginTwoActivity;
 import com.scxh.android.ui.component.EditTextActivity;
+import com.scxh.android.ui.component.ImageViewActivity;
+import com.scxh.android.ui.component.ImageViewTwoActivity;
+import com.scxh.android.ui.component.RadioButtonActivity;
 import com.scxh.android.ui.component.TextViewMainActivity;
 import com.scxh.android.ui.layout.CodeLayoutAcitivity;
 import com.scxh.android.ui.layout.FrameLayoutActivity;
@@ -121,6 +125,26 @@ public class MainActivity extends Activity {
 	 */
 	public void onLoginClickView(View v) {
 		Intent intent = new Intent(this, LoginActivity.class);
+		startActivity(intent);
+	}
+
+	public void onLoginTwoClickView(View v) {
+		Intent intent = new Intent(this, LoginTwoActivity.class);
+		startActivity(intent);
+	}
+
+	public void onImageViewClickView(View v) {
+		Intent intent = new Intent(this, ImageViewActivity.class);
+		startActivity(intent);
+	}
+
+	public void onImageViewTwoClickView(View v) {
+		Intent intent = new Intent(this, ImageViewTwoActivity.class);
+		startActivity(intent);
+	}
+
+	public void onRadioButtonClickView(View v) {
+		Intent intent = new Intent(this, RadioButtonActivity.class);
 		startActivity(intent);
 	}
 }
