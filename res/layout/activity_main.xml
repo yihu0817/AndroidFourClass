@@ -1,11 +1,76 @@
-<LinerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="按钮" >
+        android:onClick="onLinerLayoutClickView"
+        android:text="线型布局" >
     </Button>
 
-</LinerLayout>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onRelativeLayoutClickView"
+        android:text="相对布局" >
+    </Button>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onFrameLayoutClickView"
+        android:text="单帧布局" >
+    </Button>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onTableLayoutClickView"
+        android:text="表格布局" >
+    </Button>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onGridLayoutClickView"
+        android:text="网格布局" >
+    </Button>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onInfalterClickView"
+        android:text="InflaterLayout学习" >
+    </Button>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onCodeClickView"
+        android:text="代码布局" >
+    </Button>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onTextViewClickView"
+        android:text="文本(TextView)控件" >
+    </Button>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onEditTextClickView"
+        android:text="输入框（EditText）控件" >
+    </Button>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onLoginClickView"
+        android:text="登录实例" >
+    </Button>
+
+</LinearLayout>

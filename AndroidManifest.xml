@@ -14,19 +14,22 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity android:name="com.scxh.android.MainActivity" >
-        </activity>
-        <activity android:name="com.scxh.android.TwoActivity" />
-        <activity android:name="com.scxh.android.layout.LinerLayoutAcitiy" />
-      
-        <activity android:name="com.scxh.android.layout.TextViewTwoAcitivity" >
-           
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            
         </activity>
+        <activity android:name="com.scxh.android.ui.LoginActivity" />
+        <activity android:name="com.scxh.android.ui.InfalterAcitivty" />
+        <activity android:name="com.scxh.android.ui.layout.LinerLayoutAcitiy" />
+        <activity android:name="com.scxh.android.ui.layout.RelativeLayoutActivity" />
+        <activity android:name="com.scxh.android.ui.layout.FrameLayoutActivity" />
+        <activity android:name="com.scxh.android.ui.layout.TalbleLayoutActivity" />
+        <activity android:name="com.scxh.android.ui.layout.GridLayoutActivity" />
+        <activity android:name="com.scxh.android.ui.layout.CodeLayoutAcitivity" />
+        <activity android:name="com.scxh.android.ui.component.TextViewActivityity" />
+        <activity android:name="com.scxh.android.ui.component.EditTextActivity" />
     </application>
 
 </manifest>

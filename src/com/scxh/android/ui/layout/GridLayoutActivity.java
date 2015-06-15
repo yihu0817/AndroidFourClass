@@ -1,20 +1,14 @@
-/**
- * 
- */
-package com.scxh.android;
+package com.scxh.android.ui.layout;
+
+import com.scxh.android.R;
 
 import android.app.Activity;
 import android.os.Bundle;
 
-/**
- * @author Administrator
- *
- */
-public class TwoActivity extends Activity {
+public class GridLayoutActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.two_activity);
-		
+		setContentView(R.layout.activity_grid_layout);
 	}
 }

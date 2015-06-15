@@ -1,4 +1,4 @@
-package com.scxh.android.layout;
+package com.scxh.android.ui;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -12,7 +12,9 @@ public class InfalterAcitivty extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
 		TextView tx = new TextView(this);
+		
 //		FrameLayout layout = (FrameLayout)findViewById(android.R.id.content);
 //		layout.setBackgroundColor(getResources().getColor(android.R.color.holo_blue_bright));
 		
