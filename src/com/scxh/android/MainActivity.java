@@ -8,7 +8,7 @@ import android.view.View;
 import com.scxh.android.ui.InfalterAcitivty;
 import com.scxh.android.ui.LoginActivity;
 import com.scxh.android.ui.component.EditTextActivity;
-import com.scxh.android.ui.component.TextViewActivity;
+import com.scxh.android.ui.component.TextViewMainActivity;
 import com.scxh.android.ui.layout.CodeLayoutAcitivity;
 import com.scxh.android.ui.layout.FrameLayoutActivity;
 import com.scxh.android.ui.layout.GridLayoutActivity;
@@ -100,7 +100,7 @@ public class MainActivity extends Activity {
 	 * @param v
 	 */
 	public void onTextViewClickView(View v) {
-		Intent intent = new Intent(this, TextViewActivity.class);
+		Intent intent = new Intent(this, TextViewMainActivity.class);
 		startActivity(intent);
 	}
 
