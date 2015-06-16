@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.scxh.android.R;
 
@@ -19,8 +20,8 @@ public class LoginActivity extends Activity implements OnClickListener {
 		setContentView(R.layout.activity_login_layout);
 
 		mLoginBtn = (Button) findViewById(R.id.loginone_btn);
-		mUserNameEdit = (EditText) findViewById(R.id.user_name_edit);
-		mPassWordEdit = (EditText) findViewById(R.id.password_edit);
+		mUserNameEdit = (EditText) findViewById(R.id.user_name_one_edit);
+		mPassWordEdit = (EditText) findViewById(R.id.password_one_edit);
 
 		mLoginBtn.setOnClickListener(this);
 
@@ -29,10 +30,16 @@ public class LoginActivity extends Activity implements OnClickListener {
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
-		case R.id.login_btn:
-			System.out.println(">>>>>>>登录>>>>>>>>>>>>>>>>>>>>");
+		case R.id.loginone_btn:
+			String userName = mUserNameEdit.getText().toString();
+			if(userName.equals("")){
+//				Toast.makeText(this, "用户名不能为空!", Toast.LENGTH_SHORT).show();
+				
+				mUserNameEdit.setError("用户名不能为空!");
+			}
 			break;
-
+		default:
+			Toast.makeText(this, "没有找到对应控件!", Toast.LENGTH_SHORT).show();
 		}
 
 	}
