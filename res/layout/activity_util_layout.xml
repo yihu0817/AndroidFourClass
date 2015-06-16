@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="20dp"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="单位 dp" />
+
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@android:color/holo_blue_dark"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="字体大小" />
+
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@android:color/holo_green_dark"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="字体大小" />
+
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@android:color/holo_orange_dark"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="字体大小" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="单位 sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="字体大小"
+        android:textSize="@dimen/dimension_textview_size" />
+
+    <TextView
+        android:id="@+id/font_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="字体大小"
+        android:textColor="@android:color/holo_blue_dark" />
+
+    <TextView
+        android:id="@+id/font_one_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="字体大小"
+        android:textColor="@android:color/holo_green_dark" />
+
+    <TextView
+        android:id="@+id/font_two_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="字体大小"
+        android:textColor="@android:color/holo_orange_dark" />
+
+    <TextView
+        android:id="@+id/font_three_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="字体大小"
+        android:textColor="@android:color/holo_red_dark" />
+
+</LinearLayout>

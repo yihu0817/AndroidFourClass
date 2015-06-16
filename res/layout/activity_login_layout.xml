@@ -16,14 +16,22 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="用户名:"
+            android:text="@string/user_name_txt"
             android:textColor="@android:color/black"
-            android:textSize="24sp" />
+            android:textSize="@dimen/dimension_textview_size" />
 
         <EditText
-             android:id="@+id/user_name_one_edit"
-            android:layout_width="match_parent"
+            android:id="@+id/user_name_one_edit"
+            android:layout_width="150dp"
             android:layout_height="wrap_content" />
+
+        <ImageView
+            android:id="@+id/clear_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:visibility="invisible"
+            android:src="@drawable/selector_drawable_clear_btn" />
     </LinearLayout>
 
     <LinearLayout
@@ -38,12 +46,19 @@
             android:layout_height="wrap_content"
             android:text="密    码:"
             android:textColor="@android:color/black"
-            android:textSize="24sp" />
+            android:textSize="@dimen/dimension_textview_size" />
 
         <EditText
-             android:id="@+id/password_one_edit"
-            android:layout_width="match_parent"
+            android:id="@+id/password_one_edit"
+            android:layout_width="150dp"
             android:layout_height="wrap_content" />
+         <ImageView
+            android:id="@+id/clear_password_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+             android:visibility="invisible"
+            android:src="@drawable/selector_drawable_clear_btn" />
     </LinearLayout>
 
     <Button
@@ -51,11 +66,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="30dp"
         android:layout_marginLeft="70dp"
         android:layout_marginRight="70dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/selector_drawable_login_btn"
         android:text="登录"
-        android:textSize="24sp"
-        android:background="@drawable/selector_drawable_login_btn" />
+        android:textSize="24sp" />
 
 </LinearLayout>

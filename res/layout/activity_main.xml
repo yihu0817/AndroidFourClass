@@ -104,6 +104,20 @@
             android:onClick="onRadioButtonClickView"
             android:text="单选控件" >
         </Button>
+        
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onLifeClickView"
+            android:text="生命周期" >
+        </Button>
+        
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onUtilClickView"
+            android:text="Android单位" >
+        </Button>
     </LinearLayout>
 
 </ScrollView>

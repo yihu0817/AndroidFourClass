@@ -36,6 +36,8 @@
         <activity android:name="com.scxh.android.ui.component.ImageViewActivity" android:label="ImageViewActivity"/>
         <activity android:name="com.scxh.android.ui.component.ImageViewTwoActivity" android:label="ImageViewTwoActivity"/>
         <activity android:name="com.scxh.android.ui.component.RadioButtonActivity" android:label="RadioButtonActivity"/>
+        <activity android:name="com.scxh.android.activity.LifeActivity" android:label="LifeActivity"/>
+        <activity android:name="com.scxh.android.activity.UtilActivity" android:label="UtilActivity"/>
     </application>
 
 </manifest>

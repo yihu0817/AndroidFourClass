@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.scxh.android.activity.LifeActivity;
+import com.scxh.android.activity.UtilActivity;
 import com.scxh.android.ui.InfalterAcitivty;
 import com.scxh.android.ui.LoginActivity;
 import com.scxh.android.ui.LoginTwoActivity;
@@ -145,6 +147,15 @@ public class MainActivity extends Activity {
 
 	public void onRadioButtonClickView(View v) {
 		Intent intent = new Intent(this, RadioButtonActivity.class);
+		startActivity(intent);
+	}
+
+	public void onLifeClickView(View v) {
+		Intent intent = new Intent(this, LifeActivity.class);
+		startActivity(intent);
+	}
+	public void onUtilClickView(View v) {
+		Intent intent = new Intent(this, UtilActivity.class);
 		startActivity(intent);
 	}
 }
