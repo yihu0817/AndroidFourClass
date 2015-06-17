@@ -125,6 +125,20 @@
             android:onClick="onStartActivtyClickView"
             android:text="Activity 启动" >
         </Button>
+        
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onstateClickView"
+            android:text="状态保存" >
+        </Button>
+        
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onLaunchModelClickView"
+            android:text="启动模式" >
+        </Button>
     </LinearLayout>
 
 </ScrollView>

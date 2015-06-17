@@ -7,7 +7,9 @@ import android.view.View;
 
 import com.scxh.android1502.activity.LifeActivity;
 import com.scxh.android1502.activity.OneActivity;
+import com.scxh.android1502.activity.StateActvity;
 import com.scxh.android1502.activity.UtilActivity;
+import com.scxh.android1502.activity.launchmode.FirstActivity;
 import com.scxh.android1502.ui.InfalterAcitivty;
 import com.scxh.android1502.ui.LoginActivity;
 import com.scxh.android1502.ui.LoginTwoActivity;
@@ -164,5 +166,13 @@ public class MainActivity extends Activity {
 		Intent intent = new Intent(this, OneActivity.class);
 		startActivity(intent);
 		
+	}
+	public void onstateClickView(View v){
+		Intent intent = new Intent(this, StateActvity.class);
+		startActivity(intent);
+	}
+	public void onLaunchModelClickView(View v){
+		Intent intent = new Intent(this, FirstActivity.class);
+		startActivity(intent);
 	}
 }
