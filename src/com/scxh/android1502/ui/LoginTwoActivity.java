@@ -1,4 +1,4 @@
-package com.scxh.android.ui;
+package com.scxh.android1502.ui;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -7,7 +7,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.scxh.android.R;
+import com.scxh.android1502.R;
 
 public class LoginTwoActivity extends Activity {
 	private Button mLoginBtn, mRegistBtn;

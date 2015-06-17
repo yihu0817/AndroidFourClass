@@ -1,4 +1,4 @@
-package com.scxh.android.ui.component;
+package com.scxh.android1502.ui.component;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -10,7 +10,7 @@ import android.widget.Switch;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
-import com.scxh.android.R;
+import com.scxh.android1502.R;
 
 public class RadioButtonActivity extends Activity {
 	private RadioGroup mSexRadioGroup;

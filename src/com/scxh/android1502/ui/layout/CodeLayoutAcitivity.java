@@ -1,4 +1,4 @@
-package com.scxh.android.ui.layout;
+package com.scxh.android1502.ui.layout;
 
 import android.app.Activity;
 import android.os.Bundle;

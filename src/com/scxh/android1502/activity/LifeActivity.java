@@ -1,4 +1,4 @@
-package com.scxh.android.activity;
+package com.scxh.android1502.activity;
 
 import android.app.Activity;
 import android.os.Bundle;

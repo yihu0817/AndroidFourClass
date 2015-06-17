@@ -1,6 +1,6 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent" >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -45,13 +45,6 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="onInfalterClickView"
-            android:text="InflaterLayout学习" >
-        </Button>
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:onClick="onCodeClickView"
             android:text="代码布局" >
         </Button>
@@ -59,15 +52,22 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="onInfalterClickView"
+            android:text="InflaterLayout学习" >
+        </Button>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:onClick="onTextViewClickView"
-            android:text="文本(TextView)控件" >
+            android:text="文本控件(TextView)" >
         </Button>
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="onEditTextClickView"
-            android:text="输入框（EditText）控件" >
+            android:text="输入框控件（EditText）" >
         </Button>
 
         <Button
@@ -87,36 +87,43 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="onImageViewClickView"
-            android:text="图片控件ImageView" >
+            android:onClick="onImageViewTwoClickView"
+            android:text="图片控件(ImageView)" >
         </Button>
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="onImageViewTwoClickView"
-            android:text="图片控件ImageView之二" >
+            android:onClick="onImageViewClickView"
+            android:text="按钮控件(Button)自定义" >
         </Button>
-        
+
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="onRadioButtonClickView"
-            android:text="单选控件" >
+            android:text="单选、多选控件" >
         </Button>
-        
+
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="onLifeClickView"
             android:text="生命周期" >
         </Button>
-        
+
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="onUtilClickView"
-            android:text="Android单位" >
+            android:text="单位dp、sp" >
+        </Button>
+        
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onStartActivtyClickView"
+            android:text="Activity 启动" >
         </Button>
     </LinearLayout>
 

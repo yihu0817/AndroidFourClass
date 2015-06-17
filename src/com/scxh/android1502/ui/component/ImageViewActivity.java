@@ -1,9 +1,9 @@
-package com.scxh.android.ui.component;
-
-import com.scxh.android.R;
+package com.scxh.android1502.ui.component;
 
 import android.app.Activity;
 import android.os.Bundle;
+
+import com.scxh.android1502.R;
 
 public class ImageViewActivity extends Activity {
 	@Override

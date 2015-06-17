@@ -1,16 +1,15 @@
-package com.scxh.android.ui.layout;
-
-import com.scxh.android.R;
+package com.scxh.android1502.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
 
-public class LinerLayoutAcitiy extends Activity {
+import com.scxh.android1502.R;
+
+public class TwoActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
-		setContentView(R.layout.activity_liner_layout);
+		setContentView(R.layout.activity_two_layout);
 		
 	}
 }

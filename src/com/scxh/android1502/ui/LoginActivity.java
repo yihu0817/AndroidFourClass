@@ -1,4 +1,4 @@
-package com.scxh.android.ui;
+package com.scxh.android1502.ui;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -11,7 +11,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.scxh.android.R;
+import com.scxh.android1502.R;
 
 public class LoginActivity extends Activity implements OnClickListener {
 	private Button mLoginBtn;

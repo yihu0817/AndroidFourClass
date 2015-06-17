@@ -1,4 +1,4 @@
-package com.scxh.android.util;
+package com.scxh.android1502.util;
 
 import android.content.Context;
 import android.util.TypedValue;

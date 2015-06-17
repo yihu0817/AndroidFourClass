@@ -1,26 +1,27 @@
-package com.scxh.android;
+package com.scxh.android1502;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.scxh.android.activity.LifeActivity;
-import com.scxh.android.activity.UtilActivity;
-import com.scxh.android.ui.InfalterAcitivty;
-import com.scxh.android.ui.LoginActivity;
-import com.scxh.android.ui.LoginTwoActivity;
-import com.scxh.android.ui.component.EditTextActivity;
-import com.scxh.android.ui.component.ImageViewActivity;
-import com.scxh.android.ui.component.ImageViewTwoActivity;
-import com.scxh.android.ui.component.RadioButtonActivity;
-import com.scxh.android.ui.component.TextViewMainActivity;
-import com.scxh.android.ui.layout.CodeLayoutAcitivity;
-import com.scxh.android.ui.layout.FrameLayoutActivity;
-import com.scxh.android.ui.layout.GridLayoutActivity;
-import com.scxh.android.ui.layout.LinerLayoutAcitiy;
-import com.scxh.android.ui.layout.RelativeLayoutActivity;
-import com.scxh.android.ui.layout.TalbleLayoutActivity;
+import com.scxh.android1502.activity.LifeActivity;
+import com.scxh.android1502.activity.OneActivity;
+import com.scxh.android1502.activity.UtilActivity;
+import com.scxh.android1502.ui.InfalterAcitivty;
+import com.scxh.android1502.ui.LoginActivity;
+import com.scxh.android1502.ui.LoginTwoActivity;
+import com.scxh.android1502.ui.component.EditTextActivity;
+import com.scxh.android1502.ui.component.ImageViewActivity;
+import com.scxh.android1502.ui.component.ImageViewTwoActivity;
+import com.scxh.android1502.ui.component.RadioButtonActivity;
+import com.scxh.android1502.ui.component.TextViewMainActivity;
+import com.scxh.android1502.ui.layout.CodeLayoutAcitivity;
+import com.scxh.android1502.ui.layout.FrameLayoutActivity;
+import com.scxh.android1502.ui.layout.GridLayoutActivity;
+import com.scxh.android1502.ui.layout.LinerLayoutAcitiy;
+import com.scxh.android1502.ui.layout.RelativeLayoutActivity;
+import com.scxh.android1502.ui.layout.TalbleLayoutActivity;
 
 public class MainActivity extends Activity {
 
@@ -157,5 +158,11 @@ public class MainActivity extends Activity {
 	public void onUtilClickView(View v) {
 		Intent intent = new Intent(this, UtilActivity.class);
 		startActivity(intent);
+	}
+	
+	public void onStartActivtyClickView(View v){
+		Intent intent = new Intent(this, OneActivity.class);
+		startActivity(intent);
+		
 	}
 }

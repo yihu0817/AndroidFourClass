@@ -1,9 +1,9 @@
-package com.scxh.android.ui.component;
+package com.scxh.android1502.ui.component;
 
 import android.app.Activity;
 import android.os.Bundle;
 
-import com.scxh.android.R;
+import com.scxh.android1502.R;
 
 public class TextViewTwoAcitivity extends Activity {
 	@Override

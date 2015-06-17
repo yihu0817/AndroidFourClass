@@ -1,11 +1,11 @@
-package com.scxh.android.ui.component;
+package com.scxh.android1502.ui.component;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.scxh.android.R;
+import com.scxh.android1502.R;
 
 public class EditTextActivity extends Activity {
 	@Override

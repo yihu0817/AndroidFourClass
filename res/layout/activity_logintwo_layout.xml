@@ -83,7 +83,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
                 android:layout_toRightOf="@id/regist_btn"
-                android:background="@drawable/selector_drawable_login_btn"
                 android:onClick="onCancelClickView"
                 android:text="取消"
                 android:textSize="24sp" />

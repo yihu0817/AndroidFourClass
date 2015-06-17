@@ -1,4 +1,4 @@
-package com.scxh.android.ui.component;
+package com.scxh.android1502.ui.component;
 
 import android.app.Activity;
 import android.content.res.Resources;
@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.TextView;
 
-import com.scxh.android.R;
+import com.scxh.android1502.R;
 
 public class TextViewActivity extends Activity {
 	@Override

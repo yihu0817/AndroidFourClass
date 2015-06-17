@@ -1,12 +1,12 @@
-package com.scxh.android.activity;
+package com.scxh.android1502.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.TypedValue;
 import android.widget.TextView;
 
-import com.scxh.android.R;
-import com.scxh.android.util.ResourceUtils;
+import com.scxh.android1502.R;
+import com.scxh.android1502.util.ResourceUtils;
 
 /**
  * API reference里的解释：

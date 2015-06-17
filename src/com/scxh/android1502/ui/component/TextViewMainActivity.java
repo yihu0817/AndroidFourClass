@@ -1,13 +1,11 @@
-package com.scxh.android.ui.component;
-
-import com.scxh.android.R;
-import com.scxh.android.ui.layout.FrameLayoutActivity;
-import com.scxh.android.ui.layout.TalbleLayoutActivity;
+package com.scxh.android1502.ui.component;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
+import com.scxh.android1502.R;
 
 public class TextViewMainActivity extends Activity {
 	@Override

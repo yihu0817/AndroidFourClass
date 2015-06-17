@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.scxh.android"
+    package="com.scxh.android1502"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -13,31 +13,73 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-        <activity android:name="com.scxh.android.MainActivity" >
+        <activity android:name="com.scxh.android1502.MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.scxh.android.ui.LoginActivity" android:label="LoginActivity"/>
-        <activity android:name="com.scxh.android.ui.LoginTwoActivity" android:label="LoginTwoActivity"/>
-        <activity android:name="com.scxh.android.ui.InfalterAcitivty" android:label="InfalterAcitivty"/>
-        <activity android:name="com.scxh.android.ui.layout.LinerLayoutAcitiy" android:label="LinerLayoutAcitiy"/>
-        <activity android:name="com.scxh.android.ui.layout.RelativeLayoutActivity" android:label="RelativeLayoutActivity"/>
-        <activity android:name="com.scxh.android.ui.layout.FrameLayoutActivity" android:label="FrameLayoutActivity"/>
-        <activity android:name="com.scxh.android.ui.layout.TalbleLayoutActivity" android:label="TalbleLayoutActivity"/>
-        <activity android:name="com.scxh.android.ui.layout.GridLayoutActivity" android:label="GridLayoutActivity"/>
-        <activity android:name="com.scxh.android.ui.layout.CodeLayoutAcitivity" android:label="CodeLayoutAcitivity"/>
-        <activity android:name="com.scxh.android.ui.component.TextViewActivity" android:label="TextViewActivity"/>
-        <activity android:name="com.scxh.android.ui.component.TextViewTwoAcitivity" android:label="TextViewTwoAcitivity"/>
-        <activity android:name="com.scxh.android.ui.component.EditTextActivity" android:label="EditTextActivity"/>
-        <activity android:name="com.scxh.android.ui.component.TextViewMainActivity" android:label="TextViewMainActivity"/>
-        <activity android:name="com.scxh.android.ui.component.ImageViewActivity" android:label="ImageViewActivity"/>
-        <activity android:name="com.scxh.android.ui.component.ImageViewTwoActivity" android:label="ImageViewTwoActivity"/>
-        <activity android:name="com.scxh.android.ui.component.RadioButtonActivity" android:label="RadioButtonActivity"/>
-        <activity android:name="com.scxh.android.activity.LifeActivity" android:label="LifeActivity"/>
-        <activity android:name="com.scxh.android.activity.UtilActivity" android:label="UtilActivity"/>
+        <activity
+            android:name="com.scxh.android1502.ui.LoginActivity"
+            android:label="LoginActivity" />
+        <activity
+            android:name="com.scxh.android1502.ui.LoginTwoActivity"
+            android:label="LoginTwoActivity" />
+        <activity
+            android:name="com.scxh.android1502.ui.InfalterAcitivty"
+            android:label="InfalterAcitivty" />
+        <activity
+            android:name="com.scxh.android1502.ui.layout.LinerLayoutAcitiy"
+            android:label="LinerLayoutAcitiy" />
+        <activity
+            android:name="com.scxh.android1502.ui.layout.RelativeLayoutActivity"
+            android:label="RelativeLayoutActivity" />
+        <activity
+            android:name="com.scxh.android1502.ui.layout.FrameLayoutActivity"
+            android:label="FrameLayoutActivity" />
+        <activity
+            android:name="com.scxh.android1502.ui.layout.TalbleLayoutActivity"
+            android:label="TalbleLayoutActivity" />
+        <activity
+            android:name="com.scxh.android1502.ui.layout.GridLayoutActivity"
+            android:label="GridLayoutActivity" />
+        <activity
+            android:name="com.scxh.android1502.ui.layout.CodeLayoutAcitivity"
+            android:label="CodeLayoutAcitivity" />
+        <activity
+            android:name="com.scxh.android1502.ui.component.TextViewActivity"
+            android:label="TextViewActivity" />
+        <activity
+            android:name="com.scxh.android1502.ui.component.TextViewTwoAcitivity"
+            android:label="TextViewTwoAcitivity" />
+        <activity
+            android:name="com.scxh.android1502.ui.component.EditTextActivity"
+            android:label="EditTextActivity" />
+        <activity
+            android:name="com.scxh.android1502.ui.component.TextViewMainActivity"
+            android:label="TextViewMainActivity" />
+        <activity
+            android:name="com.scxh.android1502.ui.component.ImageViewActivity"
+            android:label="ImageViewActivity" />
+        <activity
+            android:name="com.scxh.android1502.ui.component.ImageViewTwoActivity"
+            android:label="ImageViewTwoActivity" />
+        <activity
+            android:name="com.scxh.android1502.ui.component.RadioButtonActivity"
+            android:label="RadioButtonActivity" />
+        <activity
+            android:name="com.scxh.android1502.activity.LifeActivity"
+            android:label="LifeActivity" />
+        <activity
+            android:name="com.scxh.android1502.activity.UtilActivity"
+            android:label="UtilActivity" />
+        <activity
+            android:name="com.scxh.android1502.activity.TwoActivity"
+            android:label="TwoActivity" />
+        <activity
+            android:name="com.scxh.android1502.activity.OneActivity"
+            android:label="OneActivity" />
     </application>
 
 </manifest>

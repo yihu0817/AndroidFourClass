@@ -1,4 +1,4 @@
-package com.scxh.android.ui;
+package com.scxh.android1502.ui;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -6,7 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 
-import com.scxh.android.R;
+import com.scxh.android1502.R;
 
 public class InfalterAcitivty extends Activity {
 	@Override
