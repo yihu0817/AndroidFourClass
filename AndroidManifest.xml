@@ -96,6 +96,12 @@
             android:name="com.scxh.android1502.activity.launchmode.ThreeActivity"
             android:label="ThreeActivity"
             android:launchMode="standard" />
+        <activity
+            android:name="com.scxh.android1502.activity.parameter.A"
+            android:label="A"/>
+        <activity
+            android:name="com.scxh.android1502.activity.parameter.B"
+            android:label="B"/>
     </application>
 
 </manifest>

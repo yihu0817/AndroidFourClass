@@ -10,6 +10,7 @@ import com.scxh.android1502.activity.OneActivity;
 import com.scxh.android1502.activity.StateActvity;
 import com.scxh.android1502.activity.UtilActivity;
 import com.scxh.android1502.activity.launchmode.FirstActivity;
+import com.scxh.android1502.activity.parameter.A;
 import com.scxh.android1502.ui.InfalterAcitivty;
 import com.scxh.android1502.ui.LoginActivity;
 import com.scxh.android1502.ui.LoginTwoActivity;
@@ -173,6 +174,10 @@ public class MainActivity extends Activity {
 	}
 	public void onLaunchModelClickView(View v){
 		Intent intent = new Intent(this, FirstActivity.class);
+		startActivity(intent);
+	}
+	public void onParamterClickView(View v){
+		Intent intent = new Intent(this, A.class);
 		startActivity(intent);
 	}
 }
