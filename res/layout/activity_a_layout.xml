@@ -2,28 +2,34 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center_horizontal" >
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/a_content_txt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="显示返回值" />
 
     <Button
         android:id="@+id/parameter_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="通过Intent直接传参" />
-    
-     <Button
+
+    <Button
         android:id="@+id/parameter1_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="通过Bundle对象传参" />
-     
-      <Button
+
+    <Button
         android:id="@+id/parameter2_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="传递序列化对象" />
-      
-       <Button
+
+    <Button
         android:id="@+id/parameter3_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

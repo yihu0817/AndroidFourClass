@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Android学习0502</string>
+    <string name="app_name">Android学习1502</string>
     <string name="hello_world">大家好</string>
     <string name="welcome_android">欢迎来到Android特训营</string>
     <string name="user_name_txt">用户名:</string>

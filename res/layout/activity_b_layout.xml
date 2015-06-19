@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center" >
+    android:layout_margin="20dp" >
 
     <TextView
         android:id="@+id/paramter_txt"
@@ -11,4 +11,7 @@
         android:layout_height="wrap_content"
         android:textSize="24sp"/>
 
+    <Button android:id="@+id/b_back_btn" android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="返回A"/>
 </LinearLayout>

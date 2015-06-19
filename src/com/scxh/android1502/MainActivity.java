@@ -180,4 +180,8 @@ public class MainActivity extends Activity {
 		Intent intent = new Intent(this, A.class);
 		startActivity(intent);
 	}
+	public void onIntentClickView(View v){
+		Intent intent = new Intent(this, com.scxh.android1502.activity.intent.OneActivity.class);
+		startActivity(intent);
+	}
 }

@@ -146,6 +146,12 @@
             android:onClick="onParamterClickView"
             android:text="参数传递" >
         </Button>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onIntentClickView"
+            android:text="Intent意图" >
+        </Button>
     </LinearLayout>
 
 </ScrollView>
