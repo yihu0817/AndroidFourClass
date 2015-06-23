@@ -20,11 +20,9 @@ import com.scxh.android1502.ui.component.ImageViewTwoActivity;
 import com.scxh.android1502.ui.component.RadioButtonActivity;
 import com.scxh.android1502.ui.component.TextViewMainActivity;
 import com.scxh.android1502.ui.layout.CodeLayoutAcitivity;
-import com.scxh.android1502.ui.layout.FrameLayoutActivity;
-import com.scxh.android1502.ui.layout.GridLayoutActivity;
-import com.scxh.android1502.ui.layout.LinerLayoutAcitiy;
-import com.scxh.android1502.ui.layout.RelativeLayoutActivity;
-import com.scxh.android1502.ui.layout.TalbleLayoutActivity;
+import com.scxh.android1502.ui.listview.ArrayListsActivity;
+import com.scxh.android1502.ui.listview.SimpleListActivity;
+import com.scxh.android1502.util.Logs;
 
 public class MainActivity extends Activity {
 
@@ -32,56 +30,9 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-	}
-
-	/**
-	 * 线型布局学习
-	 * 
-	 * @param v
-	 */
-	public void onLinerLayoutClickView(View v) {
-		Intent intent = new Intent(this, LinerLayoutAcitiy.class);
-		startActivity(intent);
-	}
-
-	/**
-	 * 相对布局学习
-	 * 
-	 * @param v
-	 */
-	public void onRelativeLayoutClickView(View v) {
-		Intent intent = new Intent(this, RelativeLayoutActivity.class);
-		startActivity(intent);
-	}
-
-	/**
-	 * 单帧布局学习
-	 * 
-	 * @param v
-	 */
-	public void onFrameLayoutClickView(View v) {
-		Intent intent = new Intent(this, FrameLayoutActivity.class);
-		startActivity(intent);
-	}
-
-	/**
-	 * 表格布局
-	 * 
-	 * @param v
-	 */
-	public void onTableLayoutClickView(View v) {
-		Intent intent = new Intent(this, TalbleLayoutActivity.class);
-		startActivity(intent);
-	}
-
-	/**
-	 * 网络布局
-	 * 
-	 * @param v
-	 */
-	public void onGridLayoutClickView(View v) {
-		Intent intent = new Intent(this, GridLayoutActivity.class);
-		startActivity(intent);
+		
+		ScxhApplication scxhAPP = (ScxhApplication) getApplication();
+		Logs.e("MainActivity >>>>>>>>>>>>  :"+scxhAPP.mName);
 	}
 
 	/**
@@ -182,6 +133,14 @@ public class MainActivity extends Activity {
 	}
 	public void onIntentClickView(View v){
 		Intent intent = new Intent(this, com.scxh.android1502.activity.intent.OneActivity.class);
+		startActivity(intent);
+	}
+	public void onListViewClickView(View v){
+		Intent intent = new Intent(this, ArrayListsActivity.class);
+		startActivity(intent);
+	}
+	public void onSimpleListClickView(View v){
+		Intent intent = new Intent(this, SimpleListActivity.class);
 		startActivity(intent);
 	}
 }

@@ -22,7 +22,8 @@
         </activity>
         <activity
             android:name="com.scxh.android1502.ui.LoginActivity"
-            android:label="LoginActivity" >
+            android:label="LoginActivity"
+            android:launchMode="singleInstance" >
             <intent-filter>
                 <action android:name="com.scxh.android.intent.action.View" />
                 <category android:name="android.intent.category.DEFAULT"/>
@@ -111,6 +112,12 @@
         <activity
             android:name="com.scxh.android1502.activity.intent.OneActivity"
             android:label="Intent意图" />
+        <activity
+            android:name="com.scxh.android1502.ui.listview.ArrayListsActivity"
+            android:label="ArrayListsActivity" />
+        <activity
+            android:name="com.scxh.android1502.ui.listview.SimpleListActivity"
+            android:label="SimpleListActivity" />
     </application>
 
 </manifest>

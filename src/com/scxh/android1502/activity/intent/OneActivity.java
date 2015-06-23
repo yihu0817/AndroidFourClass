@@ -56,7 +56,8 @@ public class OneActivity extends Activity {
 				Uri uri = Uri.parse("tel:18015645745");
 				
 				Intent it = new Intent(); 
-				it.setAction("android.intent.action.DIAL");
+//				it.setAction("android.intent.action.DIAL");
+				it.setAction(Intent.ACTION_DIAL);
 				it.setData(uri);
 				
 				startActivity(it);

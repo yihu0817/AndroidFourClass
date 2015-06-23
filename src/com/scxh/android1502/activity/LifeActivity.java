@@ -24,6 +24,7 @@ public class LifeActivity extends Activity {
 		textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 24);
 
 		setContentView(textView);
+		
 
 	}
 
