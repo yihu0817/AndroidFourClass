@@ -21,6 +21,7 @@ import com.scxh.android1502.ui.component.RadioButtonActivity;
 import com.scxh.android1502.ui.component.TextViewMainActivity;
 import com.scxh.android1502.ui.layout.CodeLayoutAcitivity;
 import com.scxh.android1502.ui.listview.ArrayListsActivity;
+import com.scxh.android1502.ui.listview.MyBaseActivity;
 import com.scxh.android1502.ui.listview.SimpleListActivity;
 import com.scxh.android1502.util.Logs;
 
@@ -141,6 +142,10 @@ public class MainActivity extends Activity {
 	}
 	public void onSimpleListClickView(View v){
 		Intent intent = new Intent(this, SimpleListActivity.class);
+		startActivity(intent);
+	}
+	public void onMyBaseActivityClickView(View v){
+		Intent intent = new Intent(this, MyBaseActivity.class);
 		startActivity(intent);
 	}
 }

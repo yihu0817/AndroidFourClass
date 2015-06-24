@@ -1,5 +1,8 @@
 package com.scxh.android1502.ui.listview;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,7 +11,6 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.scxh.android1502.R;
@@ -19,7 +21,7 @@ import com.scxh.android1502.ui.layout.RelativeLayoutActivity;
 import com.scxh.android1502.ui.layout.TalbleLayoutActivity;
 
 public class ArrayListsActivity extends Activity implements OnItemClickListener{
-	private String[] arrays = {"线型布局","相对布局","单帧布局","表格布局","网络布局",}; 
+	private String[] arrays = {"线型布局","相对布局","单帧布局","表格布局","网络布局"}; 
 	private ListView mListView;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -29,28 +31,29 @@ public class ArrayListsActivity extends Activity implements OnItemClickListener{
 		
 		mListView = (ListView) findViewById(R.id.listsview);
 		
-//		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.test_list_item, arrays);
+		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.test_list_item, getData());
 		
-		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, 
-				R.layout.item_listview1_layout, arrays);
+//		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, 
+//				R.layout.item_listview1_layout, arrays);
 		
 		mListView.setAdapter(adapter);
-		
-//		mListView.setOnItemClickListener(new OnItemClickListener() {
-//
-//			@Override
-//			public void onItemClick(AdapterView<?> parent, View view,
-//					int position, long id) {
-//				Toast.makeText(ListsActivity.this, "选中的是第"+(position)+"项", Toast.LENGTH_SHORT).show();
-//			}
-//		});
-		
-		
+
 		mListView.setOnItemClickListener(this);
 	}
+	
+	public List<String> getData(){
+		List<String> list = new ArrayList<String>();
+		list.add("线型布局");
+		list.add("相对布局");
+		list.add("单帧布局");
+		list.add("表格布局");
+		list.add("网络布局");
+		
+		return list;
+	}
+	
 	@Override
-	public void onItemClick(AdapterView<?> parent, View view, int position,
-			long id) {
+	public void onItemClick(AdapterView<?> parent, View view, int position,long id) {
 //		TextView textView = (TextView)view;
 		
 		String message  = (String) parent.getAdapter().getItem(position);

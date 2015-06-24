@@ -14,6 +14,7 @@ import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
 import com.scxh.android1502.R;
+import com.scxh.android1502.activity.parameter.User;
 
 public class SimpleListActivity extends Activity {
 	private ListView mListView;
@@ -30,7 +31,6 @@ public class SimpleListActivity extends Activity {
 		SimpleAdapter adapter = new SimpleAdapter(this, getData(),R.layout.item_simple_listview1_layout, from, to);
 
 		mListView.setAdapter(adapter);
-		
 		
 		mListView.setOnItemClickListener(new OnItemClickListener() {
 

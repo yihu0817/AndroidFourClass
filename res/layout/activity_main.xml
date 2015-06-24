@@ -132,6 +132,12 @@
             android:onClick="onSimpleListClickView"
             android:text="SimpleListView" >
         </Button>
+           <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onMyBaseActivityClickView"
+            android:text="MyBaseActivity" >
+        </Button>
     </LinearLayout>
 
 </ScrollView>

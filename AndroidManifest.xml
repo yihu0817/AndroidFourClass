@@ -118,6 +118,9 @@
         <activity
             android:name="com.scxh.android1502.ui.listview.SimpleListActivity"
             android:label="SimpleListActivity" />
+        <activity
+            android:name="com.scxh.android1502.ui.listview.MyBaseActivity"
+            android:label="MyBaseActivity" />
     </application>
 
 </manifest>
