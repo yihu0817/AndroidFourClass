@@ -121,6 +121,9 @@
         <activity
             android:name="com.scxh.android1502.ui.listview.MyBaseActivity"
             android:label="MyBaseActivity" />
+        <activity
+            android:name="com.scxh.android1502.ui.gridview.GridViewActivity"
+            android:label="GridViewActivity" />
     </application>
 
 </manifest>

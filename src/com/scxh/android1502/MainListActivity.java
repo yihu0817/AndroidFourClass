@@ -27,6 +27,7 @@ import com.scxh.android1502.ui.component.ImageViewActivity;
 import com.scxh.android1502.ui.component.ImageViewTwoActivity;
 import com.scxh.android1502.ui.component.RadioButtonActivity;
 import com.scxh.android1502.ui.component.TextViewMainActivity;
+import com.scxh.android1502.ui.gridview.GridViewActivity;
 import com.scxh.android1502.ui.layout.CodeLayoutAcitivity;
 import com.scxh.android1502.ui.listview.ArrayListsActivity;
 import com.scxh.android1502.ui.listview.MyBaseActivity;
@@ -152,6 +153,12 @@ public class MainListActivity extends Activity implements OnItemClickListener {
 		item.put("title", "MyBaseActivity");
 		item.put("intent", new Intent(this, MyBaseActivity.class));
 		list.add(item);
+		
+		item = new HashMap<String, Object>();
+		item.put("title", "GridView网络控件");
+		item.put("intent", new Intent(this, GridViewActivity.class));
+		list.add(item);
+		
 		return list;
 	}
 
