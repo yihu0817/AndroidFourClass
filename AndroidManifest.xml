@@ -17,6 +17,7 @@
         <activity android:name="com.scxh.android1502.MainListActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -26,7 +27,8 @@
             android:launchMode="singleInstance" >
             <intent-filter>
                 <action android:name="com.scxh.android.intent.action.View" />
-                <category android:name="android.intent.category.DEFAULT"/>
+
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
@@ -113,6 +115,9 @@
             android:name="com.scxh.android1502.activity.intent.OneActivity"
             android:label="Intent意图" />
         <activity
+            android:name="com.scxh.android1502.activity.MyListActivity"
+            android:label="MyListActivity" />
+        <activity
             android:name="com.scxh.android1502.ui.listview.ArrayListsActivity"
             android:label="ArrayListsActivity" />
         <activity
@@ -124,6 +129,24 @@
         <activity
             android:name="com.scxh.android1502.ui.gridview.GridViewActivity"
             android:label="GridViewActivity" />
+        <activity
+            android:name="com.scxh.android1502.ui.spinners.SpinnersActivity"
+            android:label="SpinnersActivity" />
+        <activity
+            android:name="com.scxh.android1502.ui.autocomplettext.AutoCompleteTextViewActivity"
+            android:label="AutoCompleteTextViewActivity" />
+        <activity
+            android:name="com.scxh.android1502.ui.LoginListActivity"
+            android:label="LoginListActivity" />
+        <activity
+            android:name="com.scxh.android1502.ui.progressbar.ProgressBarActivity"
+            android:label="ProgressBarActivity" />
+        <activity
+            android:name="com.scxh.android1502.ui.progressbar.ProgressBarListViewActivity"
+            android:label="ProgressBarListViewActivity" />
+        <activity
+            android:name="com.scxh.android1502.ui.progressbar.SeekBarActivity"
+            android:label="SeekBarActivity" />
     </application>
 
 </manifest>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@android:color/holo_blue_dark" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="下拉列表Spinner"
+            android:textColor="@android:color/white"
+            android:textSize="24sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:orientation="horizontal" >
+
+        <Spinner
+            android:id="@+id/my_spinners"
+            android:layout_width="100dp"
+            android:layout_height="45dp"
+            android:layout_weight="1"
+            android:background="@drawable/nearby_btn_select_l_selector"
+            android:dropDownWidth="95dp" />
+
+        <Spinner
+            android:id="@+id/my_spinners1"
+            android:layout_width="100dp"
+            android:layout_height="45dp"
+            android:layout_weight="1"
+            android:background="@drawable/nearby_btn_select_l_selector"
+            android:dropDownWidth="95dp" />
+
+        <Spinner
+            android:id="@+id/my_spinners2"
+            android:layout_width="100dp"
+            android:layout_height="45dp"
+            android:layout_weight="1"
+            android:background="@drawable/nearby_btn_select_l_selector"
+            android:dropDownWidth="95dp" />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/spinner_listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+    </ListView>
+
+</LinearLayout>

@@ -6,4 +6,5 @@
     <string name="welcome_android">欢迎来到Android特训营</string>
     <string name="user_name_txt">用户名:</string>
 	<string name="pasword_txt">密码</string>
+	<string name="spinner_promto">请选择日期</string>
 </resources>

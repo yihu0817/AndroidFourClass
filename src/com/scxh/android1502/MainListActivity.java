@@ -14,14 +14,15 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
 import com.scxh.android1502.activity.LifeActivity;
+import com.scxh.android1502.activity.MyListActivity;
 import com.scxh.android1502.activity.OneActivity;
 import com.scxh.android1502.activity.StateActvity;
 import com.scxh.android1502.activity.UtilActivity;
 import com.scxh.android1502.activity.launchmode.FirstActivity;
 import com.scxh.android1502.activity.parameter.A;
 import com.scxh.android1502.ui.InfalterAcitivty;
-import com.scxh.android1502.ui.LoginActivity;
-import com.scxh.android1502.ui.LoginTwoActivity;
+import com.scxh.android1502.ui.LoginListActivity;
+import com.scxh.android1502.ui.autocomplettext.AutoCompleteTextViewActivity;
 import com.scxh.android1502.ui.component.EditTextActivity;
 import com.scxh.android1502.ui.component.ImageViewActivity;
 import com.scxh.android1502.ui.component.ImageViewTwoActivity;
@@ -32,6 +33,10 @@ import com.scxh.android1502.ui.layout.CodeLayoutAcitivity;
 import com.scxh.android1502.ui.listview.ArrayListsActivity;
 import com.scxh.android1502.ui.listview.MyBaseActivity;
 import com.scxh.android1502.ui.listview.SimpleListActivity;
+import com.scxh.android1502.ui.progressbar.ProgressBarActivity;
+import com.scxh.android1502.ui.progressbar.ProgressBarListViewActivity;
+import com.scxh.android1502.ui.progressbar.SeekBarActivity;
+import com.scxh.android1502.ui.spinners.SpinnersActivity;
 
 public class MainListActivity extends Activity implements OnItemClickListener {
 	private ListView mListView;
@@ -53,6 +58,8 @@ public class MainListActivity extends Activity implements OnItemClickListener {
 		mListView.setAdapter(adapter);
 
 		mListView.setOnItemClickListener(this);
+		
+		mListView.setSelection(adapter.getCount()-1);
 	}
 
 	public List<HashMap<String, Object>> getDataMap() {
@@ -83,16 +90,18 @@ public class MainListActivity extends Activity implements OnItemClickListener {
 		item.put("intent", new Intent(this, EditTextActivity.class));
 		list.add(item);
 
-		item = new HashMap<String, Object>();
-		item.put("title", "登录实例1");
-		item.put("intent", new Intent(this, LoginActivity.class));
-		list.add(item);
+//		item = new HashMap<String, Object>();
+//		item.put("title", "登录实例1");
+//		item.put("intent", new Intent(this, LoginActivity.class));
+//		list.add(item);
+//
+//		item = new HashMap<String, Object>();
+//		item.put("title", "登录实例2");
+//		item.put("intent", new Intent(this, LoginTwoActivity.class));
+//		list.add(item);
 
-		item = new HashMap<String, Object>();
-		item.put("title", "登录实例2");
-		item.put("intent", new Intent(this, LoginTwoActivity.class));
-		list.add(item);
-
+		createItem(list,"登录实例",LoginListActivity.class);
+		
 		item = new HashMap<String, Object>();
 		item.put("title", "图片控件(ImageView)");
 		item.put("intent", new Intent(this, ImageViewTwoActivity.class));
@@ -153,13 +162,29 @@ public class MainListActivity extends Activity implements OnItemClickListener {
 		item.put("title", "MyBaseActivity");
 		item.put("intent", new Intent(this, MyBaseActivity.class));
 		list.add(item);
-		
+
 		item = new HashMap<String, Object>();
 		item.put("title", "GridView网络控件");
 		item.put("intent", new Intent(this, GridViewActivity.class));
 		list.add(item);
+	
+		createItem(list,"Spinners控件",SpinnersActivity.class);
+		
+		createItem(list,"AutoCompletTextView",AutoCompleteTextViewActivity.class);
+		createItem(list,"MyListActivity",MyListActivity.class);
+		createItem(list,"ProgressBarActivity",ProgressBarActivity.class);
+		createItem(list,"ProgressBarListViewActivity",ProgressBarListViewActivity.class);
+		createItem(list,"SeekBarActivity",SeekBarActivity.class);
 		
 		return list;
+	}
+
+	public void createItem(List<HashMap<String, Object>> list,String title, Class<?> object) {
+		HashMap<String, Object> item = new HashMap<String, Object>();
+		item.put("title", title);
+		item.put("intent", new Intent(this, object));
+		list.add(item);
+
 	}
 
 	@Override

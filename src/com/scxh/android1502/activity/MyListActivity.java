@@ -1,34 +1,33 @@
-package com.scxh.android1502.ui.listview;
+package com.scxh.android1502.activity;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import android.app.Activity;
+import android.app.ListActivity;
 import android.os.Bundle;
 import android.widget.ListView;
 
 import com.scxh.android1502.R;
 import com.scxh.android1502.bean.ContentBean;
+import com.scxh.android1502.ui.listview.MyBaseAdapter;
 
-public class MyBaseActivity extends Activity {
+public class MyListActivity extends ListActivity {
 	private ListView mListView;
-	MyBaseAdapter mAdapter;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
-		setContentView(R.layout.activity_mylistview_layout);
+//		setContentView(R.layout.activity_sys_listview_layout);
+//		
+//		mListView = getListView();
+//		mListView.setBackgroundColor(getResources().getColor(R.color.my_blue_bright));
 		
-		mListView = (ListView) findViewById(R.id.mylistview);
+		MyBaseAdapter adapter = new MyBaseAdapter(this);
 		
-		mAdapter = new MyBaseAdapter(this);
-		mListView.setAdapter(mAdapter);
-		
-		mAdapter.setData(getDataContent());
-		
+		setListAdapter(adapter);
+		adapter.setData(getDataContent());
 	}
 	
-
 	public List<ContentBean> getDataContent(){
 		List<ContentBean> list = new ArrayList<ContentBean>();
 		

@@ -20,12 +20,21 @@ public class MyBaseAdapter extends BaseAdapter {
 	private List<ContentBean> mList = new ArrayList<ContentBean>();
 	private LayoutInflater mInflater;  //把xml布局文件转换成View对象
 
-	public MyBaseAdapter(Context context, List<ContentBean> list) {
+	public MyBaseAdapter(Context context) {
 		mContext = context;
-		mList = list;
-		
 		mInflater = LayoutInflater.from(context);
 	}
+	
+	/**
+	 * 设置数据源，刷新适配器
+	 * 
+	 * @param list
+	 */
+	public void setData(List<ContentBean> list) {
+		mList = list;
+		notifyDataSetChanged();//通知刷新适配器数据
+	}
+
 	/**
 	 * 返回容器中元素个数
 	 */
