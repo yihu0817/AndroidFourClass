@@ -1,7 +1,6 @@
 package com.scxh.android1502.ui.progressbar;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import android.app.Activity;
@@ -29,6 +28,7 @@ public class ProgressBarListViewActivity extends Activity {
 	private ProgressBar mProgressBar;
 	private final int HANDER_LIST_TYPE = 0; // 从网络获取数据
 	private MyBaseAdapter mAdapter;
+	
 	private Handler mHandler = new Handler() {
 		public void handleMessage(android.os.Message msg) {
 

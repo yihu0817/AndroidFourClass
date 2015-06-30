@@ -11,4 +11,10 @@
         android:layout_margin="20dp"
         android:max="100"/>
 
+    <RatingBar
+        android:id="@+id/ratingBar1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:numStars="4" />
+
 </LinearLayout>

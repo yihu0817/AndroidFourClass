@@ -16,6 +16,7 @@ public class ProgressBarActivity extends Activity {
 	private ProgressBar mProgressBar;
 	private Button mLoadBtn;
 	int progress = 0;
+	
 	MyHandler mHandler = new MyHandler();
 
 	class MyHandler extends Handler {

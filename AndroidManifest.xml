@@ -147,6 +147,9 @@
         <activity
             android:name="com.scxh.android1502.ui.progressbar.SeekBarActivity"
             android:label="SeekBarActivity" />
+        <activity
+            android:name="com.scxh.android1502.ui.menu.MainMenuActivity"
+            android:label="菜单" />
     </application>
 
 </manifest>

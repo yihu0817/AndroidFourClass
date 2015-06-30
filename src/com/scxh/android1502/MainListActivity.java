@@ -33,6 +33,7 @@ import com.scxh.android1502.ui.layout.CodeLayoutAcitivity;
 import com.scxh.android1502.ui.listview.ArrayListsActivity;
 import com.scxh.android1502.ui.listview.MyBaseActivity;
 import com.scxh.android1502.ui.listview.SimpleListActivity;
+import com.scxh.android1502.ui.menu.MainMenuActivity;
 import com.scxh.android1502.ui.progressbar.ProgressBarActivity;
 import com.scxh.android1502.ui.progressbar.ProgressBarListViewActivity;
 import com.scxh.android1502.ui.progressbar.SeekBarActivity;
@@ -175,6 +176,7 @@ public class MainListActivity extends Activity implements OnItemClickListener {
 		createItem(list,"ProgressBarActivity",ProgressBarActivity.class);
 		createItem(list,"ProgressBarListViewActivity",ProgressBarListViewActivity.class);
 		createItem(list,"SeekBarActivity",SeekBarActivity.class);
+		createItem(list,"MainMenuActivity",MainMenuActivity.class);
 		
 		return list;
 	}
