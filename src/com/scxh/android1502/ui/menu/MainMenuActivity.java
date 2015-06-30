@@ -17,6 +17,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.PopupMenu;
+import android.widget.PopupMenu.OnMenuItemClickListener;
 import android.widget.Toast;
 
 import com.scxh.android1502.R;
@@ -28,6 +29,7 @@ public class MainMenuActivity extends Activity {
 	private Button mContextMenuBtn, mPopMenuBtn;
 	private ArrayAdapter<String> mAdapter;
 	private PopupMenu mPopMenu;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -59,15 +61,10 @@ public class MainMenuActivity extends Activity {
 		// -===============注册上下文莱单==============
 		registerForContextMenu(mContextMenuBtn);
 
-		//========== 实现弹出莱单=============
-		// 第一步: 实例化PopupMenu
-		mPopMenu = new PopupMenu(this, mPopMenuBtn);
+		initPopMenu();
 
-		// 第二步:装载莱单资源到莱单对象(popMenu.getMenu())上
-		mPopMenu.inflate(R.menu.main_popup_menu);
-		
 		mPopMenuBtn.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
 				// 第三步:显示
@@ -75,6 +72,37 @@ public class MainMenuActivity extends Activity {
 			}
 		});
 
+	}
+
+	/**
+	 * 初始化弹出莱单
+	 */
+	public void initPopMenu() {
+
+		// 第一步: 实例化PopupMenu
+		mPopMenu = new PopupMenu(this, mPopMenuBtn);
+
+		// 第二步:装载莱单资源到莱单对象(popMenu.getMenu())上
+		mPopMenu.inflate(R.menu.main_popup_menu);
+
+		mPopMenu.setOnMenuItemClickListener(new OnMenuItemClickListener() {
+
+			@Override
+			public boolean onMenuItemClick(MenuItem item) {
+				switch (item.getItemId()) {
+				case R.id.menu_news:
+					Toast.makeText(MainMenuActivity.this, "新建",
+							Toast.LENGTH_SHORT).show();
+					break;
+				case R.id.menu_exit:
+					Toast.makeText(MainMenuActivity.this, "退出",
+							Toast.LENGTH_SHORT).show();
+					break;
+				}
+
+				return false;
+			}
+		});
 	}
 
 	/**
@@ -113,8 +141,6 @@ public class MainMenuActivity extends Activity {
 		return super.onOptionsItemSelected(item);
 	}
 
-	// =======================选项莱单===========================
-
 	// =======================上下文莱单===========================
 	@Override
 	public void onCreateContextMenu(ContextMenu menu, View v,
@@ -138,6 +164,5 @@ public class MainMenuActivity extends Activity {
 
 		return super.onContextItemSelected(item);
 	}
-	// =======================上下文莱单===========================
 
 }

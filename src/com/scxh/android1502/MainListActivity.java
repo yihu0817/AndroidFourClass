@@ -34,6 +34,7 @@ import com.scxh.android1502.ui.listview.ArrayListsActivity;
 import com.scxh.android1502.ui.listview.MyBaseActivity;
 import com.scxh.android1502.ui.listview.SimpleListActivity;
 import com.scxh.android1502.ui.menu.MainMenuActivity;
+import com.scxh.android1502.ui.popupwindow.PopupWindowActivity;
 import com.scxh.android1502.ui.progressbar.ProgressBarActivity;
 import com.scxh.android1502.ui.progressbar.ProgressBarListViewActivity;
 import com.scxh.android1502.ui.progressbar.SeekBarActivity;
@@ -170,13 +171,13 @@ public class MainListActivity extends Activity implements OnItemClickListener {
 		list.add(item);
 	
 		createItem(list,"Spinners控件",SpinnersActivity.class);
-		
 		createItem(list,"AutoCompletTextView",AutoCompleteTextViewActivity.class);
 		createItem(list,"MyListActivity",MyListActivity.class);
 		createItem(list,"ProgressBarActivity",ProgressBarActivity.class);
 		createItem(list,"ProgressBarListViewActivity",ProgressBarListViewActivity.class);
 		createItem(list,"SeekBarActivity",SeekBarActivity.class);
-		createItem(list,"MainMenuActivity",MainMenuActivity.class);
+		createItem(list,"莱单",MainMenuActivity.class);
+		createItem(list,"弹窗控件",PopupWindowActivity.class);
 		
 		return list;
 	}

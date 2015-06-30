@@ -73,6 +73,7 @@ public class ProgressBarListViewActivity extends Activity {
 				Message msg = Message.obtain();
 				msg.obj = data;
 				msg.what = HANDER_LIST_TYPE;
+				
 				mHandler.sendMessage(msg);
 
 			}
