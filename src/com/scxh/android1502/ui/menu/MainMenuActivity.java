@@ -74,7 +74,7 @@ public class MainMenuActivity extends Activity {
 				mPopMenu.show();
 			}
 		});
-		//========== 实现弹出莱单=============
+
 	}
 
 	/**
