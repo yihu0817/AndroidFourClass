@@ -28,6 +28,7 @@ import com.scxh.android1502.ui.component.ImageViewActivity;
 import com.scxh.android1502.ui.component.ImageViewTwoActivity;
 import com.scxh.android1502.ui.component.RadioButtonActivity;
 import com.scxh.android1502.ui.component.TextViewMainActivity;
+import com.scxh.android1502.ui.dialog.DialogActivity;
 import com.scxh.android1502.ui.gridview.GridViewActivity;
 import com.scxh.android1502.ui.layout.CodeLayoutAcitivity;
 import com.scxh.android1502.ui.listview.ArrayListsActivity;
@@ -178,6 +179,7 @@ public class MainListActivity extends Activity implements OnItemClickListener {
 		createItem(list,"SeekBarActivity",SeekBarActivity.class);
 		createItem(list,"莱单",MainMenuActivity.class);
 		createItem(list,"弹窗控件",PopupWindowActivity.class);
+		createItem(list,"对话框",DialogActivity.class);
 		
 		return list;
 	}

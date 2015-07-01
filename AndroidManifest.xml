@@ -153,6 +153,9 @@
         <activity
             android:name="com.scxh.android1502.ui.popupwindow.PopupWindowActivity"
             android:label="弹窗控件" />
+        <activity
+            android:name="com.scxh.android1502.ui.dialog.DialogActivity"
+            android:label="对话框" />
     </application>
 
 </manifest>
