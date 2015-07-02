@@ -26,6 +26,7 @@ public class DialogActivity extends Activity {
 	private static final int ALERT_OK_DIALOG = 3;
 	private static final int ALERT_CHECK_DIALOG = 4;
 	private static final int ALERT_MY_DIALOG = 5;
+	private static final int ALERT_MY_ALERT_DIALOG = 6;
 	private Button mDialogBtn, mDateDialogBtn, mOkDialogBtn, mCheckDialogBtn;
 	private DatePickerDialog mDateDialog;
 	private ProgressDialog mProgressDialog;
@@ -97,8 +98,17 @@ public class DialogActivity extends Activity {
 		});
 	}
 
-	public void onMyDialogViewClick(View v){
+	public void onMyDialogViewClick(View v) {
 		showDialog(ALERT_MY_DIALOG);
+	}
+
+	public void onMyAlertDialogViewClick(View v) {
+		showDialog(ALERT_MY_ALERT_DIALOG);
+	}
+
+	public void onMyDialogFragmentViewClick(View v){
+		MyAlertDialogFragment dialogFrament = new MyAlertDialogFragment();
+		dialogFrament.show(getFragmentManager(), "myDialog");
 	}
 	
 	@Override
@@ -116,7 +126,7 @@ public class DialogActivity extends Activity {
 			return mDateDialog;
 
 		case ALERT_OK_DIALOG:
-			Builder builder = new Builder(this);
+			AlertDialog.Builder builder = new AlertDialog.Builder(this);
 			builder.setTitle("提示框");
 			builder.setMessage("您确定退出吗?");
 			builder.setIcon(R.drawable.ic_launcher);
@@ -183,18 +193,24 @@ public class DialogActivity extends Activity {
 						}
 					});
 			return builder.create();
-			
+
 		case ALERT_MY_DIALOG:
-			
-			View view = LayoutInflater.from(DialogActivity.this).inflate(R.layout.view_my_dialog_layout, null);
+
+			View view = LayoutInflater.from(DialogActivity.this).inflate(
+					R.layout.view_my_dialog_layout, null);
+
 			builder = new Builder(this);
 			builder.setView(view);
+
 			return builder.create();
-			
+
+		case ALERT_MY_ALERT_DIALOG:
+			MyAlertDialog dialog2 = new MyAlertDialog(this);
+			return dialog2;
+
 		default:
 			return null;
 		}
-
 	}
 
 	private OnDateSetListener dateSetListener = new OnDateSetListener() {

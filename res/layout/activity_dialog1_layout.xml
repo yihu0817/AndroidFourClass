@@ -35,4 +35,16 @@
         android:layout_height="wrap_content"
         android:onClick="onMyDialogViewClick"
         android:text="自定义对话框" />
+      <Button
+        android:id="@+id/my_alert_dialog_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onMyAlertDialogViewClick"
+        android:text="自定义对话框AlertDialog" />
+      
+       <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onMyDialogFragmentViewClick"
+        android:text="MyDialogFragment" />
 </LinearLayout>
