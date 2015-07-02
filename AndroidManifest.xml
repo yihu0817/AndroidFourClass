@@ -156,6 +156,9 @@
         <activity
             android:name="com.scxh.android1502.ui.dialog.DialogActivity"
             android:label="对话框" />
+        <activity
+            android:name="com.scxh.android1502.ui.viewpager.ViewPagerActivity"
+            android:label="ViewPager" />
     </application>
 
 </manifest>
