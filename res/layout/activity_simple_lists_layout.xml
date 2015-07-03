@@ -4,6 +4,15 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@android:color/holo_blue_dark"
+        android:gravity="center"
+        android:text="列表界面"
+        android:textColor="@android:color/white"
+        android:textSize="18sp" />
+
     <ListView
         android:id="@+id/listsview1"
         android:layout_width="match_parent"

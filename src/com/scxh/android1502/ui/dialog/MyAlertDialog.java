@@ -12,7 +12,7 @@ import com.scxh.android1502.R;
 public class MyAlertDialog extends AlertDialog {
 	private Button mOkBtn, mCancelBtn;
 	private Context mContext;
-
+	
 	protected MyAlertDialog(Context context) {
 		super(context);
 		mContext = context;
@@ -23,6 +23,7 @@ public class MyAlertDialog extends AlertDialog {
 		super.onCreate(savedInstanceState);
 
 		setContentView(R.layout.view_my_dialog_layout);
+		
 		mOkBtn = (Button) findViewById(R.id.ok_btn);
 		mCancelBtn = (Button) findViewById(R.id.cancel_btn);
 

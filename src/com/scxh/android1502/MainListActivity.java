@@ -40,6 +40,7 @@ import com.scxh.android1502.ui.progressbar.ProgressBarActivity;
 import com.scxh.android1502.ui.progressbar.ProgressBarListViewActivity;
 import com.scxh.android1502.ui.progressbar.SeekBarActivity;
 import com.scxh.android1502.ui.spinners.SpinnersActivity;
+import com.scxh.android1502.ui.tab.MyTabActivity;
 import com.scxh.android1502.ui.viewpager.ViewPagerActivity;
 
 public class MainListActivity extends Activity implements OnItemClickListener {
@@ -182,6 +183,7 @@ public class MainListActivity extends Activity implements OnItemClickListener {
 		createItem(list,"弹窗控件",PopupWindowActivity.class);
 		createItem(list,"对话框",DialogActivity.class);
 		createItem(list,"ViewPager",ViewPagerActivity.class);
+		createItem(list,"MyTabActivity",MyTabActivity.class);
 		
 		return list;
 	}

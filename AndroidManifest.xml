@@ -159,6 +159,9 @@
         <activity
             android:name="com.scxh.android1502.ui.viewpager.ViewPagerActivity"
             android:label="ViewPager" />
+        <activity
+            android:name="com.scxh.android1502.ui.tab.MyTabActivity"
+            android:label="MyTabActivity" />
     </application>
 
 </manifest>

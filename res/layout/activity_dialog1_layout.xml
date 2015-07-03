@@ -9,42 +9,50 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="进度条对话框" />
-    
+
     <Button
         android:id="@+id/date_dialog_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="日期对话框" />
 
-     <Button
+    <Button
         android:id="@+id/ok_dialog_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="确认对话框" />
-    
-     
-      <Button
+
+    <Button
         android:id="@+id/check_dialog_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="多选对话框" />
-      
-      <Button
+
+    <Button
         android:id="@+id/my_dialog_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="onMyDialogViewClick"
         android:text="自定义对话框" />
-      <Button
+
+    <Button
         android:id="@+id/my_alert_dialog_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="onMyAlertDialogViewClick"
         android:text="自定义对话框AlertDialog" />
-      
-       <Button
+
+    <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="onMyDialogFragmentViewClick"
         android:text="MyDialogFragment" />
+
+    <Button
+        android:id="@+id/toast_dialog_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onToastDialogViewClick"
+        android:text="Toast" />
+
 </LinearLayout>

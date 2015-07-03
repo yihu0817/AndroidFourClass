@@ -27,7 +27,7 @@ public class RadioButtonActivity extends Activity {
 		mLinearLayout = (LinearLayout)findViewById(R.id.linearLayout);
 		mMusicCheckBox = (CheckBox) findViewById(R.id.music_checkbox);
 //		mSexRadioGroup = (RadioGroup) findViewById(R.id.sex_radiogroup);
-		mSexRadioGroup = (RadioGroup) mLinearLayout.getChildAt(1);	//通过父布局获取子元素实例
+		mSexRadioGroup = (RadioGroup) findViewById(R.id.radiogroups);	//通过父布局获取子元素实例
 		mToggleButton = (ToggleButton) findViewById(R.id.toggel_btn);
 		mSwitch = (Switch) findViewById(R.id.switch_btn);
 		

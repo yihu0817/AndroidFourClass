@@ -7,15 +7,18 @@ import android.app.DatePickerDialog;
 import android.app.DatePickerDialog.OnDateSetListener;
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnMultiChoiceClickListener;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.scxh.android1502.R;
@@ -27,9 +30,13 @@ public class DialogActivity extends Activity {
 	private static final int ALERT_CHECK_DIALOG = 4;
 	private static final int ALERT_MY_DIALOG = 5;
 	private static final int ALERT_MY_ALERT_DIALOG = 6;
-	private Button mDialogBtn, mDateDialogBtn, mOkDialogBtn, mCheckDialogBtn;
+	private Button mDialogBtn, mDateDialogBtn, mOkDialogBtn, mCheckDialogBtn,
+			mToastBtn;
 	private DatePickerDialog mDateDialog;
 	private ProgressDialog mProgressDialog;
+
+	private Context context;
+
 	private Handler mHandler = new Handler() {
 		public void handleMessage(android.os.Message msg) {
 			Toast.makeText(DialogActivity.this, "下载完成", Toast.LENGTH_SHORT)
@@ -42,10 +49,13 @@ public class DialogActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_dialog1_layout);
 
+		context = this;
+
 		mDialogBtn = (Button) findViewById(R.id.dialog_btn);
 		mDateDialogBtn = (Button) findViewById(R.id.date_dialog_btn);
 		mOkDialogBtn = (Button) findViewById(R.id.ok_dialog_btn);
 		mCheckDialogBtn = (Button) findViewById(R.id.check_dialog_btn);
+		mToastBtn = (Button) findViewById(R.id.toast_dialog_btn);
 
 		mDialogBtn.setOnClickListener(new OnClickListener() {
 			@Override
@@ -93,9 +103,29 @@ public class DialogActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				showDialog(ALERT_CHECK_DIALOG);
-
 			}
 		});
+
+		MyOnClickkListener mMyOnClickkListener = new MyOnClickkListener();
+		mToastBtn.setOnClickListener(mMyOnClickkListener);
+
+	}
+
+	public class MyOnClickkListener implements OnClickListener {
+
+		@Override
+		public void onClick(View v) {
+//			Toast toast = Toast.makeText(context,getString(R.string.toast_message), Toast.LENGTH_SHORT);
+			
+			Toast toast = new Toast(context);
+
+			View contentView = LayoutInflater.from(context).inflate(R.layout.view_my_toast_layout, null);
+			
+			toast.setView(contentView);
+			
+			toast.show();
+		}
+
 	}
 
 	public void onMyDialogViewClick(View v) {
@@ -106,11 +136,11 @@ public class DialogActivity extends Activity {
 		showDialog(ALERT_MY_ALERT_DIALOG);
 	}
 
-	public void onMyDialogFragmentViewClick(View v){
+	public void onMyDialogFragmentViewClick(View v) {
 		MyAlertDialogFragment dialogFrament = new MyAlertDialogFragment();
 		dialogFrament.show(getFragmentManager(), "myDialog");
 	}
-	
+
 	@Override
 	protected Dialog onCreateDialog(int id) {
 		switch (id) {
