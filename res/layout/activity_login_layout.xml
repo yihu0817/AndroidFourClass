@@ -23,15 +23,16 @@
         <EditText
             android:id="@+id/user_name_one_edit"
             android:layout_width="150dp"
-            android:layout_height="wrap_content" />
+            android:layout_height="30dp"
+            android:background="@drawable/bg_global_search_textbox" />
 
         <ImageView
             android:id="@+id/clear_img"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:clickable="true"
-            android:visibility="invisible"
-            android:src="@drawable/selector_drawable_clear_btn" />
+            android:src="@drawable/selector_drawable_clear_btn"
+            android:visibility="invisible" />
     </LinearLayout>
 
     <LinearLayout
@@ -39,6 +40,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
         android:orientation="horizontal" >
 
         <TextView
@@ -51,14 +53,16 @@
         <EditText
             android:id="@+id/password_one_edit"
             android:layout_width="150dp"
-            android:layout_height="wrap_content" />
-         <ImageView
+            android:layout_height="30dp"
+            android:background="@drawable/bg_global_search_textbox" />
+
+        <ImageView
             android:id="@+id/clear_password_img"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:clickable="true"
-             android:visibility="invisible"
-            android:src="@drawable/selector_drawable_clear_btn" />
+            android:src="@drawable/selector_drawable_clear_btn"
+            android:visibility="invisible" />
     </LinearLayout>
 
     <Button

@@ -1,4 +1,4 @@
-package com.scxh.android1502.ui.progressbar;
+package com.scxh.android1502.ui.progressbar_seekbar;
 
 import java.util.ArrayList;
 import java.util.List;

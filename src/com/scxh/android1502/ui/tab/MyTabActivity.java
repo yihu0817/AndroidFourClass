@@ -25,7 +25,6 @@ public class MyTabActivity extends TabActivity implements OnTabChangeListener {
 	private static final int CONTENT_TAB = 2; //商家
 	private static final int MORE_TAB = 3;    //更多
 	
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -39,7 +38,7 @@ public class MyTabActivity extends TabActivity implements OnTabChangeListener {
 
 		TabSpec tabSpec1 = tabHost.newTabSpec("home");
 		tabSpec1.setIndicator(createIndicatorView(HOME_TAB));
-		tabSpec1.setContent(new Intent(context, RadioButtonActivity.class));
+		tabSpec1.setContent(new Intent(context, SimpleListActivity.class));
 
 		TabSpec tabSpec2 = tabHost.newTabSpec("conent");
 		tabSpec2.setIndicator(createIndicatorView(CONTENT_TAB));
@@ -47,7 +46,7 @@ public class MyTabActivity extends TabActivity implements OnTabChangeListener {
 
 		TabSpec tabSpec3 = tabHost.newTabSpec("more");
 		tabSpec3.setIndicator(createIndicatorView(MORE_TAB));
-		tabSpec3.setContent(new Intent(context, SimpleListActivity.class));
+		tabSpec3.setContent(new Intent(context, RadioButtonActivity.class));
 
 		tabHost.addTab(tabSpec1);
 		tabHost.addTab(tabSpec2);
@@ -84,6 +83,5 @@ public class MyTabActivity extends TabActivity implements OnTabChangeListener {
 	@Override
 	public void onTabChanged(String tabId) {
 		// Toast.makeText(context, "tabId "+tabId, Toast.LENGTH_SHORT).show();
-
 	}
 }

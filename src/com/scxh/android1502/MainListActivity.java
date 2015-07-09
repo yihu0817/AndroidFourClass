@@ -35,12 +35,15 @@ import com.scxh.android1502.ui.listview.ArrayListsActivity;
 import com.scxh.android1502.ui.listview.MyBaseActivity;
 import com.scxh.android1502.ui.listview.SimpleListActivity;
 import com.scxh.android1502.ui.menu.MainMenuActivity;
+import com.scxh.android1502.ui.png9.Png9Activity;
 import com.scxh.android1502.ui.popupwindow.PopupWindowActivity;
-import com.scxh.android1502.ui.progressbar.ProgressBarActivity;
-import com.scxh.android1502.ui.progressbar.ProgressBarListViewActivity;
-import com.scxh.android1502.ui.progressbar.SeekBarActivity;
+import com.scxh.android1502.ui.progressbar_seekbar.ProgressBarActivity;
+import com.scxh.android1502.ui.progressbar_seekbar.ProgressBarListViewActivity;
+import com.scxh.android1502.ui.progressbar_seekbar.SeekBarActivity;
+import com.scxh.android1502.ui.shape.ShapeActivity;
 import com.scxh.android1502.ui.spinners.SpinnersActivity;
 import com.scxh.android1502.ui.tab.MyTabActivity;
+import com.scxh.android1502.ui.tab.RadioTabActivity;
 import com.scxh.android1502.ui.viewpager.ViewPagerActivity;
 
 public class MainListActivity extends Activity implements OnItemClickListener {
@@ -184,6 +187,9 @@ public class MainListActivity extends Activity implements OnItemClickListener {
 		createItem(list,"对话框",DialogActivity.class);
 		createItem(list,"ViewPager",ViewPagerActivity.class);
 		createItem(list,"MyTabActivity",MyTabActivity.class);
+		createItem(list,"RadioTabActivity",RadioTabActivity.class);
+		createItem(list,"Png9Activity",Png9Activity.class);
+		createItem(list,"ShapeActivity",ShapeActivity.class);
 		
 		return list;
 	}

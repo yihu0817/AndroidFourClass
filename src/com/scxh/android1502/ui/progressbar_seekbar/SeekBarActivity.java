@@ -1,4 +1,4 @@
-package com.scxh.android1502.ui.progressbar;
+package com.scxh.android1502.ui.progressbar_seekbar;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -9,7 +9,7 @@ import com.scxh.android1502.R;
 import com.scxh.android1502.util.Logs;
 
 public class SeekBarActivity extends Activity {
-	private SeekBar mSeekBar;
+	private SeekBar mSeekBar,mSeekBarCustom;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -17,7 +17,8 @@ public class SeekBarActivity extends Activity {
 
 		setContentView(R.layout.activity_seekbar1_layout);
 		mSeekBar = (SeekBar) findViewById(R.id.seekBar1);
-
+		mSeekBarCustom = (SeekBar) findViewById(R.id.seekBar2);
+		
 		new Thread(new Runnable() {
 
 			@Override
@@ -54,5 +55,23 @@ public class SeekBarActivity extends Activity {
 
 			}
 		});
+		
+		
+		
+		new Thread(new Runnable() {
+
+			@Override
+			public void run() {
+				for (int i = 0; i < 10; i++) {
+					try {
+						Thread.sleep(1000);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+					mSeekBarCustom.incrementProgressBy(10);
+				}
+
+			}
+		}).start();
 	}
 }

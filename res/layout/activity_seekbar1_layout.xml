@@ -9,7 +9,25 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:max="100"/>
+        android:max="100" />
+
+   <SeekBar
+        android:id="@+id/seekBar2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:max="100"
+        android:progressDrawable="@drawable/seekbar_progress_drawable1"
+        android:thumb="@drawable/seekbar_progress_thum_selector" /> 
+        
+   <SeekBar
+        android:id="@+id/seekBar3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:max="100"
+        android:progressDrawable="@drawable/seekbar_progress_drawable_shape"
+        android:thumb="@drawable/seekbar_progress_thum_selector" /> 
 
     <RatingBar
         android:id="@+id/ratingBar1"

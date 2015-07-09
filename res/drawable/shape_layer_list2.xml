@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item android:id="@+id/itmes1">
+        <shape android:shape="rectangle" >
+            <size
+                android:height="200dp"
+                android:width="200dp" />
+
+            <solid android:color="@android:color/holo_green_dark" />
+        </shape>
+    </item>
+    <!-- 
+         1. shape 定义形状 
+         2. layer-list 定义层双叠效果
+         3. 在layer-list里面元素展示尺寸默认是由第一个元素决定的,
+                               要改变其它元素尺寸需改变该元素top,bottom,left,right属性
+    -->
+    <item
+        android:id="@+id/itmes2"
+        android:bottom="50dp"
+        android:left="50dp"
+        android:right="50dp"
+        android:top="50dp">
+        <shape android:shape="oval" >
+            <size
+                android:height="50dp"
+                android:width="50dp" />
+
+            <solid android:color="@android:color/holo_blue_dark" />
+        </shape>
+    </item>
+
+</layer-list>

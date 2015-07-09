@@ -3,6 +3,7 @@
 
     <item android:state_pressed="true" android:color="@color/green_tab"></item>
     <item android:state_selected="true" android:color="@color/green_tab"></item>
+    <item android:state_checked="true" android:color="@color/green_tab"></item>
     <item android:color="@color/darker_gray_tab"></item>
 
 </selector>

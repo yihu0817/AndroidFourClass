@@ -21,6 +21,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="com.scxh.android1502.WelcomeActivity" />
         <activity
             android:name="com.scxh.android1502.ui.LoginActivity"
             android:label="LoginActivity"
@@ -139,13 +140,13 @@
             android:name="com.scxh.android1502.ui.LoginListActivity"
             android:label="LoginListActivity" />
         <activity
-            android:name="com.scxh.android1502.ui.progressbar.ProgressBarActivity"
+            android:name="com.scxh.android1502.ui.progressbar_seekbar.ProgressBarActivity"
             android:label="ProgressBarActivity" />
         <activity
-            android:name="com.scxh.android1502.ui.progressbar.ProgressBarListViewActivity"
+            android:name="com.scxh.android1502.ui.progressbar_seekbar.ProgressBarListViewActivity"
             android:label="ProgressBarListViewActivity" />
         <activity
-            android:name="com.scxh.android1502.ui.progressbar.SeekBarActivity"
+            android:name="com.scxh.android1502.ui.progressbar_seekbar.SeekBarActivity"
             android:label="SeekBarActivity" />
         <activity
             android:name="com.scxh.android1502.ui.menu.MainMenuActivity"
@@ -162,6 +163,15 @@
         <activity
             android:name="com.scxh.android1502.ui.tab.MyTabActivity"
             android:label="MyTabActivity" />
+        <activity
+            android:name="com.scxh.android1502.ui.tab.RadioTabActivity"
+            android:label="RadioTabActivity" />
+        <activity
+            android:name="com.scxh.android1502.ui.png9.Png9Activity"
+            android:label="Png9Activity" />
+        <activity
+            android:name="com.scxh.android1502.ui.shape.ShapeActivity"
+            android:label="ShapeActivity" />
     </application>
 
 </manifest>

@@ -3,6 +3,7 @@
 
     <item android:drawable="@drawable/ic_menu_poi_on" android:state_pressed="true"></item>
     <item android:drawable="@drawable/ic_menu_poi_on" android:state_selected="true"></item>
+    <item android:drawable="@drawable/ic_menu_poi_on" android:state_checked="true"></item>
     <item android:drawable="@drawable/ic_menu_poi_off"></item>
 
 </selector>

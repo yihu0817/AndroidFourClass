@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TabHost xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@android:id/tabhost"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <TabWidget
+            android:id="@android:id/tabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@android:color/white" >
+        </TabWidget>
+
+        <RadioGroup
+            android:id="@+id/tab_radio_groups"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@android:color/white"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:id="@+id/tab_radio_main"
+                style="@style/tab_radio_btn_style"
+                android:drawableTop="@drawable/selector_drawable_home_tab"
+                android:text="首页" />
+
+            <RadioButton
+                android:id="@+id/tab_radio_merchat"
+                style="@style/tab_radio_btn_style"
+                android:drawableTop="@drawable/selector_drawable_content_tab"
+                android:text="商家" />
+
+            <RadioButton
+                android:id="@+id/tab_radio_more"
+                style="@style/tab_radio_btn_style"
+                android:drawableTop="@drawable/selector_drawable_set_tab"
+                android:text="更多" />
+        </RadioGroup>
+
+        <FrameLayout
+            android:id="@android:id/tabcontent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/tab_radio_groups" >
+        </FrameLayout>
+    </RelativeLayout>
+
+</TabHost>

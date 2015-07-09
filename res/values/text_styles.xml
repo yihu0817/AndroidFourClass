@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="my_text_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:textColor">@android:color/holo_red_dark</item>
+        <item name="android:textSize">28sp</item>
+    </style>
+
+    <!-- 样式继承 方法一 -->
+    <style name="child_text_style" parent="my_text_style">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">32sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- 样式继承 方法二 -->
+    <style name="my_text_style.child_one_text_style"></style>
+
+    <!-- tab切换 RadioButton style -->
+    <style name="tab_radio_btn_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">@drawable/selector_color_radio_tab_bg</item>
+        <item name="android:button">@null</item>
+        <item name="android:drawablePadding">2dp</item>
+        <item name="android:gravity">center_horizontal|bottom</item>
+        <item name="android:paddingBottom">3dp</item>
+        <item name="android:paddingTop">3dp</item>
+        <item name="android:textColor">@drawable/selector_color_home_tab</item>
+    </style>
+
+</resources>
