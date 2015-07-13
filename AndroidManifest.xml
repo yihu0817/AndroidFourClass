@@ -81,7 +81,7 @@
             android:name="com.scxh.android1502.activity.LifeActivity"
             android:label="LifeActivity" />
         <activity
-            android:name="com.scxh.android1502.activity.UtilActivity"
+            android:name="com.scxh.android1502.ui.unit.UtilActivity"
             android:label="UtilActivity" />
         <activity
             android:name="com.scxh.android1502.activity.TwoActivity"
@@ -172,6 +172,9 @@
         <activity
             android:name="com.scxh.android1502.ui.shape.ShapeActivity"
             android:label="ShapeActivity" />
+        <activity
+            android:name="com.scxh.android1502.db.DBSqliteActivity"
+            android:label="DBSqliteActivity" />
     </application>
 
 </manifest>

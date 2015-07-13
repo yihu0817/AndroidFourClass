@@ -6,6 +6,7 @@ import java.util.List;
 
 import android.app.Activity;
 import android.graphics.Rect;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
@@ -38,6 +39,7 @@ public class PopupWindowActivity extends Activity {
 		setContentView(R.layout.activity_popwindow_layout);
 		mPopupBtn = (Button) findViewById(R.id.popwindow_btn);
 		mLinearLayout = (LinearLayout) findViewById(R.id.pop_linerlayout);
+		
 		ViewTreeObserver vto = mPopupBtn.getViewTreeObserver();
 		vto.addOnGlobalLayoutListener(new OnGlobalLayoutListener() {
 
@@ -63,7 +65,8 @@ public class PopupWindowActivity extends Activity {
 	public void showPopupWindow(int buttonHeight) {
 		View contentView = getPopWindowContentViewBySimpleAdatper();
 
-		int margin = 10;// 弹窗边距
+		//=============================计算弹框宽高=====================
+		int margin = 50;// 弹窗边距
 
 		int contentViewHeight = findViewById(android.R.id.content).getHeight(); // 屏幕内容区域高度
 
@@ -77,11 +80,18 @@ public class PopupWindowActivity extends Activity {
 
 		int popwindowWidth = screenWidth - 2 * margin;
 		int popwindowHeight = contentViewHeight - buttonHeight - margin;
-		// int popwindowHeight = screenHeigh - buttonHeight - titleHeight -
-		// statusBarHeight - margin;
-
+		// int popwindowHeight = screenHeigh - buttonHeight - titleHeight - statusBarHeight - margin;
+		//====================================================
+		
 		mPopwindow = new PopupWindow(contentView, popwindowWidth,popwindowHeight);
-
+		
+		//-----------实现点击空白区域弹框消失--------------
+		mPopwindow.setBackgroundDrawable(new BitmapDrawable());   
+		mPopwindow.setFocusable(true);   
+		mPopwindow.setOutsideTouchable(true); 
+		//-------------------------------------------
+		
+		
 		mPopupBtn.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -96,7 +106,7 @@ public class PopupWindowActivity extends Activity {
 			        
 			        Logs.v("location[0] :"+location[0] + " location[1] :"+location[1]);
 			        
-			        mPopwindow.showAtLocation(v, Gravity.NO_GRAVITY, location[0]+10, location[1]+v.getHeight());  
+			        mPopwindow.showAtLocation(v, Gravity.NO_GRAVITY, location[0]+50, location[1]+v.getHeight());  
 				}
 			}
 		});

@@ -25,9 +25,9 @@ import com.scxh.android1502.bean.ContentBean;
 import com.scxh.android1502.util.Logs;
 
 public class SpinnersActivity extends Activity implements OnItemSelectedListener{
-	private Spinner mSpinner,mSpinnerOne,mSpinnerTwo;
+	private Spinner mSpinner,mSpinnerOne,mSpinnerTwo,mSpinnerThree;
 	private ListView mListView;
-	private String[] arrays = { "美食", "星期二", "星期三", "星期四", "星期五", "星期六" };
+	private String[] arrays = { "美食天府", "星期二", "星期三", "星期四", "星期五", "星期六" };
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -39,16 +39,19 @@ public class SpinnersActivity extends Activity implements OnItemSelectedListener
 		mSpinner = (Spinner) findViewById(R.id.my_spinners);
 		mSpinnerOne = (Spinner) findViewById(R.id.my_spinners1);
 		mSpinnerTwo = (Spinner) findViewById(R.id.my_spinners2);
+		mSpinnerThree = (Spinner) findViewById(R.id.my_spinners3);
 		mListView = (ListView) findViewById(R.id.spinner_listview);
 		
 		
+//		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+//				android.R.layout.simple_list_item_1, arrays);
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-				android.R.layout.simple_list_item_1, arrays);
+				R.layout.view_spinner_item_layout, arrays);
 		
 		mSpinner.setAdapter(adapter);
 		mSpinnerOne.setAdapter(adapter);
 		mSpinnerTwo.setAdapter(adapter);
-		
+		mSpinnerThree.setAdapter(adapter);
 		
 		mSpinner.setSelection(3,true); ////设置默认选择项，不会触发onItemSelected方法  
 //		mSpinner.setSelection(4);//设置默认选择项，并会触发onItemSelected方法 

@@ -17,9 +17,9 @@ import com.scxh.android1502.activity.LifeActivity;
 import com.scxh.android1502.activity.MyListActivity;
 import com.scxh.android1502.activity.OneActivity;
 import com.scxh.android1502.activity.StateActvity;
-import com.scxh.android1502.activity.UtilActivity;
 import com.scxh.android1502.activity.launchmode.FirstActivity;
 import com.scxh.android1502.activity.parameter.A;
+import com.scxh.android1502.db.DBSqliteActivity;
 import com.scxh.android1502.ui.InfalterAcitivty;
 import com.scxh.android1502.ui.LoginListActivity;
 import com.scxh.android1502.ui.autocomplettext.AutoCompleteTextViewActivity;
@@ -44,6 +44,7 @@ import com.scxh.android1502.ui.shape.ShapeActivity;
 import com.scxh.android1502.ui.spinners.SpinnersActivity;
 import com.scxh.android1502.ui.tab.MyTabActivity;
 import com.scxh.android1502.ui.tab.RadioTabActivity;
+import com.scxh.android1502.ui.unit.UtilActivity;
 import com.scxh.android1502.ui.viewpager.ViewPagerActivity;
 
 public class MainListActivity extends Activity implements OnItemClickListener {
@@ -190,6 +191,7 @@ public class MainListActivity extends Activity implements OnItemClickListener {
 		createItem(list,"RadioTabActivity",RadioTabActivity.class);
 		createItem(list,"Png9Activity",Png9Activity.class);
 		createItem(list,"ShapeActivity",ShapeActivity.class);
+		createItem(list,"DBSqliteActivity",DBSqliteActivity.class);
 		
 		return list;
 	}
