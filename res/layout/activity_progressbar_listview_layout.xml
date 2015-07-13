@@ -13,19 +13,30 @@
         android:id="@+id/progressbar_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center" >
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <!--
+         <ProgressBar
+            android:id="@+id/my_progressbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"/>
+            
+         <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="数据加载中..." />
+        -->
 
         <ProgressBar
             android:id="@+id/my_progressbar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="数据加载中..." />
+            android:paddingLeft="30dp"
+            android:minWidth="250dp"
+            android:minHeight="250dp"
+            android:indeterminateDrawable="@anim/progress_circle_loading_anim" />
     </LinearLayout>
 
 </FrameLayout>

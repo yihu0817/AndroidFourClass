@@ -46,6 +46,13 @@
             android:layout_weight="1"
             android:background="@drawable/nearby_btn_select_l_selector"
             android:dropDownWidth="95dp" />
+         <Spinner
+            android:id="@+id/my_spinners3"
+            android:layout_width="100dp"
+            android:layout_height="45dp"
+            android:layout_weight="1"
+            android:background="@drawable/nearby_btn_select_l_selector"
+            android:dropDownWidth="95dp" />
     </LinearLayout>
 
     <ListView
