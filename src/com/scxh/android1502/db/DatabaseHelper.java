@@ -13,7 +13,7 @@ import android.database.sqlite.SQLiteOpenHelper;
  * 
  */
 public class DatabaseHelper extends SQLiteOpenHelper {
-	private static final String DB_NAME = "scxh1502.db";
+	private static final String DB_NAME = DataColumn.Student.TABLE_NAME;
 	private static final int DB_VERSION = 1;
 
 	private static DatabaseHelper DB_HELPER = null;
@@ -37,8 +37,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	public void onCreate(SQLiteDatabase db) {
 		Logs.v("onCreate  >>>>>>> ");
 
-		String sql = "create table student (id INTEGER NOT NULL,name TEXT, number TEXT,PRIMARY KEY(id))";
-		String sql1 = "create table tearch (id INTEGER NOT NULL,name TEXT,PRIMARY KEY(id))";
+		String sql = "create table student " + "(" + DataColumn.Student._ID
+				+ " INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,"
+				+ DataColumn.Student.COLUMN_NAME_NAME + " TEXT, "
+				+ DataColumn.Student.COLUMN_NAME_NUMBER + " TEXT," + ")";
+
+		String sql1 = "create table tearch (" 
+				+ DataColumn.Tearch.TABLE_NAME+ " INTEGER NOT NULL,"
+				+ DataColumn.Tearch._ID + " TEXT," 
+				+ "PRIMARY KEY(id))";
 
 		db.execSQL(sql);
 		db.execSQL(sql1);
@@ -49,7 +56,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	 */
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-		Logs.v("onUpgrade >>>>>> oldVersion :" + oldVersion + " newVersion :"+ newVersion);
+		Logs.v("onUpgrade >>>>>> oldVersion :" + oldVersion + " newVersion :"
+				+ newVersion);
 	}
 
 }

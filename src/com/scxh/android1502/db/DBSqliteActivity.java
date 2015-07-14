@@ -40,10 +40,10 @@ public class DBSqliteActivity extends Activity {
 				String userName = mUserNameEdit.getText().toString();
 
 				ContentValues contentValues = new ContentValues();
-				contentValues.put("id", 1002);
-				contentValues.put("name", "李四");
-				contentValues.put("number", "13");
-				db.insert("student", null, contentValues);
+				contentValues.put(DataColumn.Student._ID, 1002);
+				contentValues.put(DataColumn.Student.COLUMN_NAME_NAME, "李四");
+				contentValues.put(DataColumn.Student.COLUMN_NAME_NUMBER, "13");
+				db.insert(DataColumn.Student.TABLE_NAME, null, contentValues);
 				
 				Toast.makeText(DBSqliteActivity.this, "插入数据成功",Toast.LENGTH_SHORT).show();
 			}
@@ -55,13 +55,13 @@ public class DBSqliteActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				ContentValues values = new ContentValues();
-				values.put("name", "张三");
-				values.put("number", "14");
+				values.put(DataColumn.Student.COLUMN_NAME_NAME, "张三");
+				values.put(DataColumn.Student.COLUMN_NAME_NUMBER, "14");
 				
-				String whereClause = "id = ?";
+				String whereClause = DataColumn.Student._ID+" = ?";
 				String[] whereArgs = {"1001"};
 				
-				db.update("student", values, whereClause, whereArgs);
+				db.update(DataColumn.Student.TABLE_NAME, values, whereClause, whereArgs);
 				
 			}
 		});
@@ -73,7 +73,7 @@ public class DBSqliteActivity extends Activity {
 			public void onClick(View v) {
 				String whereClause = "name = ? or number=?";
 				String[] whereArgs = {"张三","14"};
-				db.delete("student", whereClause, whereArgs);
+				db.delete(DataColumn.Student.TABLE_NAME, whereClause, whereArgs);
 			}
 		});
 		
@@ -83,14 +83,14 @@ public class DBSqliteActivity extends Activity {
 			public void onClick(View v) {
 //				Cursor cursor = db.query("student", new String[]{"id","name","number"}, "id = ?", new String[]{"1001"}, null, null, null, null);
 			
-				Cursor cursor = db.query("student", null, null, null, null, null, null, null);
+				Cursor cursor = db.query(DataColumn.Student.TABLE_NAME, null, null, null, null, null, null, null);
 				
 				Logs.v("记录条数 ："+cursor.getCount());
 				
 				while(cursor.moveToNext()){
-					int id = cursor.getInt(cursor.getColumnIndex("id"));
-					String name = cursor.getString(cursor.getColumnIndex("name"));
-					String number = cursor.getString(cursor.getColumnIndex("number"));
+					int id = cursor.getInt(cursor.getColumnIndex(DataColumn.Student._ID));
+					String name = cursor.getString(cursor.getColumnIndex(DataColumn.Student.COLUMN_NAME_NAME));
+					String number = cursor.getString(cursor.getColumnIndex(DataColumn.Student.COLUMN_NAME_NUMBER));
 					
 					Logs.v("id :"+id + " name :"+name+ " number :"+number);
 				}
