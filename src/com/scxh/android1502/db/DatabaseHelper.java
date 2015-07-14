@@ -13,8 +13,8 @@ import android.database.sqlite.SQLiteOpenHelper;
  * 
  */
 public class DatabaseHelper extends SQLiteOpenHelper {
-	private static final String DB_NAME = DataColumn.Student.TABLE_NAME;
-	private static final int DB_VERSION = 1;
+	private static final String DB_NAME = "scxh1502.db";  //数据库名
+	private static final int DB_VERSION = 4;  //数据库版本号
 
 	private static DatabaseHelper DB_HELPER = null;
 
@@ -37,15 +37,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	public void onCreate(SQLiteDatabase db) {
 		Logs.v("onCreate  >>>>>>> ");
 
-		String sql = "create table student " + "(" + DataColumn.Student._ID
-				+ " INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,"
+		String sql = "create table "+DataColumn.Student.TABLE_NAME
+				+ " (" 
+				+ DataColumn.Student._ID + " INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,"
 				+ DataColumn.Student.COLUMN_NAME_NAME + " TEXT, "
-				+ DataColumn.Student.COLUMN_NAME_NUMBER + " TEXT," + ")";
+				+ DataColumn.Student.COLUMN_NAME_NUMBER + " TEXT "
+				+ ")";
 
-		String sql1 = "create table tearch (" 
-				+ DataColumn.Tearch.TABLE_NAME+ " INTEGER NOT NULL,"
-				+ DataColumn.Tearch._ID + " TEXT," 
-				+ "PRIMARY KEY(id))";
+		String sql1 = "create table "+ DataColumn.Tearch.TABLE_NAME
+				+" (" 
+				+ DataColumn.Tearch._ID+ " INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,"
+				+ DataColumn.Tearch.COLUMN_NAME_NAME + " TEXT" 
+				+ ")";
 
 		db.execSQL(sql);
 		db.execSQL(sql1);
@@ -56,8 +59,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	 */
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-		Logs.v("onUpgrade >>>>>> oldVersion :" + oldVersion + " newVersion :"
-				+ newVersion);
+		Logs.v("onUpgrade >>>>>> oldVersion :" + oldVersion + " newVersion :"+ newVersion);
+		
+		if(oldVersion < 3){
+			String sql = "Alter table "+DataColumn.Student.TABLE_NAME+" add column "+DataColumn.Student.COLUMN_NAME_AGE+" TEXT ";
+			db.execSQL(sql);
+		}
+
+		String sql1 = "Alter table "+DataColumn.Student.TABLE_NAME+" add column "+DataColumn.Student.COLUMN_NAME_SCORE+" TEXT ";
+		db.execSQL(sql1);
+		
+		
+		
 	}
 
 }

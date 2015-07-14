@@ -175,6 +175,9 @@
         <activity
             android:name="com.scxh.android1502.db.DBSqliteActivity"
             android:label="DBSqliteActivity" />
+        <activity
+            android:name="com.scxh.android1502.db.DBListActivity"
+            android:label="DBListActivity" />
     </application>
 
 </manifest>

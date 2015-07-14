@@ -3,34 +3,59 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
+
     <EditText
         android:id="@+id/db_user_name_edit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="用户名" />
 
-    <Button
-        android:id="@+id/db_ok_btn"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="插入数据" />
-    
-     <Button
-        android:id="@+id/db_update_btn"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/db_ok_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="插入数据" />
+
+        <Button
+            android:id="@+id/db_update_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="修改数据" />
+
+        <Button
+            android:id="@+id/db_delete_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="删除数据" />
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="修改数据" />
-     
-      <Button
-        android:id="@+id/db_delete_btn"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/db_find_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="查询数据" />
+
+        <Button
+            android:id="@+id/db_find_cursor_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="查询数据Cursor" />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/db1_listview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="删除数据" />
-      
-      <Button
-        android:id="@+id/db_find_btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="查询数据" />
+        android:layout_height="match_parent" >
+    </ListView>
 
 </LinearLayout>
