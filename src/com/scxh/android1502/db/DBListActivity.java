@@ -62,6 +62,7 @@ public class DBListActivity extends ListActivity {
 			ViewHolder viewHolder = null;
 			if(convertView == null){
 				convertView = mInflater.inflate(R.layout.view_db1_item_layout, null);
+				
 				viewHolder = new ViewHolder();
 				viewHolder.idTxt = (TextView) convertView.findViewById(R.id.db_id_txt);
 				viewHolder.nameTxt = (TextView) convertView.findViewById(R.id.db_username_txt);

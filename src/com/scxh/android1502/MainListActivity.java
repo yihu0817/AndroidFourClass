@@ -20,6 +20,7 @@ import com.scxh.android1502.activity.StateActvity;
 import com.scxh.android1502.activity.launchmode.FirstActivity;
 import com.scxh.android1502.activity.parameter.A;
 import com.scxh.android1502.db.DBSqliteActivity;
+import com.scxh.android1502.preference.SharePreferenceActivity;
 import com.scxh.android1502.ui.InfalterAcitivty;
 import com.scxh.android1502.ui.LoginListActivity;
 import com.scxh.android1502.ui.autocomplettext.AutoCompleteTextViewActivity;
@@ -192,6 +193,7 @@ public class MainListActivity extends Activity implements OnItemClickListener {
 		createItem(list,"Png9Activity",Png9Activity.class);
 		createItem(list,"ShapeActivity",ShapeActivity.class);
 		createItem(list,"DBSqliteActivity",DBSqliteActivity.class);
+		createItem(list,"SharePreferenceActivity",SharePreferenceActivity.class);
 		
 		return list;
 	}

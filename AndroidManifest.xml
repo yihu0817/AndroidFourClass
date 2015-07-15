@@ -178,6 +178,9 @@
         <activity
             android:name="com.scxh.android1502.db.DBListActivity"
             android:label="DBListActivity" />
+        <activity
+            android:name="com.scxh.android1502.preference.SharePreferenceActivity"
+            android:label="SharePreferenceActivity" />
     </application>
 
 </manifest>
