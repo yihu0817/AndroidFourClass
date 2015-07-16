@@ -45,19 +45,19 @@ public class FileExplorerActivity extends ListActivity implements
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.file_explorer);
-		
+
 		rootFolderBtn = (Button) findViewById(R.id.root_folder_btn);
 		parentFolderBtn = (Button) findViewById(R.id.parent_folder_btn);
 		currentPathTxt = (TextView) findViewById(R.id.current_path_txt);
-		
+
 		rootFolderBtn.setOnClickListener(this);
 		parentFolderBtn.setOnClickListener(this);
-		
+
 		currentPathTxt.setText(currentPath);
-		
+
 		adapter = new FileListAdapter(this);
 		setListAdapter(adapter);
-		
+
 		showFolderItem(lastFolder);
 	}
 
@@ -81,31 +81,33 @@ public class FileExplorerActivity extends ListActivity implements
 			lastFolder = folder.getParentFile();
 		}
 
-		ArrayList<File> fileLists = new ArrayList<File>();//初始化数据源
-		
-		File[] files = folder.listFiles();//得到当前路径返回的文件和文件夹列表
-		if (files == null) {
-			fileLists.add(new File(""));
-		} else {
+		ArrayList<File> fileLists = new ArrayList<File>();// 初始化数据源
+
+		File[] files = folder.listFiles();// 得到当前路径返回的文件和文件夹列表
+
+		if (files != null && files.length > 0) {
 			for (File file : files) {
-				fileLists.add(file);
+				if(file!=null){
+					fileLists.add(file);
+				}
 			}
+		} else {
+			fileLists.add(new File(""));// 当文件夹为空时显示空图片
 		}
-		//刷新适配器数据
+		// 刷新适配器数据
 		adapter.setFileList(fileLists);
-		
-		//显示当前路径
+		setListAdapter(adapter);
+		// 显示当前路径
 		currentPath = folder.getAbsolutePath();
 		currentPathTxt.setText(currentPath);
-		
-		//设置向上返回按钮状态
+
+		// 设置向上返回按钮状态
 		if (rootFolder.getAbsolutePath().equals(currentPath)) {
 			parentFolderBtn.setEnabled(false);
 		} else {
 			parentFolderBtn.setEnabled(true);
 		}
 
-	
 	}
 
 	@Override
@@ -155,42 +157,78 @@ public class FileExplorerActivity extends ListActivity implements
 		public long getItemId(int position) {
 			return position;
 		}
-
 		@Override
 		public View getView(int position, View convertView, ViewGroup parent) {
-			FileListItemViewCache itemCache;
 			// 优化ListView
 			if (convertView == null) {
 				convertView = LayoutInflater.from(mContext).inflate(R.layout.file_list_item, null);
-				
-				itemCache = new FileListItemViewCache();
-				itemCache.iconImgView = (ImageView) convertView.findViewById(R.id.file_icon);
-				itemCache.fileNameTxtview = (TextView) convertView.findViewById(R.id.file_name);
-				
-				convertView.setTag(itemCache);
-			} else {
-				itemCache = (FileListItemViewCache) convertView.getTag();
 			}
+
+			ImageView iconImgView = (ImageView) convertView.findViewById(R.id.file_icon);
+			TextView fileNameTxtview = (TextView) convertView.findViewById(R.id.file_name);
 
 			// 得到相应的文件对象
 			File file = (File) getItem(position);
 
 			// 根据文件和文件夹类型不同载入不同图标
 			if (file.isDirectory()) {
-				itemCache.iconImgView.setImageResource(R.drawable.folder);
+				iconImgView.setImageResource(R.drawable.folder);
 			} else if (file.isFile()) {
-				itemCache.iconImgView.setImageResource(R.drawable.file);
-			}
-			
-			if("".equals(file.getName())){
+				iconImgView.setImageResource(R.drawable.file);
+			} else {
 				ImageView iconView = new ImageView(mContext);
 				iconView.setImageResource(R.drawable.empty_icon);
 				return iconView;
 			}
+
 			// 设置要显示的文件名
-			itemCache.fileNameTxtview.setText(file.getName());
+			fileNameTxtview.setText(file.getName());
+			
 			return convertView;
 		}
+//		@Override
+//		public View getView(int position, View convertView, ViewGroup parent) {
+//			FileListItemViewCache itemCache;
+//			// 优化ListView
+//			if (convertView == null) {
+//				convertView = LayoutInflater.from(mContext).inflate(
+//						R.layout.file_list_item, null);
+//
+//				itemCache = new FileListItemViewCache();
+//				itemCache.iconImgView = (ImageView) convertView.findViewById(R.id.file_icon);
+//				itemCache.fileNameTxtview = (TextView) convertView.findViewById(R.id.file_name);
+//
+//				convertView.setTag(itemCache);
+//			} else {
+//				itemCache = (FileListItemViewCache) convertView.getTag();
+//			}
+//
+//			if (itemCache == null) {
+//				itemCache = new FileListItemViewCache();
+//				itemCache.iconImgView = (ImageView) convertView.findViewById(R.id.file_icon);
+//				itemCache.fileNameTxtview = (TextView) convertView.findViewById(R.id.file_name);
+//
+//				Logs.v("itemCache.iconImgView >> :" + itemCache.iconImgView);
+//			}
+//
+//			// 得到相应的文件对象
+//			File file = (File) getItem(position);
+//
+//			// 根据文件和文件夹类型不同载入不同图标
+//			if (file.isDirectory()) {
+//				itemCache.iconImgView.setImageResource(R.drawable.folder);
+//			} else if (file.isFile()) {
+//				itemCache.iconImgView.setImageResource(R.drawable.file);
+//			} else {
+//				ImageView iconView = new ImageView(mContext);
+//				iconView.setImageResource(R.drawable.empty_icon);
+//				return iconView;
+//			}
+//
+//			// 设置要显示的文件名
+//			itemCache.fileNameTxtview.setText(file.getName());
+//			return convertView;
+//		}
 
 	}
 
@@ -229,7 +267,7 @@ public class FileExplorerActivity extends ListActivity implements
 							new DialogInterface.OnClickListener() {
 								public void onClick(DialogInterface dialog,
 										int whichButton) {
-									
+
 									finish();
 								}
 							})
