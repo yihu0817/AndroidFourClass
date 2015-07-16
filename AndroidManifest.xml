@@ -8,6 +8,8 @@
         android:minSdkVersion="14"
         android:targetSdkVersion="17" />
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:name="com.scxh.android1502.ScxhApplication"
         android:allowBackup="true"
@@ -181,6 +183,9 @@
         <activity
             android:name="com.scxh.android1502.preference.SharePreferenceActivity"
             android:label="SharePreferenceActivity" />
+        <activity
+            android:name="com.scxh.android1502.file.MyFileActivity"
+            android:label="MyFileActivity" />
     </application>
 
 </manifest>
