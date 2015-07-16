@@ -1,4 +1,4 @@
-package com.scxh.android1502.file;
+package com.scxh.android1502.storage.file;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -36,12 +36,14 @@ public class FileActivity extends Activity {
 
 	private void toSearchFile(File rootFile) {
 		File[] listFile = rootFile.listFiles();
+		
 		for (File file : listFile) {
-			if (file.isDirectory()) {
+			if (file.isDirectory()) {//目录
 				File files = file.getAbsoluteFile();
 				toSearchFile(files);
-			} else {
+			} else { //文件操作
 				// 过虑文件显示路径
+				Logs.v(""+file.getPath());
 			}
 		}
 	}

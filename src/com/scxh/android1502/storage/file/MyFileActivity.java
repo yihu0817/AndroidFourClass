@@ -1,4 +1,4 @@
-package com.scxh.android1502.file;
+package com.scxh.android1502.storage.file;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -25,7 +25,7 @@ public class MyFileActivity extends Activity {
 	private static final String PCITRUE_FILE_NAME = "myPicture.png";
 	private ImageView mIconImg,mShowImg;
 	private TextView mDirTxt;
-	private Button mWriterBtn,mReaderBtn;
+	private Button mWriterBtn,mReaderBtn,mSearchFileBtn;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +36,7 @@ public class MyFileActivity extends Activity {
 		mDirTxt = (TextView) findViewById(R.id.file_dir);
 		mWriterBtn = (Button) findViewById(R.id.file_write_pic_btn);
 		mReaderBtn = (Button) findViewById(R.id.file_reader_pic_btn);
+		mSearchFileBtn = (Button) findViewById(R.id.file_search_btn);
 		
 		
 		Drawable drawable = getResources().getDrawable(R.drawable.m3);
@@ -53,9 +54,9 @@ public class MyFileActivity extends Activity {
 					Toast.makeText(MyFileActivity.this, "外部存储不可用", Toast.LENGTH_SHORT).show();
 					return;
 				}
-				
-				
-				File file = new File(fileDir, PCITRUE_FILE_NAME);
+		
+				File file = createExternalStoragePublicFile(Environment.DIRECTORY_PICTURES,PCITRUE_FILE_NAME);
+			
 				FileOutputStream os;
 				try {
 					os = new FileOutputStream(file);
@@ -93,8 +94,66 @@ public class MyFileActivity extends Activity {
 			}
 		});
 
+		
+		mSearchFileBtn.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Logs.v("sdcard root " + Environment.getExternalStorageDirectory()); // /mnt/sdcard/
+
+				File rootFile = Environment.getExternalStorageDirectory();
+				
+				toSearchFile(rootFile);
+			}
+		});
+	}
+	/**
+	 * 根据外部存储公共区域类型和文件名创建文件
+	 * @param directoryType
+	 * @param fileName
+	 * @return
+	 */
+	public File createExternalStoragePublicFile(String directoryType,String fileName){
+		File folder = Environment.getExternalStoragePublicDirectory(directoryType);
+		if(!folder.exists()){
+			folder.mkdir();
+		}
+		
+		File file = new File(folder,fileName);
+		if(!file.exists()){
+			try {
+				file.createNewFile();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return file;
+	}
+	
+	
+	private void toSearchFile(File rootFile) {
+		File[] listFile = rootFile.listFiles();
+		
+		if(listFile != null){
+			for (File file : listFile) {
+				if (file.isDirectory()) {//目录
+					File files = file.getAbsoluteFile();
+				
+					toSearchFile(files);
+				} else { //文件
+					// 过虑文件显示路径
+					if(file.getPath().endsWith(".png")){
+						Logs.v(""+file.getPath());
+					}
+					
+				}
+			}
+		}
 	}
 
+	
+	
 	/**
 	 * 写数据到内部存储区域
 	 */

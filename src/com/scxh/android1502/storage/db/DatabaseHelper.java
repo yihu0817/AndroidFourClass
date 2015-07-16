@@ -1,4 +1,4 @@
-package com.scxh.android1502.db;
+package com.scxh.android1502.storage.db;
 
 import com.scxh.android1502.util.Logs;
 

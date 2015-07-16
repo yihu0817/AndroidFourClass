@@ -175,17 +175,20 @@
             android:name="com.scxh.android1502.ui.shape.ShapeActivity"
             android:label="ShapeActivity" />
         <activity
-            android:name="com.scxh.android1502.db.DBSqliteActivity"
+            android:name="com.scxh.android1502.storage.db.DBSqliteActivity"
             android:label="DBSqliteActivity" />
         <activity
-            android:name="com.scxh.android1502.db.DBListActivity"
+            android:name="com.scxh.android1502.storage.db.DBListActivityActivity"
             android:label="DBListActivity" />
         <activity
-            android:name="com.scxh.android1502.preference.SharePreferenceActivity"
+            android:name="com.scxh.android1502.storage.preference.SharePreferenceActivity"
             android:label="SharePreferenceActivity" />
         <activity
-            android:name="com.scxh.android1502.file.MyFileActivity"
+            android:name="com.scxh.android1502.storage.file.MyFileActivity"
             android:label="MyFileActivity" />
+        <activity
+            android:name="com.scxh.android1502.storage.file.browse.FileExplorerActivity"
+            android:label="FileExplorer" />
     </application>
 
 </manifest>

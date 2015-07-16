@@ -1,4 +1,4 @@
-package com.scxh.android1502.preference;
+package com.scxh.android1502.storage.preference;
 
 import android.app.Activity;
 import android.content.SharedPreferences;
