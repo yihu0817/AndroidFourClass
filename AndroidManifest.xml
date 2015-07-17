@@ -201,6 +201,9 @@
         <provider
             android:name="com.scxh.android1502.storage.provider.ScxhContentProvider"
             android:authorities="com.scxh.android1502.student" />
+        <provider
+            android:name="com.scxh.android1502.storage.provider.PreferenceContentProvider"
+            android:authorities="com.scxh.android1502.provider" />
     </application>
 
 </manifest>

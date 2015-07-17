@@ -3,10 +3,10 @@ package com.scxh.android1502.activity.parameter;
 import java.io.Serializable;
 
 public class User implements Serializable {
-	private int id;
-	private String userName;
-	private int age;
-	private String sex;
+	public int id;
+	public String userName;
+	public int age;
+	public String sex;
 
 	public int getId() {
 		return id;

@@ -60,7 +60,9 @@ public class ScxhContentProvider extends ContentProvider {
 	@Override
 	public Cursor query(Uri uri, String[] projection, String selection,
 			String[] selectionArgs, String sortOrder) {
-		return null;
+		
+		return db.query(DataColumn.User.TABLE_NAME, projection, selection, selectionArgs, null,null, sortOrder);
+		
 	}
 
 	@Override
