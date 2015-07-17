@@ -9,8 +9,9 @@
         android:targetSdkVersion="17" />
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-	<uses-permission android:name="android.permission.READ_CONTACTS"/>
-	<uses-permission android:name="android.permission.WRITE_CONTACTS"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+
     <application
         android:name="com.scxh.android1502.ScxhApplication"
         android:allowBackup="true"
@@ -193,6 +194,13 @@
         <activity
             android:name="com.scxh.android1502.storage.provider.ContactcsProviderActivity"
             android:label="ContactcsProviderActivity" />
+        <activity
+            android:name="com.scxh.android1502.storage.provider.ScxhContentProviderActivity"
+            android:label="ScxhContentProviderActivity" />
+
+        <provider
+            android:name="com.scxh.android1502.storage.provider.ScxhContentProvider"
+            android:authorities="com.scxh.android1502.student" />
     </application>
 
 </manifest>

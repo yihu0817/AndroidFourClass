@@ -24,6 +24,7 @@ import com.scxh.android1502.storage.file.MyFileActivity;
 import com.scxh.android1502.storage.file.browse.FileExplorerActivity;
 import com.scxh.android1502.storage.preference.SharePreferenceActivity;
 import com.scxh.android1502.storage.provider.ContactcsProviderActivity;
+import com.scxh.android1502.storage.provider.ScxhContentProviderActivity;
 import com.scxh.android1502.ui.InfalterAcitivty;
 import com.scxh.android1502.ui.LoginListActivity;
 import com.scxh.android1502.ui.autocomplettext.AutoCompleteTextViewActivity;
@@ -200,6 +201,7 @@ public class MainListActivity extends Activity implements OnItemClickListener {
 		createItem(list,"MyFileActivity",MyFileActivity.class);
 		createItem(list,"FileExplorer",FileExplorerActivity.class);
 		createItem(list,"ContactcsProviderActivity",ContactcsProviderActivity.class);
+		createItem(list,"ScxhContentProviderActivity",ScxhContentProviderActivity.class);
 		
 		return list;
 	}

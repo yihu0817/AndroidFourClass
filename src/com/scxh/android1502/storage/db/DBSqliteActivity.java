@@ -42,7 +42,7 @@ public class DBSqliteActivity extends Activity {
 		mFindCursorBtn = (Button) findViewById(R.id.db_find_cursor_btn);
 		mListView = (ListView) findViewById(R.id.db1_listview);
 
-		DatabaseHelper dbHelper = DatabaseHelper.getInstanceDatabaseHelper(this);
+		DatabaseHelper dbHelper = DatabaseHelper.getInstance(this);
 		db = dbHelper.getReadableDatabase();  //如果数据库不存在则创建数据库，否则直接打开数据库
 
 		mConfirmBtn.setOnClickListener(new OnClickListener() {
@@ -57,8 +57,7 @@ public class DBSqliteActivity extends Activity {
 				contentValues.put(DataColumn.Student.COLUMN_NAME_NUMBER, "13"+userName);
 				db.insert(DataColumn.Student.TABLE_NAME, null, contentValues);
 
-				Toast.makeText(DBSqliteActivity.this, "插入数据成功",
-						Toast.LENGTH_SHORT).show();
+				Toast.makeText(DBSqliteActivity.this, "插入数据成功",Toast.LENGTH_SHORT).show();
 			}
 		});
 
