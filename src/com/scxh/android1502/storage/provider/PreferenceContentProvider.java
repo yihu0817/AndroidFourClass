@@ -55,7 +55,8 @@ public class PreferenceContentProvider extends ContentProvider {
 		
 		String[] columnValues = new String[]{userName,passWord};
 		
-		MatrixCursor mc = new MatrixCursor(new String[]{DataColumn.User.COLUMN_NAME_USER_NAME,DataColumn.User.COLUMN_NAME_PASSWORD});
+		MatrixCursor mc = new MatrixCursor(new String[]
+				{DataColumn.User.COLUMN_NAME_USER_NAME,DataColumn.User.COLUMN_NAME_PASSWORD});
 		mc.addRow(columnValues);
 		
 		return mc;

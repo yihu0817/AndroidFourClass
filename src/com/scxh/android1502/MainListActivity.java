@@ -19,6 +19,7 @@ import com.scxh.android1502.activity.OneActivity;
 import com.scxh.android1502.activity.StateActvity;
 import com.scxh.android1502.activity.launchmode.FirstActivity;
 import com.scxh.android1502.activity.parameter.A;
+import com.scxh.android1502.service.StartMyServiceActivity;
 import com.scxh.android1502.storage.db.DBSqliteActivity;
 import com.scxh.android1502.storage.file.MyFileActivity;
 import com.scxh.android1502.storage.file.browse.FileExplorerActivity;
@@ -202,6 +203,7 @@ public class MainListActivity extends Activity implements OnItemClickListener {
 		createItem(list,"FileExplorer",FileExplorerActivity.class);
 		createItem(list,"ContactcsProviderActivity",ContactcsProviderActivity.class);
 		createItem(list,"ScxhContentProviderActivity",ScxhContentProviderActivity.class);
+		createItem(list,"StartMyServiceActivity",StartMyServiceActivity.class);
 		
 		return list;
 	}

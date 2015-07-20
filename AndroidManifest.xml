@@ -197,6 +197,9 @@
         <activity
             android:name="com.scxh.android1502.storage.provider.ScxhContentProviderActivity"
             android:label="ScxhContentProviderActivity" />
+        <activity
+            android:name="com.scxh.android1502.service.StartMyServiceActivity"
+            android:label="StartMyServiceActivity" />
 
         <provider
             android:name="com.scxh.android1502.storage.provider.ScxhContentProvider"
@@ -204,6 +207,9 @@
         <provider
             android:name="com.scxh.android1502.storage.provider.PreferenceContentProvider"
             android:authorities="com.scxh.android1502.provider" />
+
+        <service android:name="com.scxh.android1502.service.MyService" >
+        </service>
     </application>
 
 </manifest>
