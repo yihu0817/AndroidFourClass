@@ -15,7 +15,9 @@
     <uses-permission android:name="android.permission.SEND_SMS" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
-
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+	<uses-permission android:name="android.permission.VIBRATE"/>
     <application
         android:name="com.scxh.android1502.ScxhApplication"
         android:allowBackup="true"
@@ -222,6 +224,12 @@
         </service>
         <service android:name="com.scxh.android1502.service.DownLoadFileIntentService" >
         </service>
+        <service
+            android:name="com.scxh.android1502.service.location.NetworkStateService"
+            android:enabled="true" />
+        <service
+            android:name="com.scxh.android1502.service.location.LocationService"
+            android:enabled="true" />
 
         <receiver android:name="com.scxh.android1502.receiver.systemreceiver.SmsBroadCastReceiver" >
             <intent-filter>
@@ -231,6 +239,11 @@
                 <action android:name="com.scxh.android1502.receiver_ACTION_SCXH" />
             </intent-filter>
         </receiver>
+       <!--  <receiver android:name="com.scxh.android1502.service.location.BootReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver> -->
     </application>
 
 </manifest>

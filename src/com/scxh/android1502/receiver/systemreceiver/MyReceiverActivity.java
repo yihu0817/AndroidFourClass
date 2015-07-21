@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.scxh.android1502.R;
+import com.scxh.android1502.service.location.NetworkStateService;
 import com.scxh.android1502.storage.file.browse.FileExplorerActivity;
 import com.scxh.android1502.util.Logs;
 
@@ -29,6 +30,12 @@ public class MyReceiverActivity extends Activity implements OnClickListener{
 		mSendDongtaiReceiverBtn = (Button) findViewById(R.id.receiver_send_dongtai_btn);
 		mSendDongtaiReceiverBtn.setOnClickListener(this);
 		
+	}
+	
+	public void onLoactionLisetingClick(View v){
+		Intent i = new Intent(this, NetworkStateService.class);
+		i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+		startService(i);
 	}
 	
 	@Override
@@ -86,6 +93,7 @@ public class MyReceiverActivity extends Activity implements OnClickListener{
 	};
 	
 	protected void onPause() {
+		super.onPause();
 		if(receiver != null)
 			unregisterReceiver(receiver);
 	};
