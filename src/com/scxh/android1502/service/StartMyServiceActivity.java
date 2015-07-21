@@ -21,8 +21,8 @@ import com.scxh.android1502.util.Logs;
  * 2.实现ServiceConnection,通过onServiceConnected方法获取 交互接口类对象
  * 3.解绑时 释放交互接口对象
  */
-public class StartMyServiceActivity extends Activity {
-	private Button mStartServiceBtn,mBindServiceBtn,mSetCountBtn,mGetCountBtn;
+public class StartMyServiceActivity extends Activity implements OnClickListener{
+	private Button mStartServiceBtn,mBindServiceBtn,mSetCountBtn,mGetCountBtn,mStopServiceBtn;
 	private EditText mSetCountEdit;
 	
 	private MyService.ICountService mICountService; //1.声明交互接口类
@@ -39,7 +39,6 @@ public class StartMyServiceActivity extends Activity {
 		@Override
 		public void onServiceConnected(ComponentName name, IBinder service) {
 			mICountService = (ICountService) service;
-			
 			Logs.v("onServiceDisconnected >>>>  IBinder  "+service);
 		}
 	};
@@ -47,52 +46,52 @@ public class StartMyServiceActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_myservice_layout);
-		mStartServiceBtn = (Button) findViewById(R.id.service_my_btn);
+		
+		mStartServiceBtn = (Button) findViewById(R.id.service_start_btn);
+		mStopServiceBtn = (Button) findViewById(R.id.service_stop_btn);
 		mBindServiceBtn = (Button) findViewById(R.id.service_bindservice_btn);
 		mSetCountBtn = (Button) findViewById(R.id.service_setcount_btn);
 		mGetCountBtn = (Button) findViewById(R.id.service_getcount_btn);
 		mSetCountEdit = (EditText) findViewById(R.id.service_count_edit);
 		
-		mStartServiceBtn.setOnClickListener(new OnClickListener() {
+		mStartServiceBtn.setOnClickListener(this);
+		mStopServiceBtn.setOnClickListener(this);
+		mBindServiceBtn.setOnClickListener(this);
+		mSetCountBtn.setOnClickListener(this);
+		mGetCountBtn.setOnClickListener(this);
+	}
+
+	@Override
+	public void onClick(View v) {
+		switch(v.getId()){
+		case R.id.service_start_btn:
+			Intent intent = new Intent(StartMyServiceActivity.this,MyService.class);
+			startService(intent);
+			break;
 			
-			@Override
-			public void onClick(View v) {
-				Intent intent = new Intent(StartMyServiceActivity.this,MyService.class);
-				startService(intent);
-			}
-		});
+		case R.id.service_stop_btn:
+			intent = new Intent(StartMyServiceActivity.this,MyService.class);
+			stopService(intent);
+			break;
+			
+		case R.id.service_bindservice_btn:
+			intent = new Intent(StartMyServiceActivity.this,MyService.class);
+			bindService(intent, mServiceConnection,BIND_AUTO_CREATE);
+			break;
+			
+		case R.id.service_setcount_btn:
+			String counts = mSetCountEdit.getText().toString();
+			int count = Integer.parseInt(counts);
+			mICountService.setCount(count);
+			break;
+			
+		case R.id.service_getcount_btn:
+			count = mICountService.getCount();
+			mICountService.stopQuitThread(false);
+			Toast.makeText(StartMyServiceActivity.this, ""+count, Toast.LENGTH_SHORT).show();
+			break;
+		}
 		
-		mBindServiceBtn.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				Intent intent = new Intent(StartMyServiceActivity.this,MyService.class);
-				bindService(intent, mServiceConnection,BIND_AUTO_CREATE);
-			}
-		});
-		
-		mSetCountBtn.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				String counts = mSetCountEdit.getText().toString();
-				int count = Integer.parseInt(counts);
-				mICountService.setCount(count);
-			}
-		});
-		
-		mGetCountBtn.setOnClickListener(new  OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				int count = mICountService.getCount();
-				
-				mICountService.stopQuitThread(false);
-				
-				Toast.makeText(StartMyServiceActivity.this, ""+count, Toast.LENGTH_SHORT).show();
-				
-			}
-		});
 	}
 	@Override
 	protected void onDestroy() {
@@ -100,5 +99,4 @@ public class StartMyServiceActivity extends Activity {
 		if(mServiceConnection != null)
 			unbindService(mServiceConnection);
 	}
-	
 }

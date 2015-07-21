@@ -19,6 +19,8 @@ import com.scxh.android1502.activity.OneActivity;
 import com.scxh.android1502.activity.StateActvity;
 import com.scxh.android1502.activity.launchmode.FirstActivity;
 import com.scxh.android1502.activity.parameter.A;
+import com.scxh.android1502.receiver.systemreceiver.MyReceiverActivity;
+import com.scxh.android1502.service.DownLoadActivity;
 import com.scxh.android1502.service.StartMyServiceActivity;
 import com.scxh.android1502.storage.db.DBSqliteActivity;
 import com.scxh.android1502.storage.file.MyFileActivity;
@@ -204,6 +206,8 @@ public class MainListActivity extends Activity implements OnItemClickListener {
 		createItem(list,"ContactcsProviderActivity",ContactcsProviderActivity.class);
 		createItem(list,"ScxhContentProviderActivity",ScxhContentProviderActivity.class);
 		createItem(list,"StartMyServiceActivity",StartMyServiceActivity.class);
+		createItem(list,"DownLoadActivity",DownLoadActivity.class);
+		createItem(list,"MyReceiverActivity",MyReceiverActivity.class);
 		
 		return list;
 	}

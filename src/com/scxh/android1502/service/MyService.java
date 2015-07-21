@@ -43,7 +43,6 @@ public class MyService extends Service {
 		@Override
 		public void stopQuitThread(boolean flag) {
 			mQuit = flag;
-			
 		}
 		
 	}

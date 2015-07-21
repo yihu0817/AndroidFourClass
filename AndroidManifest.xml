@@ -11,6 +11,10 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
 
     <application
         android:name="com.scxh.android1502.ScxhApplication"
@@ -200,6 +204,12 @@
         <activity
             android:name="com.scxh.android1502.service.StartMyServiceActivity"
             android:label="StartMyServiceActivity" />
+        <activity
+            android:name="com.scxh.android1502.service.DownLoadActivity"
+            android:label="DownLoadActivity" />
+        <activity
+            android:name="com.scxh.android1502.receiver.systemreceiver.MyReceiverActivity"
+            android:label="MyReceiverActivity" />
 
         <provider
             android:name="com.scxh.android1502.storage.provider.ScxhContentProvider"
@@ -210,6 +220,17 @@
 
         <service android:name="com.scxh.android1502.service.MyService" >
         </service>
+        <service android:name="com.scxh.android1502.service.DownLoadFileIntentService" >
+        </service>
+
+        <receiver android:name="com.scxh.android1502.receiver.systemreceiver.SmsBroadCastReceiver" >
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+                <action android:name="android.intent.action.PHONE_STATE" />
+                <action android:name="android.intent.action.NEW_OUTGOING_CALL" />
+                <action android:name="com.scxh.android1502.receiver_ACTION_SCXH" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
