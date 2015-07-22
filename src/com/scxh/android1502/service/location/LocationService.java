@@ -35,19 +35,27 @@ public class LocationService extends Service{
 	public void onCreate() {
 		super.onCreate();
 		Store store = new Store(); //体院
-		store.setLatitude(104.047644);
-		store.setLongitude(30.652735);
+		store.setLatitude(104.050447);
+		store.setLongitude(30.654226);
 		store.setStoreName("体院");
 		store.setStoreAddress("一环路西一段");
-		store.setDistance("3公里");
+		store.setDistance("0.01公里");
 		stores.add(store);
 		
 		store = new Store(); //住处
-		store.setLatitude(103.992093);
-		store.setLongitude(30.613707);
-		store.setStoreName("住处");
+		store.setLatitude(103.994249);
+		store.setLongitude(30.612277);
+		store.setStoreName("中海");
 		store.setStoreAddress("三环路西一段");
-		store.setDistance("3公里");
+		store.setDistance("7.1公里");
+		stores.add(store);
+		
+		store = new Store(); //住处
+		store.setLatitude(104.039596);
+		store.setLongitude(30.680133);
+		store.setStoreName("白果林");
+		store.setStoreAddress("一环路西一段");
+		store.setDistance("3.1公里");
 		stores.add(store);
 		
 		
@@ -106,6 +114,8 @@ public class LocationService extends Service{
 	private void checkDistance(Location location) {
 		if (location != null) {
 			float[] results = new float[1];
+			
+			Logs.v("坐标个数 :  "+stores.size());
 			for (Store store : stores) {
 				Location.distanceBetween(location.getLatitude(),
 						location.getLongitude(), store.getLatitude(),
@@ -115,20 +125,21 @@ public class LocationService extends Service{
 						location.getLongitude(), store.getLatitude(),
 						store.getLongitude());
 				
-				Logs.v("distances  "+distances);
-				Logs.v("location.getLatitude()  "+location.getLatitude() + "  location.getLongitude() "+location.getLongitude());
+				Logs.v("开始坐标  "+location.getLatitude() + ", "+location.getLongitude());
+				Logs.v("终点坐标  "+store.getLatitude() + ", "+store.getLongitude());
 				
-				Logs.v("checkDistance >>>>results[0] "+results[0]);
+				
+				Logs.v("距离2 :"+results[0]);
 				
 				float result=(results[0] / 1000);//km
 				
-				Logs.v("checkDistance >>>>result "+result + "  distance :"+distance);
+				Logs.v("距离2km :"+result + ", 距离1 :"+distances);
 				if (result < distance) {
 					
 					showNotification(store);
 					
-					stopSelf();//不要频繁的提醒
-					break;
+//					stopSelf();//不要频繁的提醒
+//					break;
 				}
 			}
 		}

@@ -17,7 +17,8 @@
     <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-	<uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.VIBRATE" />
+
     <application
         android:name="com.scxh.android1502.ScxhApplication"
         android:allowBackup="true"
@@ -136,7 +137,11 @@
             android:label="SimpleListActivity" />
         <activity
             android:name="com.scxh.android1502.ui.listview.MyBaseActivity"
-            android:label="MyBaseActivity" />
+            android:label="MyBaseActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.scxh.android1502.MainListActivity" />
+        </activity>
         <activity
             android:name="com.scxh.android1502.ui.gridview.GridViewActivity"
             android:label="GridViewActivity" />
@@ -196,7 +201,8 @@
             android:label="MyFileActivity" />
         <activity
             android:name="com.scxh.android1502.storage.file.browse.FileExplorerActivity"
-            android:label="FileExplorer" />
+            android:label="FileExplorer" 
+            android:excludeFromRecents="true"/>
         <activity
             android:name="com.scxh.android1502.storage.provider.ContactcsProviderActivity"
             android:label="ContactcsProviderActivity" />
@@ -212,6 +218,9 @@
         <activity
             android:name="com.scxh.android1502.receiver.systemreceiver.MyReceiverActivity"
             android:label="MyReceiverActivity" />
+        <activity
+            android:name="com.scxh.android1502.notification.MyNotificationActivity"
+            android:label="MyNotificationActivity" />
 
         <provider
             android:name="com.scxh.android1502.storage.provider.ScxhContentProvider"
@@ -239,11 +248,14 @@
                 <action android:name="com.scxh.android1502.receiver_ACTION_SCXH" />
             </intent-filter>
         </receiver>
-       <!--  <receiver android:name="com.scxh.android1502.service.location.BootReceiver" >
+        <!--
+        <receiver android:name="com.scxh.android1502.service.location.BootReceiver" >
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
-        </receiver> -->
+        </receiver>
+        -->
+     
     </application>
 
 </manifest>
