@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <Button
+        android:id="@+id/notification_send_msg_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="发送通知" />
+
+    <Button
+        android:id="@+id/notification_update_msg_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="更新通知" />
+
+    <Button
+        android:id="@+id/notification_cancel_msg_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="清除通知" />
+
+    <Button
+        android:id="@+id/notification_updateprogress_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="确定模式进度条通知" />
+    
+     <Button
+        android:id="@+id/notification_update_no_progress_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="不确定模式进度条通知" />
+     <Button
+        android:id="@+id/notification_my_remoteview_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="自定义通知" />
+     <Button
+        android:id="@+id/notification_bigstyle_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="BigStyle通知" />
+
+</LinearLayout>

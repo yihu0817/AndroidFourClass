@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <Button
+        android:id="@+id/service_start_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="StartService启动服务" />
+    
+     <Button
+        android:id="@+id/service_stop_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="StopService停止服务" />
+
+    <Button
+        android:id="@+id/service_bindservice_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="BindService启动服务" />
+
+    <EditText
+        android:id="@+id/service_count_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/service_setcount_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="设置计数器值" />
+
+    <Button
+        android:id="@+id/service_getcount_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="获取当前计数器值" />
+
+</LinearLayout>
