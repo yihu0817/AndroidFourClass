@@ -51,8 +51,7 @@ public class BaseMp3Activity extends Activity implements OnClickListener {
 	}
 
 	private void playerFileMp3() {
-		String musicRoot = Environment.getExternalStoragePublicDirectory(
-				Environment.DIRECTORY_MUSIC).getPath();
+		String musicRoot = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MUSIC).getPath();
 		String musicFile = "file://" + musicRoot + "/qianlvyouhun.mp3";
 
 		MediaPlayer mediaPlayer = new MediaPlayer();
@@ -68,8 +67,7 @@ public class BaseMp3Activity extends Activity implements OnClickListener {
 				@Override
 				public void onCompletion(MediaPlayer mp) {
 					// 音乐播放完成执行
-					Toast.makeText(BaseMp3Activity.this, "音乐播放结束",
-							Toast.LENGTH_SHORT).show();
+					Toast.makeText(BaseMp3Activity.this, "音乐播放结束",Toast.LENGTH_SHORT).show();
 				}
 			});
 
@@ -96,10 +94,9 @@ public class BaseMp3Activity extends Activity implements OnClickListener {
 	 * 隐式调用播放音乐
 	 */
 	private void playerIntentBaseMp3() {
-		String musicRoot = Environment.getExternalStoragePublicDirectory(
-				Environment.DIRECTORY_MUSIC).getPath();
+		String musicRoot = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MUSIC).getPath();
 		String musicFile = "file://" + musicRoot + "/qianlvyouhun.mp3";
-		Logs.v("musicFile :" + musicFile);
+
 		Uri musicUri = Uri.parse(musicFile);
 
 		Intent intent = new Intent(Intent.ACTION_VIEW);

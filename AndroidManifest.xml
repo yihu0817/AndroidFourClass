@@ -224,6 +224,9 @@
         <activity
             android:name="com.scxh.android1502.media.mp3.BaseMp3Activity"
             android:label="BaseMp3Activity" />
+        <activity
+            android:name="com.scxh.android1502.media.mp3.MusicPlayerActivity"
+            android:label="MusicPlayerActivity" />
 
         <provider
             android:name="com.scxh.android1502.storage.provider.ScxhContentProvider"

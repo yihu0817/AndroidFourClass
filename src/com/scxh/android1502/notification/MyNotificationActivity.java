@@ -57,13 +57,15 @@ public class MyNotificationActivity extends Activity implements OnClickListener 
 		case R.id.notification_send_msg_btn:
 			NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
 			builder.setSmallIcon(R.drawable.m4);
-			builder.setContentTitle("放假通知");
-			builder.setContentText("1条消息");
+			builder.setContentTitle("通知标题");
+			builder.setContentText("1条新消息");
 			builder.setTicker("收到1条新消息");
 			builder.setNumber(1);
-
+			builder.setDefaults(Notification.DEFAULT_ALL);// requires VIBRATE permission
+			builder.setWhen(System.currentTimeMillis());
+//			builder.setSound(uri);
+			
 			Intent intent = new Intent(this, MyBaseActivity.class);
-
 			TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
 			stackBuilder.addParentStack(MyBaseActivity.class);
 			// Adds the Intent to the top of the stack
