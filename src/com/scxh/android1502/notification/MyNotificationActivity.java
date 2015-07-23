@@ -55,8 +55,7 @@ public class MyNotificationActivity extends Activity implements OnClickListener 
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.notification_send_msg_btn:
-			NotificationCompat.Builder builder = new NotificationCompat.Builder(
-					this);
+			NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
 			builder.setSmallIcon(R.drawable.m4);
 			builder.setContentTitle("放假通知");
 			builder.setContentText("1条消息");
@@ -100,7 +99,7 @@ public class MyNotificationActivity extends Activity implements OnClickListener 
 
 			builder.setContentIntent(pendingIntent);
 
-			manger.notify(12, builder.build());
+			manger.notify(notificationId, builder.build());
 			break;
 		case R.id.notification_cancel_msg_btn:
 
@@ -183,8 +182,7 @@ public class MyNotificationActivity extends Activity implements OnClickListener 
 	public void createNotifcationStyle() {
 
 		Intent snoozeIntent = new Intent(this, RadioButtonActivity.class);
-		PendingIntent piSnooze = PendingIntent.getActivity(this, 0,
-				snoozeIntent, 0);
+		PendingIntent piSnooze = PendingIntent.getActivity(this, 0,snoozeIntent,  PendingIntent.FLAG_UPDATE_CURRENT);
 
 		// Constructs the Builder object.
 		NotificationCompat.Builder builder = new NotificationCompat.Builder(
@@ -196,8 +194,8 @@ public class MyNotificationActivity extends Activity implements OnClickListener 
 				// requires VIBRATE permission
 
 				.setStyle(
-						new NotificationCompat.BigTextStyle()
-								.bigText("构造big view"))
+						new NotificationCompat.BigTextStyle().bigText("构造big view"))
+						
 				.addAction(android.R.drawable.ic_input_get, "确定", piSnooze)
 				.addAction(android.R.drawable.ic_delete, "取消", piSnooze);
 		
@@ -209,8 +207,7 @@ public class MyNotificationActivity extends Activity implements OnClickListener 
 	 * 创建一个自定义Notification
 	 */
 	public void createCustomNotifiaction() {
-		NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(
-				this);
+		NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this);
 		mBuilder.setSmallIcon(R.drawable.m8);
 		mBuilder.setTicker("自定义通知，你有新消息");
 		mBuilder.setAutoCancel(true);

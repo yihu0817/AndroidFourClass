@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <Button
+        android:id="@+id/mp3_player_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="隐式调用播放音乐" />
+    <Button
+        android:id="@+id/mp3_player_raw_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="本地资源播放音乐" />
+     <Button
+        android:id="@+id/mp3_player_stream_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="本地资源1播放音乐" />
+
+</LinearLayout>

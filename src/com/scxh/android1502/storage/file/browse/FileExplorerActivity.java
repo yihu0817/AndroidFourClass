@@ -68,6 +68,16 @@ public class FileExplorerActivity extends ListActivity implements
 		if (filePath.isDirectory()) {
 			showFolderItem(filePath);
 		} else {
+			if(filePath.getAbsolutePath().endsWith(".mp3")){
+				String musicFile = "file://"+filePath.getAbsolutePath();
+				Uri musicUri = Uri.parse(musicFile);
+				
+				Intent intent = new Intent(Intent.ACTION_VIEW);
+				intent.setDataAndType(musicUri, "audio/mp3");
+				startActivity(intent);
+			}
+			
+			
 			Toast.makeText(this, filePath.getAbsolutePath(), Toast.LENGTH_SHORT)
 					.show();
 		}
