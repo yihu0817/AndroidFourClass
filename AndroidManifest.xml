@@ -226,7 +226,10 @@
             android:label="BaseMp3Activity" />
         <activity
             android:name="com.scxh.android1502.media.mp3.MusicPlayerActivity"
-            android:label="MusicPlayerActivity" />
+            android:label="音乐在线" />
+        <activity
+            android:name="com.scxh.android1502.media.mp3.MusicListActivity"
+            android:label="音乐播放器" />
 
         <provider
             android:name="com.scxh.android1502.storage.provider.ScxhContentProvider"
