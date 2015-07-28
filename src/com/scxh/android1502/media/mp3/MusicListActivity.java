@@ -142,7 +142,7 @@ public class MusicListActivity extends Activity implements OnItemClickListener {
 	public void onItemClick(AdapterView<?> parent, View view, int position,
 			long id) {
 		
-		Intent intent = new Intent(this,MusicPlayerActivity.class);
+		Intent intent = new Intent(this,UIMusicPlayerActivity.class);
 		intent.putParcelableArrayListExtra("MUSIC_LIST", mMusicBeanList);
 		intent.putExtra("CURRENT_POSTION", position);
 		startActivity(intent);

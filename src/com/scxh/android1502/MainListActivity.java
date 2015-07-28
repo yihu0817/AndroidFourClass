@@ -22,6 +22,7 @@ import com.scxh.android1502.activity.parameter.A;
 import com.scxh.android1502.media.mp3.BaseMp3Activity;
 import com.scxh.android1502.media.mp3.MusicListActivity;
 import com.scxh.android1502.media.mp3.UIMusicPlayerActivity;
+import com.scxh.android1502.media.mp3.mediastore.MusicPlayerList;
 import com.scxh.android1502.notification.MyNotificationActivity;
 import com.scxh.android1502.receiver.systemreceiver.MyReceiverActivity;
 import com.scxh.android1502.service.DownLoadActivity;
@@ -217,6 +218,7 @@ public class MainListActivity extends Activity implements OnItemClickListener {
 //		createItem(list,"MusicPlayerActivity",MusicPlayerActivity.class);
 		createItem(list,"音乐播放器_MusicListActivity",MusicListActivity.class);
 		createItem(list,"音乐播放器_UIMusicPlayerActivity",UIMusicPlayerActivity.class);
+		createItem(list,"音乐播放器_MusicPlayerList",MusicPlayerList.class);
 		
 		return list;
 	}

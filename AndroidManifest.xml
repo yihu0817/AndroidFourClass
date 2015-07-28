@@ -233,6 +233,9 @@
         <activity
             android:name="com.scxh.android1502.media.mp3.UIMusicPlayerActivity"
             android:label="音乐播放器服务" />
+        <activity
+            android:name="com.scxh.android1502.media.mp3.mediastore.MusicPlayerList"
+            android:label="音乐播放列表" />
 
         <provider
             android:name="com.scxh.android1502.storage.provider.ScxhContentProvider"
@@ -246,6 +249,8 @@
         <service android:name="com.scxh.android1502.media.mp3.MusicPlayerService" >
         </service>
         <service android:name="com.scxh.android1502.service.DownLoadFileIntentService" >
+        </service>
+        <service android:name="com.scxh.android1502.media.mp3.mediastore.MusicStorePlayerService" >
         </service>
         <service
             android:name="com.scxh.android1502.service.location.NetworkStateService"

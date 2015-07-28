@@ -1,6 +1,7 @@
 package com.scxh.android1502.media.mp3;
 
 import java.io.File;
+import java.util.ArrayList;
 
 import android.app.Activity;
 import android.content.ComponentName;
@@ -17,6 +18,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.scxh.android1502.R;
+import com.scxh.android1502.bean.MusicBean;
 import com.scxh.android1502.media.mp3.MusicPlayerService.IPlayerMusicServicer;
 
 public class UIMusicPlayerActivity extends Activity implements OnClickListener {
@@ -58,15 +60,18 @@ public class UIMusicPlayerActivity extends Activity implements OnClickListener {
 		mPrePlayerBtn.setOnClickListener(this);
 		mNextPlayerBtn.setOnClickListener(this);
 
-		File rootFile = Environment
-				.getExternalStoragePublicDirectory(Environment.DIRECTORY_MUSIC);
-		String musicPath = "file://" + rootFile.getPath() + "/qlyh.mp3";
+		//=========获取音乐播放列表资源=============
+		Intent intent = getIntent();
+		ArrayList<MusicBean> mMusicList = intent.getParcelableArrayListExtra("MUSIC_LIST");
+		int mCurrentPostion = intent.getIntExtra("CURRENT_POSTION", 0);
+		
 
-		Intent intent = new Intent(this, MusicPlayerService.class);
-		intent.putExtra("MUSIC_PATH", musicPath);
-
-		startService(intent);
-		bindService(intent, mServiceConnection, BIND_AUTO_CREATE);
+		Intent service = new Intent(this, MusicPlayerService.class);
+		service.putParcelableArrayListExtra("MUSIC_LIST", mMusicList);
+		service.putExtra("CURRENT_POSTION", mCurrentPostion);
+		
+		startService(service);
+		bindService(service, mServiceConnection, BIND_AUTO_CREATE);
 		mPlayerBtn.setImageResource(R.drawable.player_pause);
 
 		new Thread(new UpdateUIThread()).start();
@@ -132,12 +137,10 @@ public class UIMusicPlayerActivity extends Activity implements OnClickListener {
 							int maxSec = (maxPos / 1000) % 60;
 
 							if (maxSec < 10) {
-								mDurationTimeTxt
-										.setText(maxMin + ":0" + maxSec);
+								mDurationTimeTxt.setText(maxMin + ":0" + maxSec);
 							} else {
 								mDurationTimeTxt.setText(maxMin + ":" + maxSec);
 							}
-
 						}
 					});
 					try {
