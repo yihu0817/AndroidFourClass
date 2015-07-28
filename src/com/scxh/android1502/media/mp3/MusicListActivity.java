@@ -20,7 +20,6 @@ import android.widget.Toast;
 
 import com.scxh.android1502.R;
 import com.scxh.android1502.bean.MusicBean;
-import com.scxh.android1502.util.Logs;
 
 public class MusicListActivity extends Activity implements OnItemClickListener {
 	private ListView mListView;

@@ -21,7 +21,7 @@ import com.scxh.android1502.activity.launchmode.FirstActivity;
 import com.scxh.android1502.activity.parameter.A;
 import com.scxh.android1502.media.mp3.BaseMp3Activity;
 import com.scxh.android1502.media.mp3.MusicListActivity;
-import com.scxh.android1502.media.mp3.MusicPlayerActivity;
+import com.scxh.android1502.media.mp3.UIMusicPlayerActivity;
 import com.scxh.android1502.notification.MyNotificationActivity;
 import com.scxh.android1502.receiver.systemreceiver.MyReceiverActivity;
 import com.scxh.android1502.service.DownLoadActivity;
@@ -214,8 +214,9 @@ public class MainListActivity extends Activity implements OnItemClickListener {
 		createItem(list,"MyReceiverActivity",MyReceiverActivity.class);
 		createItem(list,"MyNotificationActivity",MyNotificationActivity.class);
 		createItem(list,"BaseMp3Activity",BaseMp3Activity.class);
-		createItem(list,"MusicPlayerActivity",MusicPlayerActivity.class);
-		createItem(list,"MusicListActivity",MusicListActivity.class);
+//		createItem(list,"MusicPlayerActivity",MusicPlayerActivity.class);
+		createItem(list,"音乐播放器_MusicListActivity",MusicListActivity.class);
+		createItem(list,"音乐播放器_UIMusicPlayerActivity",UIMusicPlayerActivity.class);
 		
 		return list;
 	}
