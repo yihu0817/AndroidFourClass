@@ -3,22 +3,34 @@ package com.scxh.android1502.media.mp3;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.app.Service;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.media.MediaPlayer;
 import android.os.Binder;
 import android.os.IBinder;
+import android.support.v4.app.NotificationCompat;
+import android.widget.RemoteViews;
 import android.widget.Toast;
 
+import com.scxh.android1502.R;
 import com.scxh.android1502.bean.MusicBean;
 import com.scxh.android1502.util.Logs;
 
 public class MusicPlayerService extends Service {
+	public static final String ACTION_PAUSE = "com.scxh.android.MUSIC_PAUSE";//音乐暂停广播
+	public static final String ACTION_PRE = "com.scxh.android.MUSIC_PRE";//上一首广播
+	public static final String ACTION_NEXT = "com.scxh.android.MUSIC_NEXT";//下一首广播
 	private MediaPlayer mMediaPlayer;
 
-	private ArrayList<MusicBean> mMusicList;
+	private ArrayList<MusicBean> mMusicList = null;
 	private int mCurrentPostion = -1;
-
+	public String mCurrentMusicName = "";
 	interface IPlayerMusicServicer {
 		public boolean iPlayerMusic();
 
@@ -77,17 +89,27 @@ public class MusicPlayerService extends Service {
 
 	@Override
 	public int onStartCommand(Intent intent, int flags, int startId) {
-		mMusicList = intent.getParcelableArrayListExtra("MUSIC_LIST");
-		mCurrentPostion = intent.getIntExtra("CURRENT_POSTION", 0);
+		
+		if(mMusicList == null){
+			mMusicList = intent.getParcelableArrayListExtra("MUSIC_LIST");
+			mCurrentPostion = intent.getIntExtra("CURRENT_POSTION", 0);
+		}
 		
 		MusicBean music = mMusicList.get(mCurrentPostion);
 		String musicFile = "file://"+music.getMusicPath();
 		String musicName = music.getMusicName();
-		
+		mCurrentMusicName = musicName;
 		initMusic(musicFile);
 
 		Logs.v("onStartCommand >>>>> musicPath  :" + musicFile);
 
+		IntentFilter filter = new IntentFilter();
+		filter.addAction(ACTION_PAUSE);
+		filter.addAction(ACTION_NEXT);
+		filter.addAction(ACTION_PRE);
+		registerReceiver(musicPlayerReceiver, filter);
+		
+		
 		return super.onStartCommand(intent, flags, startId);
 	}
 
@@ -115,6 +137,9 @@ public class MusicPlayerService extends Service {
 			mMediaPlayer.release();
 			mMediaPlayer = null;
 		}
+		
+		if(musicPlayerReceiver !=null)
+			unregisterReceiver(musicPlayerReceiver);
 	}
 
 	/**
@@ -152,13 +177,18 @@ public class MusicPlayerService extends Service {
 	 * 音乐播放或暂停
 	 */
 	private boolean playerMusic() {
+	
 		if (!mMediaPlayer.isPlaying()) {
 			mMediaPlayer.start();
+			notificationMusicPlayer();
 			return true;
 		} else {
 			mMediaPlayer.pause();
+			notificationMusicPlayer();
 			return false;
 		}
+		
+		
 
 	}
 
@@ -190,8 +220,69 @@ public class MusicPlayerService extends Service {
 		MusicBean music = mMusicList.get(mCurrentPostion);
 		String musicFile = "file://" + music.getMusicPath();
 		String musicName = music.getMusicName();
+		mCurrentMusicName = musicName;
 		mMediaPlayer.reset();
 		initMusic(musicFile);
 	}
 
+	private void notificationMusicPlayer(){
+		NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
+		builder.setSmallIcon(R.drawable.m8);
+		builder.setTicker("音乐播放开始");
+		
+		RemoteViews views = new RemoteViews(getPackageName(), R.layout.notification);
+		views.setTextViewText(R.id.title, mCurrentMusicName);
+		views.setTextViewText(R.id.text, "未知音乐家");
+		views.setImageViewResource(R.id.image, R.drawable.m3);
+		
+		if(!mMediaPlayer.isPlaying()){
+			views.setImageViewResource(R.id.iv_pause, R.drawable.widget4x1_play);
+		}else{
+			views.setImageViewResource(R.id.iv_pause, R.drawable.nc_pause);
+		}
+		Intent pauseIntent = new Intent(ACTION_PAUSE);
+		PendingIntent pausePendingIntent = PendingIntent.getBroadcast(this, 1, pauseIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+		views.setOnClickPendingIntent(R.id.iv_pause, pausePendingIntent);
+		
+		
+		builder.setContent(views);
+		
+		Intent intent = new Intent(this,UIMusicPlayerActivity.class);
+		PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+		builder.setContentIntent(pendingIntent);
+		
+		NotificationManager manger = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+		int id = 1000;
+		Notification notification = builder.build();
+		
+		manger.notify(id, notification);
+	
+	}
+	
+	/**
+	 * 定义广播接收者
+	 */
+	BroadcastReceiver musicPlayerReceiver = new BroadcastReceiver(){
+
+		@Override
+		public void onReceive(Context context, Intent intent) {
+			String action = intent.getAction();
+			if(action.equals(ACTION_PAUSE)){
+				
+				playerMusic();
+				
+			}else if(action.equals(ACTION_PRE)){
+
+				playerPreMusic();
+				
+			}else if(action.equals(ACTION_NEXT)){
+				
+				playerNextMusic();
+				
+			}
+		}
+		
+	};
+	
+	
 }

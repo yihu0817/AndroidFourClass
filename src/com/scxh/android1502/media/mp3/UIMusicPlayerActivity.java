@@ -27,6 +27,7 @@ public class UIMusicPlayerActivity extends Activity implements OnClickListener {
 	private TextView mCurrentTimeTxt, mDurationTimeTxt;
 	private boolean isQuit = true;
 
+	private ArrayList<MusicBean> mMusicBeanList = new ArrayList<MusicBean>();
 	private IPlayerMusicServicer mIPlayerMusicServicer;
 	private ServiceConnection mServiceConnection = new ServiceConnection() {
 
@@ -64,7 +65,6 @@ public class UIMusicPlayerActivity extends Activity implements OnClickListener {
 		Intent intent = getIntent();
 		ArrayList<MusicBean> mMusicList = intent.getParcelableArrayListExtra("MUSIC_LIST");
 		int mCurrentPostion = intent.getIntExtra("CURRENT_POSTION", 0);
-		
 
 		Intent service = new Intent(this, MusicPlayerService.class);
 		service.putParcelableArrayListExtra("MUSIC_LIST", mMusicList);
@@ -151,6 +151,30 @@ public class UIMusicPlayerActivity extends Activity implements OnClickListener {
 				}
 			}
 
+		}
+	}
+	
+	private void searchFile(File rootFile) {
+		File[] fileList = rootFile.listFiles();
+		if (fileList != null) {
+			for (File file : fileList) {
+				if (file.isDirectory()) {
+					searchFile(file);
+				} else {
+					if (file.getPath().endsWith(".mp3")) {
+						//构造音乐播放列表资源
+						MusicBean music = new MusicBean();
+						music.setMusicName(file.getName()); 
+						music.setMusicPath(file.getPath());
+						
+						String musicName = music.getMusicName();  // 音乐文件名.mp3
+						musicName = musicName.substring(0, musicName.length()-4); 
+						music.setMusicName(musicName);
+						
+						mMusicBeanList.add(music);
+					}
+				}
+			}
 		}
 	}
 

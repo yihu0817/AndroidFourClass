@@ -222,7 +222,7 @@ public class MyNotificationActivity extends Activity implements OnClickListener 
 		Intent intent = new Intent(this, RadioTabActivity.class);
 		PendingIntent pendingIntent = PendingIntent.getActivity(this, 01,intent, PendingIntent.FLAG_UPDATE_CURRENT);
 		view.setOnClickPendingIntent(R.id.player_notification, pendingIntent);
-
+		
 		Notification notification = mBuilder.build();
 		int notificationId = 29;
 

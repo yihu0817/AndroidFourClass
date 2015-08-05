@@ -18,6 +18,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name="com.scxh.android1502.ScxhApplication"
@@ -236,6 +237,18 @@
         <activity
             android:name="com.scxh.android1502.media.mp3.mediastore.MusicPlayerList"
             android:label="音乐播放列表" />
+        <activity
+            android:name="com.scxh.android1502.ui.webview.WedingActivity"
+            android:label="webview" />
+        <activity
+            android:name="com.scxh.android1502.asyctast.MyAsyactaskActivity"
+            android:label="MyAsyactaskActivity" />
+        <activity
+            android:name="com.scxh.android1502.ui.webview.WebViewCacheActivity"
+            android:label="MyAsyactaskActivity" />
+        <activity
+            android:name="com.scxh.android1502.http.HttpConnectActivity"
+            android:label="HttpConnectActivity" />
 
         <provider
             android:name="com.scxh.android1502.storage.provider.ScxhContentProvider"

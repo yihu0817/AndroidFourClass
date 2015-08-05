@@ -90,8 +90,8 @@ public class BaseMp3Activity extends Activity implements OnClickListener {
 		Toast.makeText(this, "音乐开始播放", Toast.LENGTH_SHORT).show();
 	}
 
-	/**
-	 * 隐式调用播放音乐
+	/** 
+	 * 隐式调用播放音乐c 
 	 */
 	private void playerIntentBaseMp3() {
 		String musicRoot = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MUSIC).getPath();
