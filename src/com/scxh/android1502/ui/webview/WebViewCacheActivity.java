@@ -7,6 +7,7 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.webkit.JsPromptResult;
 import android.webkit.JsResult;
 import android.webkit.WebChromeClient;
@@ -64,6 +65,7 @@ public class WebViewCacheActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_webviewcache_layout);
 
 		// url:http://m.dianhua.cn/detail/31ccb426119d3c9eaa794df686c58636121d38bc?apikey=jFaWGVHdFVhekZYWTBWV1ZHSkZOVlJWY&app=com.yulore.yellowsdk_ios&uid=355136051337627
@@ -176,16 +178,13 @@ public class WebViewCacheActivity extends Activity {
 
 		mWebView.getSettings().setJavaScriptEnabled(true);
 		mWebView.getSettings().setRenderPriority(RenderPriority.HIGH);
-		mWebView.getSettings().setCacheMode(WebSettings.LOAD_DEFAULT); // 设置
-																		// 缓存模式
+		mWebView.getSettings().setCacheMode(WebSettings.LOAD_DEFAULT); // 设置  缓存模式
 		// 开启 DOM storage API 功能
 		mWebView.getSettings().setDomStorageEnabled(true);
 		// 开启 database storage API 功能
 		mWebView.getSettings().setDatabaseEnabled(true);
-		String cacheDirPath = getFilesDir().getAbsolutePath()
-				+ APP_CACAHE_DIRNAME;
-		// String cacheDirPath =
-		// getCacheDir().getAbsolutePath()+Constant.APP_DB_DIRNAME;
+		String cacheDirPath = getFilesDir().getAbsolutePath()+ APP_CACAHE_DIRNAME;
+		// String cacheDirPath = getCacheDir().getAbsolutePath()+Constant.APP_DB_DIRNAME;
 		Log.i(TAG, "cacheDirPath=" + cacheDirPath);
 		// 设置数据库缓存路径
 		mWebView.getSettings().setDatabasePath(cacheDirPath);

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <EditText
+        android:id="@+id/http_url_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="请输入URL地址"
+        android:text="http://192.168.1.203/web1502/login_servlet" />
+    <!-- http://192.168.1.203/web1502/login_servlet
+    http://c.m.163.com/nc/article/headline/T1348647909107/0-20.html -->
+
+    <TextView
+        android:id="@+id/http_content_txt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/http_get_content_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onConnectionClickHandler"
+        android:text="Get连接网络" />
+
+    <Button
+        android:id="@+id/http_post_content_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onConnectionPostClickHandler"
+        android:text="Post连接网络" />
+
+</LinearLayout>

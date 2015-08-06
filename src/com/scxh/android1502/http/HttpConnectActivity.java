@@ -44,7 +44,7 @@ public class HttpConnectActivity extends Activity {
 			public void onClick(View v) {
 				String httpUrl ="http://192.168.1.203/web1502/login_servlet?userName='小明'&passWord='123456'";
 //				String httpUrl = "http://192.168.1.203/html/index.html";
-//				 String httpUrl = "http://www.baidu.com";
+//				String httpUrl = "http://www.baidu.com";
 
 				new AsyncTask<String, Void, String>() {
 
@@ -73,6 +73,7 @@ public class HttpConnectActivity extends Activity {
 	}
 
 	public String getContentByHttpClient(String httpUrl) {
+		InputStream ins = null;
 		try {
 			HttpClient httpClient = new DefaultHttpClient();
 			HttpGet httpGet = new HttpGet(httpUrl);
@@ -82,7 +83,7 @@ public class HttpConnectActivity extends Activity {
 			Logs.v("statusCode >>> :" + statusCode);
 			
 			if (statusCode == HttpURLConnection.HTTP_OK) {
-				InputStream ins = response.getEntity().getContent();
+				ins = response.getEntity().getContent();
 
 				BufferedReader br = new BufferedReader(new InputStreamReader(ins,"utf-8"));
 
@@ -91,7 +92,6 @@ public class HttpConnectActivity extends Activity {
 				while ((line = br.readLine()) != null) {
 					sb.append(line);
 				}
-
 				return sb.toString();
 			}
 		} catch (ClientProtocolException e) {
@@ -100,6 +100,14 @@ public class HttpConnectActivity extends Activity {
 			e.printStackTrace();
 		} catch (IllegalStateException e) {
 			e.printStackTrace();
+		}finally{
+			if(ins != null){
+				try {
+					ins.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
 		}
 		return null;
 	}

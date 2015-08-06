@@ -21,6 +21,7 @@ import com.scxh.android1502.activity.launchmode.FirstActivity;
 import com.scxh.android1502.activity.parameter.A;
 import com.scxh.android1502.asyctast.MyAsyactaskActivity;
 import com.scxh.android1502.http.HttpConnectActivity;
+import com.scxh.android1502.http.HttpExampleActivity;
 import com.scxh.android1502.media.mp3.BaseMp3Activity;
 import com.scxh.android1502.media.mp3.MusicListActivity;
 import com.scxh.android1502.media.mp3.mediastore.MusicPlayerList;
@@ -61,6 +62,7 @@ import com.scxh.android1502.ui.tab.RadioTabActivity;
 import com.scxh.android1502.ui.unit.UtilActivity;
 import com.scxh.android1502.ui.viewpager.ViewPagerActivity;
 import com.scxh.android1502.ui.webview.WebViewCacheActivity;
+import com.scxh.android1502.ui.webview.WedingActivity;
 
 public class MainListActivity extends Activity implements OnItemClickListener {
 	private ListView mListView;
@@ -221,9 +223,11 @@ public class MainListActivity extends Activity implements OnItemClickListener {
 		createItem(list,"音乐播放器_MusicListActivity",MusicListActivity.class);
 //		createItem(list,"音乐播放器_UIMusicPlayerActivity",UIMusicPlayerActivity.class);
 		createItem(list,"音乐播放器_MusicPlayerList",MusicPlayerList.class);
-		createItem(list,"WedingActivity",WebViewCacheActivity.class);
+		createItem(list,"WedingActivity",WedingActivity.class);
+		createItem(list,"WebViewCacheActivity",WebViewCacheActivity.class);
 		createItem(list,"MyAsyactaskActivity",MyAsyactaskActivity.class);
 		createItem(list,"HttpConnectActivity",HttpConnectActivity.class);
+		createItem(list,"HttpExampleActivity",HttpExampleActivity.class);
 		
 		return list;
 	}
