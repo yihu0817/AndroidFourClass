@@ -31,5 +31,12 @@
         android:layout_height="wrap_content"
         android:onClick="onConnectionPostClickHandler"
         android:text="Post连接网络" />
+    
+    
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onConnectionAsyncTackClickHandler"
+        android:text="封装连接网络" />
 
 </LinearLayout>
