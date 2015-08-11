@@ -21,13 +21,25 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <!-- 写外部sdcard权限 -->
     <!--<uses-permission android:name="android.permission.WRITE_MEDIA_STORAGE"/>-->
-
+    
+ 	<!-- Until TestRunner -->
+    <instrumentation
+        android:name="android.test.InstrumentationTestRunner"
+        android:targetPackage="com.scxh.android1502" />
+    <!-- Until TestRunner -->
+    
+    
     <application
         android:name="com.scxh.android1502.ScxhApplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+       
+        <!-- Until TestRunner   Test -->
+        <uses-library android:name="android.test.runner" />
+        <!-- Until TestRunner -->
+        
         <activity android:name="com.scxh.android1502.MainListActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -254,6 +266,9 @@
         <activity
             android:name="com.scxh.android1502.http.HttpExampleActivity"
             android:label="HttpExampleActivity" />
+        <activity
+            android:name="com.scxh.android1502.json.JsonBaseActivity"
+            android:label="JsonBaseActivity" />
 
         <provider
             android:name="com.scxh.android1502.storage.provider.ScxhContentProvider"
