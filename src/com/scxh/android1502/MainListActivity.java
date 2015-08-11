@@ -22,6 +22,7 @@ import com.scxh.android1502.activity.parameter.A;
 import com.scxh.android1502.asyctast.MyAsyactaskActivity;
 import com.scxh.android1502.http.HttpConnectActivity;
 import com.scxh.android1502.http.HttpExampleActivity;
+import com.scxh.android1502.http.image.HttpImageActivity;
 import com.scxh.android1502.json.JsonBaseActivity;
 import com.scxh.android1502.media.mp3.BaseMp3Activity;
 import com.scxh.android1502.media.mp3.MusicListActivity;
@@ -230,6 +231,7 @@ public class MainListActivity extends Activity implements OnItemClickListener {
 		createItem(list,"HttpConnectActivity",HttpConnectActivity.class);
 		createItem(list,"HttpExampleActivity",HttpExampleActivity.class);
 		createItem(list,"JsonBaseActivity",JsonBaseActivity.class);
+		createItem(list,"HttpImageActivity",HttpImageActivity.class);
 		
 		return list;
 	}

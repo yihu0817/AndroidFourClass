@@ -269,6 +269,9 @@
         <activity
             android:name="com.scxh.android1502.json.JsonBaseActivity"
             android:label="JsonBaseActivity" />
+        <activity
+            android:name="com.scxh.android1502.http.image.HttpImageActivity"
+            android:label="HttpImageActivity" />
 
         <provider
             android:name="com.scxh.android1502.storage.provider.ScxhContentProvider"
