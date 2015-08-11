@@ -1,6 +1,15 @@
 package com.scxh.android1502.json;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -8,74 +17,162 @@ import org.json.JSONObject;
 
 import android.test.AndroidTestCase;
 
-import com.scxh.android1502.http.ConnectionUtils;
-import com.scxh.android1502.http.ConnectionUtils.CallConnectionInterface;
+import com.alibaba.fastjson.JSON;
+import com.scxh.android1502.json.bean.MessageBean;
+import com.scxh.android1502.json.bean.User;
 import com.scxh.android1502.util.Logs;
 
-public class JSONTest extends AndroidTestCase {
+public class JsonTest extends AndroidTestCase {
+	public void _testJsonObjectToStr() {
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("userName", "张三");
+		map.put("passWord", "123456");
 
-	public void _test_myjson() throws JSONException {
+		JSONObject jsonObject = new JSONObject(map);
+
+		String jsonStr = jsonObject.toString();
+
+		Logs.v("jsonStr :" + jsonStr); // {userName:张三,passWord:123456}
+
+	}
+	
+	
+	public void testFastJsonObjectToStr(){
+		User user = new User();
+		user.setUserName("张三");
+		user.setPassWord("123456");
+		//{"userName":"张三","passWord":"123456"}
+		String jsonStr = JSON.toJSONString(user);
+		Logs.v(" >>>  :"+jsonStr);
+		
+		
+		User user1 = JSON.parseObject(jsonStr, User.class);
+
+		Logs.v("userName :"+user1.getUserName()+ " , passWord :"+user1.getPassWord());
+	}
+	
+
+	public void _testJsonObjectTwoToStr() {
 		JSONObject jsonObject = new JSONObject();
-		jsonObject.put("username", "李四");
-		jsonObject.put("password", "1234556");
-		jsonObject.put("sex", "男");
+		try {
+			jsonObject.put("userName", "李四");
+			jsonObject.put("passWord", "123456");
 
-		Logs.v("jsonStr :" + jsonObject.toString());
-	}
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
 
-	public void _test_Json() {
-		HashMap<String, String> parameters = new HashMap<String, String>();
-		parameters.put("username", "李四");
-		parameters.put("password", "abcd");
-		parameters.put("sex", "男");
+		String jsonStr = jsonObject.toString();
 
-		JSONObject jsonObject = new JSONObject(parameters);
-		String jsonStr = jsonObject.toString(); // {username:"李四",password:"abcd",sex:"男"}
-
-		Logs.v("jsonStr :" + jsonStr);
+		Logs.v("jsonStr>>> :" + jsonStr);
 
 	}
-
-	public void _test_myjsonarray() throws JSONException {
-
-		JSONObject jsonObject = new JSONObject();
-		jsonObject.put("username", "李四");
-		jsonObject.put("password", "1234556");
-		jsonObject.put("sex", "男");
-
-		JSONObject jsonObject1 = new JSONObject();
-		jsonObject1.put("username", "张三");
-
-		JSONArray jsonArray = new JSONArray();
-		jsonArray.put(0, jsonObject);
-		jsonArray.put(1, jsonObject1);
-
-		Logs.v("jsonStr :" + jsonArray.toString());
-
-	}
-
-	// 如何生成JsonObject
-	// 生成JSONArray
-
-	// 解析JsonObject
 
 	/**
-	 * 测试HttpConnectUtil网络工具类接收请求响应数据是否正常
+	 * 错误的Json格式:["{age=24, name=zhangsan}","{age=25, name=lisi}"]
 	 */
-	public void test_AndroidHttpClientGetClick() {
-		String httpUrls = "http://www.weather.com.cn/adat/sk/101010100.html";
-		Logs.v("test_AndroidHttpClientGetClick");
-		ConnectionUtils httpConnectUtil = new ConnectionUtils();
-		httpConnectUtil.asyncTaskConnection(httpUrls, null,
-				ConnectionUtils.Method.GET, new CallConnectionInterface() {
+	public void _testJsonArrayToStr() {
+		Map<String, Object> map1 = new HashMap<String, Object>();
+		map1.put("name", "zhangsan");
+		map1.put("age", 24);
 
-					@Override
-					public void executeResult(String result) {
-						Logs.v("executeResult >>> ");
-						
-						Logs.v("result :"+result);
+		Map<String, Object> map2 = new HashMap<String, Object>();
+		map2.put("name", "lisi");
+		map2.put("age", 25);
 
-					}
-				});
+		List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
+		list.add(map1);
+		list.add(map2);
+
+		JSONArray array = new JSONArray(list);
+		Logs.v(array.toString());
+
+	}
+
+	public void _testJsonArrayTwoToStr() throws JSONException {
+		
+		Logs.d("=========生成json数组字符串========================");
+		JSONObject j1 = new JSONObject();
+		j1.put("userName", "张三");
+		j1.put("passWord", "123456");
+		
+		JSONObject j2 = new JSONObject();
+		j2.put("userName", "李四");
+		j2.put("passWord", "abcd");
+		
+		
+		JSONArray array = new JSONArray();
+		array.put(0, j1);
+		array.put(1, j2);
+		Logs.v(array.toString());
+		
+		Logs.d("=========解析json数组========================");
+		for(int i = 0; i<array.length(); i++){
+			JSONObject jsonObject = array.getJSONObject(i);
+			String userName = jsonObject.getString("userName");
+			String passWord = jsonObject.getString("passWord");
+			Logs.v("userName :"+userName+", passWord :"+passWord);
+			
+		}
+
+	}
+	
+	
+	public void _testJsonStrToObject() throws IOException, JSONException{
+		InputStream is = getContext().getAssets().open("json_array");
+		String jsonStr = readIt(is);
+		
+		Logs.v("jsonStr >>> :"+jsonStr);
+		
+		ArrayList<MessageBean> list = new ArrayList<MessageBean>();
+		JSONArray jsonArray = new JSONArray(jsonStr);
+		int length = jsonArray.length();
+		for(int i = 0; i < length; i++){
+			JSONObject jsonObject = jsonArray.getJSONObject(i);
+			String title = jsonObject.getString("title");
+			String description = jsonObject.getString("description");
+			String image = jsonObject.getString("image");
+			
+			MessageBean message = new MessageBean();
+			message.setTitle(title);
+			message.setDescription(description);
+			message.setImage(image);
+			
+			list.add(message);
+		}
+		
+		for(MessageBean message:list){
+			Logs.v("title :"+message.getTitle()+ " \n description :"+message.getDescription()+ " \n"+message.getImage());
+		}
+		
+		
+		String str = JSON.toJSONString(list);
+		Logs.v("str >> :"+str);
+		
+	}
+	
+	/**
+	 * 将InputStream转换成String返回
+	 * 
+	 * @param stream
+	 * @return
+	 * @throws IOException
+	 * @throws UnsupportedEncodingException
+	 */
+	public String readIt(InputStream stream) throws IOException,
+			UnsupportedEncodingException {
+		Reader reader = new InputStreamReader(stream, "UTF-8");
+		// 创建包装流
+		BufferedReader br = new BufferedReader(reader);
+		// 定义String类型用于储存单行数据
+		String line = null;
+		// 创建StringBuffer对象用于存储所有数据
+		StringBuffer sb = new StringBuffer();
+		while ((line = br.readLine()) != null) {
+			sb.append(line);
+		}
+
+		return sb.toString();
+
 	}
 }

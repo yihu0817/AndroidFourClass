@@ -7,10 +7,14 @@ import android.test.AndroidTestCase;
 import com.alibaba.fastjson.JSON;
 import com.scxh.android1502.json.bean.CityBean;
 import com.scxh.android1502.json.bean.CityMessage;
+import com.scxh.android1502.json.bean.Group;
+import com.scxh.android1502.json.bean.UpdateDao;
+import com.scxh.android1502.json.bean.User;
+import com.scxh.android1502.json.bean.UserMessage;
 import com.scxh.android1502.util.Logs;
 import com.scxh.android1502.util.ReadAssetsFile;
 
-public class JsonUnit extends AndroidTestCase {
+public class FastJsonUnit extends AndroidTestCase {
 	@Override
 	protected void setUp() throws Exception {
 		super.setUp();

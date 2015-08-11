@@ -1,4 +1,4 @@
-package com.scxh.android1502.json;
+package com.scxh.android1502.json.bean;
 
 import java.io.Serializable;
 

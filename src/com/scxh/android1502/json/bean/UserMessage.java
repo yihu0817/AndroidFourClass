@@ -1,4 +1,5 @@
-package com.scxh.android1502.json;
+package com.scxh.android1502.json.bean;
+
 
 public class UserMessage {
 	private User user;
