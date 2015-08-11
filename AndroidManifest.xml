@@ -272,6 +272,12 @@
         <activity
             android:name="com.scxh.android1502.http.image.HttpImageActivity"
             android:label="HttpImageActivity" />
+        <activity
+            android:name="com.scxh.android1502.http.image.BitmapGridViewHttpAct"
+            android:label="BitmapGridViewHttpAct" />
+        <activity
+            android:name="com.scxh.android1502.http.image.HttpGridViewActivity"
+            android:label="HttpGridViewActivity" />
 
         <provider
             android:name="com.scxh.android1502.storage.provider.ScxhContentProvider"
