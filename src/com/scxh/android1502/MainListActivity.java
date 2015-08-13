@@ -20,12 +20,13 @@ import com.scxh.android1502.activity.StateActvity;
 import com.scxh.android1502.activity.launchmode.FirstActivity;
 import com.scxh.android1502.activity.parameter.A;
 import com.scxh.android1502.asyctast.MyAsyactaskActivity;
+import com.scxh.android1502.dataparse.xml.XmlParserPullActivity;
+import com.scxh.android1502.dataparsejson.JsonBaseActivity;
 import com.scxh.android1502.http.HttpConnectActivity;
 import com.scxh.android1502.http.HttpExampleActivity;
 import com.scxh.android1502.http.image.BitmapGridViewHttpAct;
 import com.scxh.android1502.http.image.HttpGridViewActivity;
 import com.scxh.android1502.http.image.HttpImageActivity;
-import com.scxh.android1502.json.JsonBaseActivity;
 import com.scxh.android1502.media.mp3.BaseMp3Activity;
 import com.scxh.android1502.media.mp3.MusicListActivity;
 import com.scxh.android1502.media.mp3.mediastore.MusicPlayerList;
@@ -236,6 +237,7 @@ public class MainListActivity extends Activity implements OnItemClickListener {
 		createItem(list,"HttpImageActivity",HttpImageActivity.class);
 		createItem(list,"BitmapGridViewHttpAct",BitmapGridViewHttpAct.class);
 		createItem(list,"HttpGridViewActivity",HttpGridViewActivity.class);
+		createItem(list,"XmlParserPullActivity",XmlParserPullActivity.class);
 		
 		return list;
 	}

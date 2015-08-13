@@ -1,4 +1,4 @@
-package com.scxh.android1502.json.bean;
+package com.scxh.android1502.dataparse.json.bean;
 
 public class MessageBean {
 	private String title;

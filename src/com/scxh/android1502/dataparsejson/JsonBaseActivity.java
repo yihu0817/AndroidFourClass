@@ -1,4 +1,4 @@
-package com.scxh.android1502.json;
+package com.scxh.android1502.dataparsejson;
 
 import org.json.JSONException;
 import org.json.JSONObject;

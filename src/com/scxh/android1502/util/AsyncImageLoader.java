@@ -14,7 +14,6 @@ public class AsyncImageLoader {
 	 * 图片缓存技术的核心类，用于缓存所有下载好的图片，在程序内存达到设定值时会将最少最近使用的图片移除掉。
 	 */
 	private LruCache<String, Bitmap> mMemoryCache;
-
 	public AsyncImageLoader() {
 		// 获取应用程序最大可用内存
 		int maxMemory = (int) Runtime.getRuntime().maxMemory();
@@ -26,6 +25,7 @@ public class AsyncImageLoader {
 				return bitmap.getByteCount();
 			}
 		};
+		
 	}
 	/**
 	 * 将一张图片存储到LruCache中。

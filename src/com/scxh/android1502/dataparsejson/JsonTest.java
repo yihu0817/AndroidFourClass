@@ -1,4 +1,4 @@
-package com.scxh.android1502.json;
+package com.scxh.android1502.dataparsejson;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -18,8 +18,12 @@ import org.json.JSONObject;
 import android.test.AndroidTestCase;
 
 import com.alibaba.fastjson.JSON;
-import com.scxh.android1502.json.bean.MessageBean;
-import com.scxh.android1502.json.bean.User;
+import com.google.gson.Gson;
+import com.scxh.android1502.dataparse.json.bean.MessageBean;
+import com.scxh.android1502.dataparse.json.bean.User;
+import com.scxh.android1502.dataparse.json.bean.arounds.Around;
+import com.scxh.android1502.dataparse.json.bean.arounds.AroundInfo;
+import com.scxh.android1502.dataparse.json.bean.arounds.AroundMerchantBean;
 import com.scxh.android1502.util.Logs;
 
 public class JsonTest extends AndroidTestCase {
@@ -35,22 +39,20 @@ public class JsonTest extends AndroidTestCase {
 		Logs.v("jsonStr :" + jsonStr); // {userName:张三,passWord:123456}
 
 	}
-	
-	
-	public void testFastJsonObjectToStr(){
+
+	public void testFastJsonObjectToStr() {
 		User user = new User();
 		user.setUserName("张三");
 		user.setPassWord("123456");
-		//{"userName":"张三","passWord":"123456"}
+		// {"userName":"张三","passWord":"123456"}
 		String jsonStr = JSON.toJSONString(user);
-		Logs.v(" >>>  :"+jsonStr);
-		
-		
+		Logs.v(" >>>  :" + jsonStr);
+
 		User user1 = JSON.parseObject(jsonStr, User.class);
 
-		Logs.v("userName :"+user1.getUserName()+ " , passWord :"+user1.getPassWord());
+		Logs.v("userName :" + user1.getUserName() + " , passWord :"
+				+ user1.getPassWord());
 	}
-	
 
 	public void _testJsonObjectTwoToStr() {
 		JSONObject jsonObject = new JSONObject();
@@ -90,67 +92,124 @@ public class JsonTest extends AndroidTestCase {
 	}
 
 	public void _testJsonArrayTwoToStr() throws JSONException {
-		
+
 		Logs.d("=========生成json数组字符串========================");
 		JSONObject j1 = new JSONObject();
 		j1.put("userName", "张三");
 		j1.put("passWord", "123456");
-		
+
 		JSONObject j2 = new JSONObject();
 		j2.put("userName", "李四");
 		j2.put("passWord", "abcd");
-		
-		
+
 		JSONArray array = new JSONArray();
 		array.put(0, j1);
 		array.put(1, j2);
 		Logs.v(array.toString());
-		
+
 		Logs.d("=========解析json数组========================");
-		for(int i = 0; i<array.length(); i++){
+		for (int i = 0; i < array.length(); i++) {
 			JSONObject jsonObject = array.getJSONObject(i);
 			String userName = jsonObject.getString("userName");
 			String passWord = jsonObject.getString("passWord");
-			Logs.v("userName :"+userName+", passWord :"+passWord);
-			
+			Logs.v("userName :" + userName + ", passWord :" + passWord);
+
 		}
 
 	}
-	
-	
-	public void _testJsonStrToObject() throws IOException, JSONException{
+
+	public void _testJsonStrToObject() throws IOException, JSONException {
 		InputStream is = getContext().getAssets().open("json_array");
 		String jsonStr = readIt(is);
-		
-		Logs.v("jsonStr >>> :"+jsonStr);
-		
+
+		Logs.v("jsonStr >>> :" + jsonStr);
+
 		ArrayList<MessageBean> list = new ArrayList<MessageBean>();
 		JSONArray jsonArray = new JSONArray(jsonStr);
 		int length = jsonArray.length();
-		for(int i = 0; i < length; i++){
+		for (int i = 0; i < length; i++) {
 			JSONObject jsonObject = jsonArray.getJSONObject(i);
 			String title = jsonObject.getString("title");
 			String description = jsonObject.getString("description");
 			String image = jsonObject.getString("image");
-			
+
 			MessageBean message = new MessageBean();
 			message.setTitle(title);
 			message.setDescription(description);
 			message.setImage(image);
-			
+
 			list.add(message);
 		}
-		
-		for(MessageBean message:list){
-			Logs.v("title :"+message.getTitle()+ " \n description :"+message.getDescription()+ " \n"+message.getImage());
+
+		for (MessageBean message : list) {
+			Logs.v("title :" + message.getTitle() + " \n description :"
+					+ message.getDescription() + " \n" + message.getImage());
 		}
-		
-		
+
 		String str = JSON.toJSONString(list);
-		Logs.v("str >> :"+str);
+		Logs.v("str >> :" + str);
+
+	}
+
+	public void _testAroundJson() throws IOException, JSONException {
+		InputStream is = getContext().getAssets().open("around");
+		String jsonStr = readIt(is);
+
+		Logs.v("jsonStr >>> :" + jsonStr);
+
+		JSONObject rootJsonObject = new JSONObject(jsonStr);
+		int resultCode = rootJsonObject.getInt("resultCode");
+		String resultInfo = rootJsonObject.getString("resultInfo");
+		JSONObject jsonObjectInfo = rootJsonObject.getJSONObject("info");
+		
+		JSONObject jsonObjectPagerInfo = jsonObjectInfo.getJSONObject("pageInfo");
+		String pageSize = jsonObjectPagerInfo.getString("pageSize");
+		
+		JSONArray jsonMerchantKeyArray = jsonObjectInfo.getJSONArray("merchantKey");
+		int length = jsonMerchantKeyArray.length();
+		for(int i = 0; i < length; i++){
+			JSONObject item = jsonMerchantKeyArray.getJSONObject(i);
+			String name = item.getString("name");
+			Logs.v("name :"+name);
+		}
 		
 	}
 	
+	public void _testGsonAround() throws IOException{
+		InputStream is = getContext().getAssets().open("around");
+		String jsonStr = readIt(is);
+
+		Logs.v("testGsonAround >>> :" + jsonStr);
+		
+		Gson gson = new Gson();
+		Around around = gson.fromJson(jsonStr, Around.class);
+		
+		AroundInfo info = around.getInfo();
+		List<AroundMerchantBean> list = info.getMerchantKey();
+		
+		for(AroundMerchantBean aroundBean : list){
+			Logs.v("name :"+aroundBean.getName()+ " ,Location :"+aroundBean.getLocation());
+		}
+	}
+	
+	
+	public void testFastJsonAround() throws IOException{
+		InputStream is = getContext().getAssets().open("around");
+		String jsonStr = readIt(is);
+
+		Logs.v("testFastJsonAround >>> :" + jsonStr);
+		
+		Around around = JSON.parseObject(jsonStr, Around.class);
+		
+		AroundInfo info = around.getInfo();
+		List<AroundMerchantBean> list = info.getMerchantKey();
+		
+		for(AroundMerchantBean aroundBean : list){
+			Logs.v("name :"+aroundBean.getName()+ " ,Location :"+aroundBean.getLocation());
+		}
+	}
+	
+
 	/**
 	 * 将InputStream转换成String返回
 	 * 

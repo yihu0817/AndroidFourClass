@@ -1,4 +1,4 @@
-package com.scxh.android1502.json.bean;
+package com.scxh.android1502.dataparse.json.bean;
 
 
 //  {user:{"id":100,"userName":"admin","password":"123456","email":"admin@xinhua.com"},"message":"你好json"}
