@@ -22,6 +22,17 @@ import com.scxh.android1502.activity.parameter.A;
 import com.scxh.android1502.asyctast.MyAsyactaskActivity;
 import com.scxh.android1502.dataparse.xml.XmlParserPullActivity;
 import com.scxh.android1502.dataparsejson.JsonBaseActivity;
+import com.scxh.android1502.fragment.ContainerFragmentActivity;
+import com.scxh.android1502.fragment.MainSearchActivity;
+import com.scxh.android1502.fragment.communicate.one.MainFragementsActivity;
+import com.scxh.android1502.fragment.communicate.two.FragementSendActivity;
+import com.scxh.android1502.fragment.imageloading.ImageDetailActivity;
+import com.scxh.android1502.fragment.imageloading.ImageLoaderActivity;
+import com.scxh.android1502.fragment.stack.FragmentStack;
+import com.scxh.android1502.fragment.tab.FragmentTabHostActivity;
+import com.scxh.android1502.fragment.tab.TabFragmentHideShowActivity;
+import com.scxh.android1502.fragment.tab.TabFragmentReplaceActivity;
+import com.scxh.android1502.fragment.viewpager.ViewPagerFragmentActivity;
 import com.scxh.android1502.http.HttpConnectActivity;
 import com.scxh.android1502.http.HttpExampleActivity;
 import com.scxh.android1502.http.image.BitmapGridViewHttpAct;
@@ -238,6 +249,17 @@ public class MainListActivity extends Activity implements OnItemClickListener {
 		createItem(list,"BitmapGridViewHttpAct",BitmapGridViewHttpAct.class);
 		createItem(list,"HttpGridViewActivity",HttpGridViewActivity.class);
 		createItem(list,"XmlParserPullActivity",XmlParserPullActivity.class);
+		createItem(list,"MainSearchActivity",MainSearchActivity.class);
+		createItem(list,"MainFragementsActivity",MainFragementsActivity.class);
+		createItem(list,"FragementSendActivity",FragementSendActivity.class);
+		createItem(list,"FragmentStack",FragmentStack.class);
+		createItem(list,"FragmentTabHostActivity",FragmentTabHostActivity.class);
+		createItem(list,"TabFragmentReplaceActivity",TabFragmentReplaceActivity.class);
+		createItem(list,"TabFragmentHideShowActivity",TabFragmentHideShowActivity.class);
+		createItem(list,"Fragment子类与栈",ContainerFragmentActivity.class);
+		createItem(list,"ImageDetailActivity",ImageDetailActivity.class);
+		createItem(list,"ViewPagerFragmentActivity",ViewPagerFragmentActivity.class);
+		createItem(list,"ImageLoaderActivity",ImageLoaderActivity.class);
 		
 		return list;
 	}

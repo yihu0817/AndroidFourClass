@@ -22,6 +22,7 @@ public class FragmentSetting extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
+		Logs.i(" FragmentSetting onCreateView >>>>");
 		return inflater.inflate(R.layout.fragment_setting, container, false);
 	}
 
@@ -35,54 +36,55 @@ public class FragmentSetting extends Fragment {
 		ArrayAdapter<CharSequence> adapter = new ArrayAdapter<CharSequence>(getActivity(), android.R.layout.simple_list_item_1, array);
 		mListView.setAdapter(adapter);
 		
+		Logs.i(" FragmentSetting onActivityCreated >>>>");
 	}
 	
 
 	@Override
 	public void onAttach(Activity activity) {
 		super.onAttach(activity);
-		Logs.i("onAttach >>>>");
+		Logs.i(" FragmentSetting onAttach >>>>");
 	}
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		Logs.d("onCreate >>>>");
+		Logs.d("FragmentSetting onCreate >>>>");
 	}
 	
 	@Override
 	public void onStart() {
-		Logs.e("onStart >>>>");
+		Logs.e("FragmentSetting onStart >>>>");
 		super.onStart();
 	}
 	@Override
 	public void onResume() {
-		Logs.i("onResume >>>>");
+		Logs.i("FragmentSetting onResume >>>>");
 		super.onResume();
 	}
 	@Override
 	public void onPause() {
-		Logs.v("onPause >>>>");
+		Logs.v("FragmentSetting onPause >>>>");
 		super.onPause();
 	}
 	@Override
 	public void onStop() {
-		Logs.d("onStop >>>>");
+		Logs.d("FragmentSetting onStop >>>>");
 		super.onStop();
 	}
 	@Override
 	public void onDestroyView() {
-		Logs.w("onDestroyView >>>>");
+		Logs.w("FragmentSetting onDestroyView >>>>");
 		super.onDestroyView();
 	}
 	@Override
 	public void onDestroy() {
-		Logs.e("onDestroy >>>>");
+		Logs.e("FragmentSetting onDestroy >>>>");
 		super.onDestroy();
 	}
 	@Override
 	public void onDetach() {
-		Logs.i("onDetach >>>>");
+		Logs.i("FragmentSetting onDetach >>>>");
 		super.onDetach();
 	}
 }

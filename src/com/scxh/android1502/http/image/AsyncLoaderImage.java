@@ -84,7 +84,7 @@ public class AsyncLoaderImage {
 	}
 	
 	public void loadBitmap(Resources res,String imageUrl, ImageView imageView) {
-		loadBitmap(res,imageUrl,imageView, R.drawable.m1);
+		loadBitmap(res,imageUrl,imageView, R.drawable.gridview_icon);
 	}
 	
 	public void loadBitmap(Resources res,String imageUrl, ImageView imageView, int resId) {
@@ -118,7 +118,7 @@ public class AsyncLoaderImage {
 		final BitmapWorkerTask bitmapWorkerTask = getBitmapWorkerTask(imageView);
 
 		if (bitmapWorkerTask != null) {
-			final String bitmapData = bitmapWorkerTask.data;
+			final String bitmapData = bitmapWorkerTask.imageUrl;
 			if (!bitmapData.equals(imageUrl)) {
 				// Cancel previous task
 				bitmapWorkerTask.cancel(true);
@@ -164,7 +164,7 @@ public class AsyncLoaderImage {
 
 	class BitmapWorkerTask extends AsyncTask<String, Void, Bitmap> {
 		private final WeakReference<ImageView> imageViewReference;
-		private String data = "";
+		private String imageUrl = "";
 
 		public BitmapWorkerTask(ImageView imageView) {
 			// Use a WeakReference to ensure the ImageView can be garbage
@@ -175,8 +175,8 @@ public class AsyncLoaderImage {
 		// Decode image in background.
 		@Override
 		protected Bitmap doInBackground(String... params) {
-			data = params[0];
-			return getBitmapByHttp(data);
+			imageUrl = params[0];
+			return downLoadBitmap(imageUrl);
 		}
 
 		// Once complete, see if ImageView is still around and set bitmap.
@@ -193,12 +193,12 @@ public class AsyncLoaderImage {
 				if (this == bitmapWorkerTask && imageView != null) {
 					imageView.setImageBitmap(bitmap);
 					
-					addBitmapToMemoryCache(data, bitmap);//保存图片到内存缓存
+					addBitmapToMemoryCache(imageUrl, bitmap);//保存图片到内存缓存
 				}
 			}
 		}
 	}
-	public Bitmap getBitmapByHttp(String httpUrl) {
+	public Bitmap downLoadBitmap(String httpUrl) {
 		InputStream ins = null;
 		try {
 			URL url = new URL(httpUrl);

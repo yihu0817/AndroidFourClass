@@ -31,6 +31,7 @@ import android.os.Environment;
 import android.util.LruCache;
 import android.widget.ImageView;
 
+import com.scxh.android1502.R;
 import com.scxh.android1502.util.Logs;
 import com.scxh.android1502.util.imageloader.DiskLruCache.Editor;
 import com.scxh.android1502.util.imageloader.DiskLruCache.Snapshot;
@@ -54,7 +55,7 @@ public class AsyncMemoryFileCacheImageLoader {
 	private DiskLruCache mDiskLruCache = null;
 	
 	private Executor mExec = null;
-
+	
 	private static AsyncMemoryFileCacheImageLoader mAsycnHttpImageView = null;
 
 	public static AsyncMemoryFileCacheImageLoader getInstanceAsycnHttpImageView(Context context) {
@@ -102,7 +103,7 @@ public class AsyncMemoryFileCacheImageLoader {
 	 */
 	public void loadBitmap(Resources res, String imageUrl, ImageView imageView,
 			int resId, int width, int height) {
-
+		
 		Bitmap bitmap = getBitmapFromMemoryCache(imageUrl);
 		if (bitmap != null) {
 			Logs.v("从内存取图片 " + imageUrl);
@@ -125,8 +126,36 @@ public class AsyncMemoryFileCacheImageLoader {
 		}
 
 	}
+	/**
+	 * 
+	 * @param res   R.drawable.transparent
+	 * @param imageUrl
+	 * @param imageView
+	 * widht height 默认为 0
+	 */
+	public void loadBitmap(Resources res, String imageUrl, ImageView imageView) {
+		Bitmap bitmap = getBitmapFromMemoryCache(imageUrl);
+		if (bitmap != null) {
+			Logs.v("从内存取图片 " + imageUrl);
+			imageView.setImageBitmap(bitmap);
+			return;
+		}
 
-	
+		if (cancelPotentialWork(imageUrl, imageView)) {
+			BitmapWorkerTask task = new BitmapWorkerTask(imageView);
+
+			AsyncDrawable asyncDrawable = new AsyncDrawable(res,BitmapFactory.decodeResource(res, R.drawable.transparent), task);
+			imageView.setImageDrawable(asyncDrawable);
+
+			if (mExec == null) {
+				task.execute(imageUrl, String.valueOf(0),String.valueOf(0));
+			} else {
+				task.executeOnExecutor(mExec, imageUrl, String.valueOf(0),String.valueOf(0));
+			}
+
+		}
+
+	}
 	
 	/**
 	 * 将一张图片存储到LruCache中。
@@ -226,7 +255,8 @@ public class AsyncMemoryFileCacheImageLoader {
 			// collected
 			imageViewReference = new WeakReference<ImageView>(imageView);
 		}
-
+		
+		
 		// Decode image in background.
 		@Override
 		protected Bitmap doInBackground(String... params) {
@@ -291,6 +321,7 @@ public class AsyncMemoryFileCacheImageLoader {
 		// Once complete, see if ImageView is still around and set bitmap.
 		@Override
 		protected void onPostExecute(Bitmap bitmap) {
+			
 			if (isCancelled()) {
 				bitmap = null;
 			}

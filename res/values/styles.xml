@@ -25,4 +25,34 @@
         <item name="android:textSize">18.0sp</item>
         <item name="android:textColor">?android:textColorPrimary</item>
     </style>
+    
+     <style name="main_tab_bottom">
+        <item name="android:textSize">@dimen/bottom_tab_font_size</item>
+        <item name="android:gravity">center_horizontal|bottom</item>
+        <item name="android:paddingTop">@dimen/bottom_tab_padding_up</item>
+        <item name="android:background">@drawable/home_btn_bg</item>
+        <item name="android:paddingBottom">2.0dip</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:button">@null</item>
+        <item name="android:drawablePadding">@dimen/bottom_tab_padding_drawable</item>
+        <item name="android:layout_weight">1.0</item>
+    </style>
+
+    <style name="view_pager_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_alignParentTop">true</item>
+        <item name="android:layout_marginTop">35dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@android:color/holo_red_light</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="view_pager1_style" parent="view_pager_style">
+        <item name="android:textColor">@android:color/holo_green_light</item>
+        <item name="android:textSize">28sp</item>
+        <item name="android:textStyle">italic</item>
+    </style>
+    
 </resources>

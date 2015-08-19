@@ -10,10 +10,19 @@ import android.os.Message;
 import android.util.LruCache;
 
 public class AsyncImageLoader {
+	private static AsyncImageLoader mAsyncImageLoader;
 	/**
 	 * 图片缓存技术的核心类，用于缓存所有下载好的图片，在程序内存达到设定值时会将最少最近使用的图片移除掉。
 	 */
 	private LruCache<String, Bitmap> mMemoryCache;
+	
+	public static AsyncImageLoader getInstace(){
+		if(mAsyncImageLoader == null){
+			mAsyncImageLoader = new AsyncImageLoader();
+		}
+		return mAsyncImageLoader;
+	}
+	
 	public AsyncImageLoader() {
 		// 获取应用程序最大可用内存
 		int maxMemory = (int) Runtime.getRuntime().maxMemory();
@@ -53,7 +62,6 @@ public class AsyncImageLoader {
 	}
 	
 	public Bitmap loadBitmap(final String imageUrl,final ImageCallbackForBitmap callback) {
-		Logs.v("loadBitmap "+imageUrl);
 		if (imageUrl == null) {
 			return null;
 		}

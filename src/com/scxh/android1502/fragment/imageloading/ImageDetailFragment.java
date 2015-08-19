@@ -1,7 +1,5 @@
 package com.scxh.android1502.fragment.imageloading;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -13,6 +11,7 @@ import android.widget.ProgressBar;
 
 import com.scxh.android1502.R;
 import com.scxh.android1502.util.AsyncImageLoader;
+import com.scxh.android1502.util.Logs;
 import com.scxh.android1502.util.AsyncImageLoader.ImageCallbackForBitmap;
 
 public class ImageDetailFragment extends Fragment {
@@ -20,8 +19,7 @@ public class ImageDetailFragment extends Fragment {
 	private String mImageUrl;
 	private ImageView mImageView;
 	private ProgressBar mProgressBar;
-	private final int mShortAnimationDuration = 1000;
-
+	private AsyncImageLoader asyncImageLoader;
 	public static ImageDetailFragment newInstance(String imageUrl) {
 		final ImageDetailFragment f = new ImageDetailFragment();
 
@@ -35,8 +33,8 @@ public class ImageDetailFragment extends Fragment {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		mImageUrl = getArguments() != null ? getArguments().getString(
-				IMAGE_DATA_EXTRA) : null;
+		mImageUrl = getArguments() != null ? getArguments().getString(IMAGE_DATA_EXTRA) : null;
+		asyncImageLoader = AsyncImageLoader.getInstace();
 	}
 
 	@Override
@@ -48,13 +46,10 @@ public class ImageDetailFragment extends Fragment {
 		mProgressBar = (ProgressBar) v.findViewById(R.id.progressBarone);
 		return v;
 	}
-
+ 
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
-		AsyncImageLoader asyncImageLoader = new AsyncImageLoader();
-		
-//		setAinimation();
 		
 		mProgressBar.setVisibility(View.VISIBLE);
 		Bitmap bitmap = asyncImageLoader.loadBitmap(mImageUrl,
@@ -71,21 +66,7 @@ public class ImageDetailFragment extends Fragment {
 			mProgressBar.setVisibility(View.GONE);
 		}
 	}
-	/**
-	 * 设置动画效果
-	 */
-	public void setAinimation() {
-		mImageView.animate().alpha(1f).setDuration(mShortAnimationDuration)
-				.setListener(null);
 
-		mProgressBar.animate().alpha(0f).setDuration(mShortAnimationDuration)
-				.setListener(new AnimatorListenerAdapter() {
-					@Override
-					public void onAnimationEnd(Animator animation) {
-						mProgressBar.setVisibility(View.GONE);
-					}
-				});
-	}
 
 	@Override
 	public void onDestroy() {
