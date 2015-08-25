@@ -12,9 +12,9 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.scxh.android1502.R;
-import com.scxh.android1502.http.ConnectionUtils;
-import com.scxh.android1502.http.ConnectionUtils.CallConnectionInterface;
-import com.scxh.android1502.http.ConnectionUtils.Method;
+import com.scxh.android1502.util.ConnectionUtils;
+import com.scxh.android1502.util.ConnectionUtils.CallConnectionInterface;
+import com.scxh.android1502.util.ConnectionUtils.Method;
 import com.scxh.android1502.util.Logs;
 
 public class JsonBaseActivity extends Activity implements OnClickListener {

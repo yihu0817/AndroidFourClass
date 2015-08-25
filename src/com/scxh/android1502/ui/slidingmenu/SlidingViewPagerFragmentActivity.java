@@ -1,10 +1,9 @@
-package com.scxh.android1502.fragment.viewpager;
+package com.scxh.android1502.ui.slidingmenu;
 
 import java.util.ArrayList;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -19,16 +18,18 @@ import com.scxh.android1502.fragment.tab.FragmentMain;
 import com.scxh.android1502.fragment.tab.FragmentSearch;
 import com.scxh.android1502.fragment.tab.FragmentSetting;
 import com.scxh.android1502.util.Logs;
+import com.warmtel.slidingmenu.lib.SlidingMenu;
+import com.warmtel.slidingmenu.lib.app.SlidingFragmentActivity;
 
-public class ViewPagerFragmentActivity extends FragmentActivity implements OnClickListener{
+public class SlidingViewPagerFragmentActivity extends SlidingFragmentActivity implements OnClickListener{
 	private ViewPager mViewPager;
 	private TextView mTabMainTxt, mTabSearchTxt,mTabSettingTxt;
 	
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
-		setContentView(R.layout.activity_viewpager_fragment_layout);
+		setContentView(R.layout.slidingmenu_viewpager_fragment_layout);
 		mViewPager = (ViewPager) findViewById(R.id.fragment_viewpager);
 		mTabMainTxt = (TextView) findViewById(R.id.tab_main);
 		mTabSearchTxt = (TextView) findViewById(R.id.tab_search);
@@ -87,6 +88,19 @@ public class ViewPagerFragmentActivity extends FragmentActivity implements OnCli
 				
 			}
 		});
+		
+		
+		setBehindContentView(R.layout.slidingmenu_item_layout);
+		getSupportFragmentManager().beginTransaction().add(
+				R.id.slidingmenu_item_layout, MenuFragment.newInstance()).commit();
+		
+		SlidingMenu sm = getSlidingMenu();
+		sm.setSlidingEnabled(true);
+		sm.setTouchModeAbove(SlidingMenu.TOUCHMODE_MARGIN);
+		sm.setShadowWidthRes(R.dimen.shadow_width);
+		sm.setBehindOffsetRes(R.dimen.slidingmenu_offset);
+		sm.setBehindScrollScale(0);
+		sm.setFadeDegree(0.25f);
 		
 	}
 	

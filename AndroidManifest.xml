@@ -314,6 +314,24 @@
         <activity
             android:name="com.scxh.android1502.fragment.imageloading.ImageLoaderActivity"
             android:label="ImageLoaderActivity" />
+        <activity
+            android:name="com.scxh.android1502.refrenceproject.SliderActivity"
+            android:label="SliderActivity" />
+        <activity
+            android:name="com.scxh.android1502.ui.listview.pager.PagerActivity"
+            android:label="PagerActivity" />
+        <activity
+            android:name="com.scxh.android1502.ui.slidingmenu.SlidingMenuDemoActivity"
+            android:label="SlidingMenuDemoActivity" />
+        <activity
+            android:name="com.scxh.android1502.ui.slidingmenu.SlidingViewPagerFragmentActivity"
+            android:label="SlidingViewPagerFragmentActivity" />
+        <activity
+            android:name="com.scxh.android1502.ui.listview.MyBaseTypeActivity"
+            android:label="MyBaseTypeActivity" />
+        <activity
+            android:name="com.scxh.android1502.animation.Animation1Activity"
+            android:label="Animation1Activity" />
 
         <provider
             android:name="com.scxh.android1502.storage.provider.ScxhContentProvider"

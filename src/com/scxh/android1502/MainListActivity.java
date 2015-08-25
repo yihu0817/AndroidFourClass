@@ -19,6 +19,7 @@ import com.scxh.android1502.activity.OneActivity;
 import com.scxh.android1502.activity.StateActvity;
 import com.scxh.android1502.activity.launchmode.FirstActivity;
 import com.scxh.android1502.activity.parameter.A;
+import com.scxh.android1502.animation.Animation1Activity;
 import com.scxh.android1502.asyctast.MyAsyactaskActivity;
 import com.scxh.android1502.dataparse.xml.XmlParserPullActivity;
 import com.scxh.android1502.dataparsejson.JsonBaseActivity;
@@ -64,7 +65,9 @@ import com.scxh.android1502.ui.gridview.GridViewActivity;
 import com.scxh.android1502.ui.layout.CodeLayoutAcitivity;
 import com.scxh.android1502.ui.listview.ArrayListsActivity;
 import com.scxh.android1502.ui.listview.MyBaseActivity;
+import com.scxh.android1502.ui.listview.MyBaseTypeActivity;
 import com.scxh.android1502.ui.listview.SimpleListActivity;
+import com.scxh.android1502.ui.listview.pager.PagerActivity;
 import com.scxh.android1502.ui.menu.MainMenuActivity;
 import com.scxh.android1502.ui.png9.Png9Activity;
 import com.scxh.android1502.ui.popupwindow.PopupWindowActivity;
@@ -72,6 +75,8 @@ import com.scxh.android1502.ui.progressbar_seekbar.ProgressBarActivity;
 import com.scxh.android1502.ui.progressbar_seekbar.ProgressBarListViewActivity;
 import com.scxh.android1502.ui.progressbar_seekbar.SeekBarActivity;
 import com.scxh.android1502.ui.shape.ShapeActivity;
+import com.scxh.android1502.ui.slidingmenu.SlidingMenuDemoActivity;
+import com.scxh.android1502.ui.slidingmenu.SlidingViewPagerFragmentActivity;
 import com.scxh.android1502.ui.spinners.SpinnersActivity;
 import com.scxh.android1502.ui.tab.MyTabActivity;
 import com.scxh.android1502.ui.tab.RadioTabActivity;
@@ -260,6 +265,11 @@ public class MainListActivity extends Activity implements OnItemClickListener {
 		createItem(list,"ImageDetailActivity",ImageDetailActivity.class);
 		createItem(list,"ViewPagerFragmentActivity",ViewPagerFragmentActivity.class);
 		createItem(list,"ImageLoaderActivity",ImageLoaderActivity.class);
+		createItem(list,"PagerActivity",PagerActivity.class);
+		createItem(list,"SlidingMenuDemoActivity",SlidingMenuDemoActivity.class);
+		createItem(list,"SlidingViewPagerFragmentActivity",SlidingViewPagerFragmentActivity.class);
+		createItem(list,"MyBaseTypeActivity",MyBaseTypeActivity.class);
+		createItem(list,"Animation1Activity",Animation1Activity.class);
 		
 		return list;
 	}
@@ -280,5 +290,7 @@ public class MainListActivity extends Activity implements OnItemClickListener {
 				.getItem(position);
 		Intent intent = (Intent) item.get("intent");
 		startActivity(intent);
+		
+		 overridePendingTransition(R.anim.zoom_enter, R.anim.zoom_exit);
 	}
 }

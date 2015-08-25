@@ -63,6 +63,11 @@ public class ConnectionUtils {
 			protected String doInBackground(Void... params) {
 				String result = "";
 				try {
+//					try {
+//						Thread.sleep(2000); //网速太快了加一个效果
+//					} catch (InterruptedException e) {
+//						e.printStackTrace();
+//					}
 					result = getHttpConnection(url, parameterMap, method);
 				} catch (ClientProtocolException e) {
 					e.printStackTrace();

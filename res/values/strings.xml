@@ -11,4 +11,18 @@
 	<string name="toast_message">"你好，我是吐丝对话框"</string>
 	
 	<string name="external_storage_message">"外部存储不可用!"</string>
+	
+	
+	<string name="xlistview_header_hint_normal">下拉刷新</string>
+    <string name="xlistview_header_hint_ready">松开刷新数据</string>
+    <string name="xlistview_header_hint_loading">正在加载...</string>
+    <string name="xlistview_header_last_time">上次更新时间：</string>
+    <string name="xlistview_footer_hint_normal">查看更多</string>
+    <string name="xlistview_footer_hint_ready">松开载入更多</string>
+    
+    
+    <string name="animation_alpha_text">习近平代表？没错！习总书记是党和国家领导人，也是一名全国人大代表。即将拉开帷幕的年度两会，怎能少了他的身影？接下来这十几天中，习近平将与代表委员们一起审议讨论。视点君也将近距离记录习近平代表的两会时间，原汁原味地呈现给小伙伴们。
+
+既然是代表，就要履职，开会、投票，一个也不能少！去年习近平代表的两会日程可是相当的忙！而且除了会上的活动，会外还有很多事情需要他行使党和国家领导人的职责，所以，习大大的两会时间还真是有点儿紧。</string>
+ 
 </resources>
