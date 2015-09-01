@@ -92,7 +92,7 @@ public class SlidingViewPagerFragmentActivity extends SlidingFragmentActivity im
 		
 		setBehindContentView(R.layout.slidingmenu_item_layout);
 		getSupportFragmentManager().beginTransaction().add(
-				R.id.slidingmenu_item_layout, MenuFragment.newInstance()).commit();
+				R.id.slidingmenu_item_layout, FragmentMenu.newInstance()).commit();
 		
 		SlidingMenu sm = getSlidingMenu();
 		sm.setSlidingEnabled(true);

@@ -1,44 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    
-    <declare-styleable name="TitleView">
-        <attr name="left_text" format="string"/>
-        <attr name="right_text" format="string"/>
-        <attr name="title_text" format="string"/>
-    </declare-styleable>
-    
-    <declare-styleable name="MyTextView">
-        <attr name="myColor" format="color"/>
-        <attr name="myFontSize" format="dimension"/>
-        <attr name="myText" format="string"/>
-    </declare-styleable>
-    
-    <declare-styleable name="PieChart">
-        <attr name="textcolor" format="color" />
-        <attr name="textsize" format="dimension" />
-        <attr name="content" format="string" />
-        <attr name="showTexts" format="boolean" />
-        <attr name="tabBackground" format="reference" />
-        <attr name="labelPosition" format="enum">
-            <enum name="left" value="0" />
-            <enum name="right" value="1" />
-        </attr>
-    </declare-styleable>
-    
-    <declare-styleable name="PagerSlidingTabStrip">
-        <attr name="pstsIndicatorColor" format="color" />
-        <attr name="pstsUnderlineColor" format="color" />
-        <attr name="pstsDividerColor" format="color" />
-        <attr name="pstsIndicatorHeight" format="dimension" />
-        <attr name="pstsUnderlineHeight" format="dimension" />
-        <attr name="pstsDividerPadding" format="dimension" />
-        <attr name="pstsTabPaddingLeftRight" format="dimension" />
-        <attr name="pstsScrollOffset" format="dimension" />
-        <attr name="pstsTabBackground" format="reference" />
-        <attr name="pstsShouldExpand" format="boolean" />
-        <attr name="pstsTextAllCaps" format="boolean" />
-    </declare-styleable>
-    
     <string-array name="arraylist">
         <item>1习近平：希望新西兰保障输华产品质量安全"</item>
         <item>"2李克强同互联网大会代表座谈：严打网络侵权",</item>

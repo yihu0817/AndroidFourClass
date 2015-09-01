@@ -7,7 +7,6 @@
     <com.scxh.android1502.ui.listview.pager.XListView
         android:id="@+id/pager_listview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
-    </com.scxh.android1502.ui.listview.pager.XListView>
+        android:layout_height="match_parent" />
 
 </LinearLayout>

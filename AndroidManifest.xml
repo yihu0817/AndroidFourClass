@@ -318,8 +318,8 @@
             android:name="com.scxh.android1502.refrenceproject.SliderActivity"
             android:label="SliderActivity" />
         <activity
-            android:name="com.scxh.android1502.ui.listview.pager.PagerActivity"
-            android:label="PagerActivity" />
+            android:name="com.scxh.android1502.ui.listview.pager.NewsPagerActivity"
+            android:label="NewsPagerActivity" />
         <activity
             android:name="com.scxh.android1502.ui.slidingmenu.SlidingMenuDemoActivity"
             android:label="SlidingMenuDemoActivity" />
@@ -332,6 +332,15 @@
         <activity
             android:name="com.scxh.android1502.animation.Animation1Activity"
             android:label="Animation1Activity" />
+        <activity
+            android:name="com.scxh.android1502.ui.mycomponent.MyCustomActivity"
+            android:label="MyCustomActivity" />
+        <activity
+            android:name="com.scxh.android1502.http.volley.HttpDataVolleyActivty"
+            android:label="HttpDataVolleyActivty" />
+        <activity
+            android:name="com.scxh.android1502.ui.listview.pager.NewsPagerVolleyActivity"
+            android:label="NewsPagerVolleyActivity" />
 
         <provider
             android:name="com.scxh.android1502.storage.provider.ScxhContentProvider"

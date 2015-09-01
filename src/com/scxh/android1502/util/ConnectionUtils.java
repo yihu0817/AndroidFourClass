@@ -12,7 +12,6 @@ import java.util.Iterator;
 import java.util.Set;
 
 import org.apache.http.HttpResponse;
-import org.apache.http.HttpStatus;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
@@ -21,22 +20,26 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.params.CoreConnectionPNames;
 import org.apache.http.protocol.HTTP;
-import org.apache.http.util.EntityUtils;
 
+import android.content.Context;
 import android.os.AsyncTask;
-
-import com.scxh.android1502.util.Logs;
-
+/**
+ * 异常连接网络获取数据
+ *
+ */
 public class ConnectionUtils {
-
+	private Context mContext;
 	public enum Method {
 		GET, POST
 	}
 
 	// 实现接口回调 第一步定义接口
 	public interface CallConnectionInterface {
-		public void executeResult(String result);
+		public void onExecuteResponse(String response);
+
+		public void onErrorResponse(String errorResponse);
 	}
 
 	// 实现接口回调 第二步 声明接口，定义注册接口入口
@@ -48,31 +51,75 @@ public class ConnectionUtils {
 	}
 
 	public ConnectionUtils() {
+
 	}
 	
+	public ConnectionUtils(Context context) {
+		mContext =context;
+	}
+
 	public ConnectionUtils(CallConnectionInterface callConnectionInterface) {
 		mCallConnectionInterface = callConnectionInterface;
 	}
 
-	public void asyncTaskConnection(final String url,
-			final HashMap<String, String> parameterMap, final Method method,
+	/**
+	 * 无参数无缓存
+	 * 
+	 * @param url
+	 * @param method
+	 * @param callConnectionInterface
+	 */
+	public void asyncTaskConnection(final String url, final Method method,
 			CallConnectionInterface callConnectionInterface) {
-		
+		asyncTaskConnection(url, null, method, null,callConnectionInterface);
+	}
+
+	/**
+	 * 无参数有缓存
+	 * @param url
+	 * @param method
+	 * @param cacheKey
+	 * @param callConnectionInterface
+	 */
+	public void asyncTaskConnection(final String url, final Method method,final String cacheKey,
+			CallConnectionInterface callConnectionInterface) {
+		asyncTaskConnection(url, null, method, cacheKey,callConnectionInterface);
+	}
+	
+	/**
+	 * 有参数不缓存
+	 * @param url
+	 * @param parameterMap
+	 * @param method
+	 * @param callConnectionInterface
+	 */
+	public void asyncTaskConnection(final String url,final HashMap<String, String> parameterMap, final Method method,
+			CallConnectionInterface callConnectionInterface) {
+		asyncTaskConnection(url, parameterMap, method, null,callConnectionInterface);
+	}
+	
+	/**
+	 * 有参数有缓存
+	 * 
+	 * @param url
+	 * @param parameterMap
+	 * @param method
+	 * @param callConnectionInterface
+	 */
+	public void asyncTaskConnection(final String url,
+			final HashMap<String, String> parameterMap, final Method method,final String cacheKey,
+			CallConnectionInterface callConnectionInterface) {
+
 		mCallConnectionInterface = callConnectionInterface;
 		new AsyncTask<Void, Void, String>() {
 			protected String doInBackground(Void... params) {
-				String result = "";
+				String result;
 				try {
-//					try {
-//						Thread.sleep(2000); //网速太快了加一个效果
-//					} catch (InterruptedException e) {
-//						e.printStackTrace();
-//					}
-					result = getHttpConnection(url, parameterMap, method);
-				} catch (ClientProtocolException e) {
+					result = getHttpConnection(url, parameterMap, method,cacheKey);
+				} catch (MessageException e) {
 					e.printStackTrace();
-				} catch (IOException e) {
-					e.printStackTrace();
+					result = null;
+					mCallConnectionInterface.onErrorResponse(e.getMessage());
 				}
 
 				return result;
@@ -83,58 +130,73 @@ public class ConnectionUtils {
 			protected void onPostExecute(String result) {
 				super.onPostExecute(result);
 				// ====第三步 调用接口方法
-				mCallConnectionInterface.executeResult(result);
+				if(result != null)
+					mCallConnectionInterface.onExecuteResponse(result);
 			}
 		}.execute();
 
 	}
 
 	public String getHttpConnection(String url,
-			HashMap<String, String> parameterMap, Method httpMethod)
-			throws ClientProtocolException, IOException {
+			HashMap<String, String> parameterMap, Method httpMethod,String cacheKey) throws MessageException {
+		
+		String content = "";
+		try {
+			HttpClient httpClient = new DefaultHttpClient();
+			//请求超时
+			httpClient.getParams().setParameter(CoreConnectionPNames.CONNECTION_TIMEOUT, 10000); 
+			//读取超时
+			httpClient.getParams().setParameter(CoreConnectionPNames.SO_TIMEOUT, 15000);
+			HttpUriRequest request = getHttpUrlRequest(url, parameterMap,httpMethod);
+			HttpResponse response = httpClient.execute(request);
 
-		HttpClient httpClient = new DefaultHttpClient();
-		HttpUriRequest request = getHttpUrlRequest(url, parameterMap,httpMethod);
-		HttpResponse response = httpClient.execute(request);
-
-		int statusCode = response.getStatusLine().getStatusCode();
-		Logs.v("getHttpConnection  statusCode  :"+statusCode);
-		if (statusCode == HttpStatus.SC_OK) {
-
-//			String content = EntityUtils.toString(response.getEntity());
+			int statusCode = response.getStatusLine().getStatusCode();
+			Logs.v("getHttpConnection  statusCode  :" + statusCode);
 			
-			String content = readIt(response.getEntity().getContent());
-
-			return content;
-		} else {
-			return "请服务端出错";
+			switch (statusCode) {
+			case 200:
+				// String content = EntityUtils.toString(response.getEntity());
+				content = readIt(response.getEntity().getContent());
+				
+				if(mContext != null && cacheKey !=null){
+					 ApiPreference.getInstance(mContext).putCache(cacheKey, content);
+				}
+				
+				break;
+			default:
+				throw new MessageException("服务器异常!");
+			} 
+		} catch (IOException e) {
+			throw new MessageException("连接服务器异常，请检查网络连接！");
 		}
+		return content;
 	}
 
 	public HttpUriRequest getHttpUrlRequest(String url,
 			HashMap<String, String> parameterMap, Method method)
 			throws ClientProtocolException, IOException {
 		if (method == Method.POST) {
-			
+
 			HttpPost httpPost = new HttpPost(url);
 			// =========================组装Post参数====================
-			if(parameterMap!=null){
+			if (parameterMap != null) {
 				ArrayList<BasicNameValuePair> parameters = new ArrayList<BasicNameValuePair>();
-	
+
 				Set<String> set = parameterMap.keySet();
 				Iterator<String> iterator = set.iterator();
 				while (iterator.hasNext()) {
 					String key = iterator.next();
 					String name = parameterMap.get(key);
 					System.out.println("key " + key + "name :" + name);
-	
-					BasicNameValuePair namePair = new BasicNameValuePair(key, name);
+
+					BasicNameValuePair namePair = new BasicNameValuePair(key,
+							name);
 					parameters.add(namePair);
 				}
-	
-				UrlEncodedFormEntity entity = new UrlEncodedFormEntity(parameters,
-						HTTP.UTF_8);
-	
+
+				UrlEncodedFormEntity entity = new UrlEncodedFormEntity(
+						parameters, HTTP.UTF_8);
+
 				httpPost.setEntity(entity);
 			}
 			httpPost.setHeader("Content-Type",
@@ -171,8 +233,7 @@ public class ConnectionUtils {
 			return httpGet;
 		}
 	}
-	
-	
+
 	/**
 	 * 将InputStream转换成String返回
 	 * 

@@ -19,6 +19,8 @@ public class ScxhApplication extends Application {
 		super.onCreate();
 		Logs.v("ScxhApplication >>>>>  ");
 
+		RequestManager.init(this);
+		
 //		receiverPhoneStateListener();
 	}
 

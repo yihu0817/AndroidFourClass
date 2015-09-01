@@ -12,11 +12,13 @@ import android.widget.Button;
 import android.widget.ListView;
 
 import com.scxh.android1502.R;
+import com.scxh.android1502.widget.TitleView;
 
 public class NewsFragment extends Fragment {
 	private ListView mListView;
 	private String[] mArrays = { "张三", "李四", "王二", "麻子" };
-	private Button mSwitchBtn;
+	private TitleView mTitleView;
+
 	public static Fragment newInstance() {
 		return new NewsFragment();
 	}
@@ -26,11 +28,13 @@ public class NewsFragment extends Fragment {
 	interface OnSlidingMenuNewFragmentListener {
 		public void switchBtnFramgent();
 	}
+
 	@Override
 	public void onAttach(Activity activity) {
 		super.onAttach(activity);
 		mSlidingMenuListener = (OnSlidingMenuNewFragmentListener) activity;
 	}
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -38,8 +42,8 @@ public class NewsFragment extends Fragment {
 				false);
 
 		mListView = (ListView) v.findViewById(R.id.myslideing_menu_listview);
-		mSwitchBtn = (Button) v.findViewById(R.id.sliding_switch_btn);
-		
+		mTitleView = (TitleView) v.findViewById(R.id.my_fragment_titleview);
+
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
 				android.R.layout.simple_list_item_1, mArrays);
 
@@ -47,19 +51,22 @@ public class NewsFragment extends Fragment {
 
 		return v;
 	}
+
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
-		
-		mSwitchBtn.setOnClickListener(new OnClickListener() {
-			
+
+		mTitleView.setOnClickListener(new OnClickListener() {
+
 			@Override
 			public void onClick(View v) {
-				mSlidingMenuListener.switchBtnFramgent();
+				switch (v.getId()) {
+				case R.id.left_imagebtn:
+					mSlidingMenuListener.switchBtnFramgent();
+					break;
+				}
 			}
 		});
 	}
-	
-	
 
 }

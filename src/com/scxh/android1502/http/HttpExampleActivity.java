@@ -245,8 +245,13 @@ public class HttpExampleActivity extends Activity{
 		connectionUtils.asyncTaskConnection(url,map,Method.POST,new CallConnectionInterface() {
 			
 			@Override
-			public void executeResult(String result) {
+			public void onExecuteResponse(String result) {
 				mShowMessageTxt.setText(result);
+				
+			}
+
+			@Override
+			public void onErrorResponse(String errorResponse) {
 				
 			}
 		});

@@ -1,20 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:cy="http://schemas.android.com/apk/res/com.scxh.android1502"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-    <LinearLayout
+    <com.scxh.android1502.widget.TitleView
+        android:id="@+id/my_fragment_titleview"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="@android:color/holo_blue_dark" >
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/sliding_switch_btn"
-            android:text="切换" />
-    </LinearLayout>
+        android:layout_height="wrap_content"
+        cy:left_text="切换"
+        cy:title_text="测划实现" />
 
     <ListView
         android:id="@+id/myslideing_menu_listview"

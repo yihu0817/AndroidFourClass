@@ -39,6 +39,7 @@ import com.scxh.android1502.http.HttpExampleActivity;
 import com.scxh.android1502.http.image.BitmapGridViewHttpAct;
 import com.scxh.android1502.http.image.HttpGridViewActivity;
 import com.scxh.android1502.http.image.HttpImageActivity;
+import com.scxh.android1502.http.volley.HttpDataVolleyActivty;
 import com.scxh.android1502.media.mp3.BaseMp3Activity;
 import com.scxh.android1502.media.mp3.MusicListActivity;
 import com.scxh.android1502.media.mp3.mediastore.MusicPlayerList;
@@ -67,8 +68,10 @@ import com.scxh.android1502.ui.listview.ArrayListsActivity;
 import com.scxh.android1502.ui.listview.MyBaseActivity;
 import com.scxh.android1502.ui.listview.MyBaseTypeActivity;
 import com.scxh.android1502.ui.listview.SimpleListActivity;
-import com.scxh.android1502.ui.listview.pager.PagerActivity;
+import com.scxh.android1502.ui.listview.pager.NewsPagerActivity;
+import com.scxh.android1502.ui.listview.pager.NewsPagerVolleyActivity;
 import com.scxh.android1502.ui.menu.MainMenuActivity;
+import com.scxh.android1502.ui.mycomponent.MyCustomActivity;
 import com.scxh.android1502.ui.png9.Png9Activity;
 import com.scxh.android1502.ui.popupwindow.PopupWindowActivity;
 import com.scxh.android1502.ui.progressbar_seekbar.ProgressBarActivity;
@@ -105,8 +108,8 @@ public class MainListActivity extends Activity implements OnItemClickListener {
 		mListView.setAdapter(adapter);
 
 		mListView.setOnItemClickListener(this);
-		
-		mListView.setSelection(adapter.getCount()-1);
+
+		mListView.setSelection(adapter.getCount() - 1);
 	}
 
 	public List<HashMap<String, Object>> getDataMap() {
@@ -137,18 +140,18 @@ public class MainListActivity extends Activity implements OnItemClickListener {
 		item.put("intent", new Intent(this, EditTextActivity.class));
 		list.add(item);
 
-//		item = new HashMap<String, Object>();
-//		item.put("title", "登录实例1");
-//		item.put("intent", new Intent(this, LoginActivity.class));
-//		list.add(item);
-//
-//		item = new HashMap<String, Object>();
-//		item.put("title", "登录实例2");
-//		item.put("intent", new Intent(this, LoginTwoActivity.class));
-//		list.add(item);
+		// item = new HashMap<String, Object>();
+		// item.put("title", "登录实例1");
+		// item.put("intent", new Intent(this, LoginActivity.class));
+		// list.add(item);
+		//
+		// item = new HashMap<String, Object>();
+		// item.put("title", "登录实例2");
+		// item.put("intent", new Intent(this, LoginTwoActivity.class));
+		// list.add(item);
 
-		createItem(list,"登录实例",LoginListActivity.class);
-		
+		createItem(list, "登录实例", LoginListActivity.class);
+
 		item = new HashMap<String, Object>();
 		item.put("title", "图片控件(ImageView)");
 		item.put("intent", new Intent(this, ImageViewTwoActivity.class));
@@ -214,67 +217,82 @@ public class MainListActivity extends Activity implements OnItemClickListener {
 		item.put("title", "GridView网络控件");
 		item.put("intent", new Intent(this, GridViewActivity.class));
 		list.add(item);
-	
-		createItem(list,"Spinners控件",SpinnersActivity.class);
-		createItem(list,"AutoCompletTextView",AutoCompleteTextViewActivity.class);
-		createItem(list,"MyListActivity",MyListActivity.class);
-		createItem(list,"ProgressBarActivity",ProgressBarActivity.class);
-		createItem(list,"ProgressBarListViewActivity",ProgressBarListViewActivity.class);
-		createItem(list,"SeekBarActivity",SeekBarActivity.class);
-		createItem(list,"莱单",MainMenuActivity.class);
-		createItem(list,"弹窗控件",PopupWindowActivity.class);
-		createItem(list,"对话框",DialogActivity.class);
-		createItem(list,"ViewPager",ViewPagerActivity.class);
-		createItem(list,"MyTabActivity",MyTabActivity.class);
-		createItem(list,"RadioTabActivity",RadioTabActivity.class);
-		createItem(list,"Png9Activity",Png9Activity.class);
-		createItem(list,"ShapeActivity",ShapeActivity.class);
-		createItem(list,"DBSqliteActivity",DBSqliteActivity.class);
-		createItem(list,"SharePreferenceActivity",SharePreferenceActivity.class);
-		createItem(list,"MyFileActivity",MyFileActivity.class);
-		createItem(list,"FileExplorer",FileExplorerActivity.class);
-		createItem(list,"ContactcsProviderActivity",ContactcsProviderActivity.class);
-		createItem(list,"ScxhContentProviderActivity",ScxhContentProviderActivity.class);
-		createItem(list,"StartMyServiceActivity",StartMyServiceActivity.class);
-		createItem(list,"DownLoadActivity",DownLoadActivity.class);
-		createItem(list,"MyReceiverActivity",MyReceiverActivity.class);
-		createItem(list,"MyNotificationActivity",MyNotificationActivity.class);
-		createItem(list,"BaseMp3Activity",BaseMp3Activity.class);
-//		createItem(list,"MusicPlayerActivity",MusicPlayerActivity.class);
-		createItem(list,"音乐播放器_MusicListActivity",MusicListActivity.class);
-//		createItem(list,"音乐播放器_UIMusicPlayerActivity",UIMusicPlayerActivity.class);
-		createItem(list,"音乐播放器_MusicPlayerList",MusicPlayerList.class);
-		createItem(list,"WedingActivity",WedingActivity.class);
-		createItem(list,"WebViewCacheActivity",WebViewCacheActivity.class);
-		createItem(list,"MyAsyactaskActivity",MyAsyactaskActivity.class);
-		createItem(list,"HttpConnectActivity",HttpConnectActivity.class);
-		createItem(list,"HttpExampleActivity",HttpExampleActivity.class);
-		createItem(list,"JsonBaseActivity",JsonBaseActivity.class);
-		createItem(list,"HttpImageActivity",HttpImageActivity.class);
-		createItem(list,"BitmapGridViewHttpAct",BitmapGridViewHttpAct.class);
-		createItem(list,"HttpGridViewActivity",HttpGridViewActivity.class);
-		createItem(list,"XmlParserPullActivity",XmlParserPullActivity.class);
-		createItem(list,"MainSearchActivity",MainSearchActivity.class);
-		createItem(list,"MainFragementsActivity",MainFragementsActivity.class);
-		createItem(list,"FragementSendActivity",FragementSendActivity.class);
-		createItem(list,"FragmentStack",FragmentStack.class);
-		createItem(list,"FragmentTabHostActivity",FragmentTabHostActivity.class);
-		createItem(list,"TabFragmentReplaceActivity",TabFragmentReplaceActivity.class);
-		createItem(list,"TabFragmentHideShowActivity",TabFragmentHideShowActivity.class);
-		createItem(list,"Fragment子类与栈",ContainerFragmentActivity.class);
-		createItem(list,"ImageDetailActivity",ImageDetailActivity.class);
-		createItem(list,"ViewPagerFragmentActivity",ViewPagerFragmentActivity.class);
-		createItem(list,"ImageLoaderActivity",ImageLoaderActivity.class);
-		createItem(list,"PagerActivity",PagerActivity.class);
-		createItem(list,"SlidingMenuDemoActivity",SlidingMenuDemoActivity.class);
-		createItem(list,"SlidingViewPagerFragmentActivity",SlidingViewPagerFragmentActivity.class);
-		createItem(list,"MyBaseTypeActivity",MyBaseTypeActivity.class);
-		createItem(list,"Animation1Activity",Animation1Activity.class);
-		
+
+		createItem(list, "Spinners控件", SpinnersActivity.class);
+		createItem(list, "AutoCompletTextView",
+				AutoCompleteTextViewActivity.class);
+		createItem(list, "MyListActivity", MyListActivity.class);
+		createItem(list, "ProgressBarActivity", ProgressBarActivity.class);
+		createItem(list, "ProgressBarListViewActivity",
+				ProgressBarListViewActivity.class);
+		createItem(list, "SeekBarActivity", SeekBarActivity.class);
+		createItem(list, "莱单", MainMenuActivity.class);
+		createItem(list, "弹窗控件", PopupWindowActivity.class);
+		createItem(list, "对话框", DialogActivity.class);
+		createItem(list, "ViewPager", ViewPagerActivity.class);
+		createItem(list, "MyTabActivity", MyTabActivity.class);
+		createItem(list, "RadioTabActivity", RadioTabActivity.class);
+		createItem(list, "Png9Activity", Png9Activity.class);
+		createItem(list, "ShapeActivity", ShapeActivity.class);
+		createItem(list, "DBSqliteActivity", DBSqliteActivity.class);
+		createItem(list, "SharePreferenceActivity",
+				SharePreferenceActivity.class);
+		createItem(list, "MyFileActivity", MyFileActivity.class);
+		createItem(list, "FileExplorer", FileExplorerActivity.class);
+		createItem(list, "ContactcsProviderActivity",
+				ContactcsProviderActivity.class);
+		createItem(list, "ScxhContentProviderActivity",
+				ScxhContentProviderActivity.class);
+		createItem(list, "StartMyServiceActivity", StartMyServiceActivity.class);
+		createItem(list, "DownLoadActivity", DownLoadActivity.class);
+		createItem(list, "MyReceiverActivity", MyReceiverActivity.class);
+		createItem(list, "MyNotificationActivity", MyNotificationActivity.class);
+		createItem(list, "BaseMp3Activity", BaseMp3Activity.class);
+		// createItem(list,"MusicPlayerActivity",MusicPlayerActivity.class);
+		createItem(list, "音乐播放器_MusicListActivity", MusicListActivity.class);
+		// createItem(list,"音乐播放器_UIMusicPlayerActivity",UIMusicPlayerActivity.class);
+		createItem(list, "音乐播放器_MusicPlayerList", MusicPlayerList.class);
+		createItem(list, "WedingActivity", WedingActivity.class);
+		createItem(list, "WebViewCacheActivity", WebViewCacheActivity.class);
+		createItem(list, "MyAsyactaskActivity", MyAsyactaskActivity.class);
+		createItem(list, "HttpConnectActivity", HttpConnectActivity.class);
+		createItem(list, "HttpExampleActivity", HttpExampleActivity.class);
+		createItem(list, "JsonBaseActivity", JsonBaseActivity.class);
+		createItem(list, "HttpImageActivity", HttpImageActivity.class);
+		createItem(list, "BitmapGridViewHttpAct", BitmapGridViewHttpAct.class);
+		createItem(list, "HttpGridViewActivity", HttpGridViewActivity.class);
+		createItem(list, "XmlParserPullActivity", XmlParserPullActivity.class);
+		createItem(list, "MainSearchActivity", MainSearchActivity.class);
+		createItem(list, "MainFragementsActivity", MainFragementsActivity.class);
+		createItem(list, "FragementSendActivity", FragementSendActivity.class);
+		createItem(list, "FragmentStack", FragmentStack.class);
+		createItem(list, "FragmentTabHostActivity",
+				FragmentTabHostActivity.class);
+		createItem(list, "TabFragmentReplaceActivity",
+				TabFragmentReplaceActivity.class);
+		createItem(list, "TabFragmentHideShowActivity",
+				TabFragmentHideShowActivity.class);
+		createItem(list, "Fragment子类与栈", ContainerFragmentActivity.class);
+		createItem(list, "ImageDetailActivity", ImageDetailActivity.class);
+		createItem(list, "ViewPagerFragmentActivity",
+				ViewPagerFragmentActivity.class);
+		createItem(list, "ImageLoaderActivity", ImageLoaderActivity.class);
+		createItem(list, "NewsPagerActivity", NewsPagerActivity.class);
+		createItem(list, "SlidingMenuDemoActivity",
+				SlidingMenuDemoActivity.class);
+		createItem(list, "SlidingViewPagerFragmentActivity",
+				SlidingViewPagerFragmentActivity.class);
+		createItem(list, "MyBaseTypeActivity", MyBaseTypeActivity.class);
+		createItem(list, "Animation1Activity", Animation1Activity.class);
+		createItem(list, "MyCustomActivity", MyCustomActivity.class);
+		createItem(list, "HttpDataVolleyActivty", HttpDataVolleyActivty.class);
+		createItem(list, "NewsPagerVolleyActivity", NewsPagerVolleyActivity.class);
+
 		return list;
 	}
 
-	public void createItem(List<HashMap<String, Object>> list,String title, Class<?> object) {
+	public void createItem(List<HashMap<String, Object>> list, String title,
+			Class<?> object) {
 		HashMap<String, Object> item = new HashMap<String, Object>();
 		item.put("title", title);
 		item.put("intent", new Intent(this, object));
@@ -290,7 +308,7 @@ public class MainListActivity extends Activity implements OnItemClickListener {
 				.getItem(position);
 		Intent intent = (Intent) item.get("intent");
 		startActivity(intent);
-		
-		 overridePendingTransition(R.anim.zoom_enter, R.anim.zoom_exit);
+
+		overridePendingTransition(R.anim.zoom_enter, R.anim.zoom_exit);
 	}
 }

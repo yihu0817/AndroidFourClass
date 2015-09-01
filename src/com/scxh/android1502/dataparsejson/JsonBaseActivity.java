@@ -52,12 +52,18 @@ public class JsonBaseActivity extends Activity implements OnClickListener {
 					new CallConnectionInterface() {
 
 						@Override
-						public void executeResult(String result) {
+						public void onExecuteResponse(String result) {
 							mProgressBar.setVisibility(View.GONE);
 							Logs.v("result :" + result);
 							mShowJsonTxt.setText(result);
 							
 							mJsonMessage = result;
+						}
+
+						@Override
+						public void onErrorResponse(String errorResponse) {
+							// TODO Auto-generated method stub
+							
 						}
 					});
 

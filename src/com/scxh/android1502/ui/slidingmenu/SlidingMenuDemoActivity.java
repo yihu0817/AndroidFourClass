@@ -1,6 +1,7 @@
 package com.scxh.android1502.ui.slidingmenu;
 
 import android.os.Bundle;
+import android.view.Window;
 
 import com.scxh.android1502.R;
 import com.scxh.android1502.ui.slidingmenu.MenuFragment.SlidingMenuListener;
@@ -14,6 +15,7 @@ public class SlidingMenuDemoActivity extends SlidingFragmentActivity implements
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.slidingmenu_main_layout);
 		getSupportFragmentManager().beginTransaction()
 				.add(R.id.sliding_menu_main_layout, NewsFragment.newInstance())

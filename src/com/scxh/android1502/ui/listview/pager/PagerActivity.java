@@ -60,7 +60,7 @@ public class PagerActivity extends Activity implements IXListViewListener{
 				new CallConnectionInterface() {
 
 					@Override
-					public void executeResult(String result) {
+					public void onExecuteResponse(String result) {
 						Logs.v("result >>> "+result);
 						
 						Gson gson = new Gson();
@@ -68,11 +68,7 @@ public class PagerActivity extends Activity implements IXListViewListener{
 						mTotalCount = pagerMessage.getPageCount();
 						List<String> listData = pagerMessage.getListData();
 						
-						if(mCurrentPager == 1){
-							mPagerMessageAdapter.setData(listData);
-						}else{
-							mPagerMessageAdapter.addData(listData);
-						}
+						mPagerMessageAdapter.addDataList(listData);
 						
 						mListView.stopRefresh();
 						mListView.setRefreshTime("刚刚");
@@ -86,10 +82,29 @@ public class PagerActivity extends Activity implements IXListViewListener{
 						
 						
 					}
+
+					@Override
+					public void onErrorResponse(String errorResponse) {
+						// TODO Auto-generated method stub
+						
+					}
 				});
 
 	}
+	@Override
+	public void onRefresh() {
+		mCurrentPager = 1;
+		mListView.setPullLoadEnable(true);
+		getData(String.valueOf(mCurrentPager),PAGE_SIZE);
+	}
 
+	@Override
+	public void onLoadMore() {
+		if(++mCurrentPager <=mTotalCount){
+			getData(String.valueOf(mCurrentPager),PAGE_SIZE);
+		}
+		
+	}
 	public class PagerMessageAdapter extends BaseAdapter {
 		private List<String> listData = new ArrayList<String>();
 		private LayoutInflater mLayoutInflater;
@@ -98,6 +113,14 @@ public class PagerActivity extends Activity implements IXListViewListener{
 			mLayoutInflater = LayoutInflater.from(context);
 		}
 
+		public void addDataList(List<String> list){
+			if(mCurrentPager == 1){
+				mPagerMessageAdapter.setData(list);
+			}else{
+				mPagerMessageAdapter.addData(list);
+			}
+		}
+		
 		public void setData(List<String> list) {
 			listData = list;
 			notifyDataSetChanged();
@@ -138,19 +161,6 @@ public class PagerActivity extends Activity implements IXListViewListener{
 
 	}
 
-	@Override
-	public void onRefresh() {
-		mCurrentPager = 1;
-		mListView.setPullLoadEnable(true);
-		getData(String.valueOf(mCurrentPager),PAGE_SIZE);
-	}
-
-	@Override
-	public void onLoadMore() {
-		if(++mCurrentPager <=mTotalCount){
-			getData(String.valueOf(mCurrentPager),PAGE_SIZE);
-		}
-		
-	}
+	
 
 }
